@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "a060c5cf382505e5",
+    "type": "split",
+    "children": [
+      {
+        "id": "97c841751ae913c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02dcb2f255655bc0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01-AIRA-Documentation/Architecture/04-AIRA_Technology_Stack_v9.1_Aligned.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04-AIRA_Technology_Stack_v9.1_Aligned"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8f3a1fd5c0d94982",
+    "type": "split",
+    "children": [
+      {
+        "id": "202f0a70640892be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17f40696178612d6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d32c95765b8a0f9b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7f1d121a950bafe0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "29c8997da7c21906",
+    "type": "split",
+    "children": [
+      {
+        "id": "f8a7680f3aec3f26",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1353cf6456b77252",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "4ca716a341fc36ce",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "ac09f84f0d7ace96",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "be0fafc3c92001a8",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "45721389c8757231",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "17f40696178612d6",
+  "lastOpenFiles": [
+    "01-AIRA-Documentation/API-and-Integration/15-AIRA_API_and_Integration_Contract_Standard_v2.1_Aligned.md",
+    "05-ADRs-and-TDLs/ADRs/ADR-AIRA-2026-001_Enterprise_Design_Principles_SOLID_Enforcement_Layer_v1.1_Aligned.md",
+    "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC/41-AIRA_PoC1_Login_Execution_Instruction_and_Evidence_Governance_Standard_v1.0.md",
+    "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC/40-AIRA_Login_MicroFunction_Design_Pattern_Working_Reference_v1.1_Aligned.md",
+    "attachments/40-AIRA_Login_MicroFunction_Design_Pattern_Working_Reference_v1.1_Aligned/image28.png",
+    "attachments/40-AIRA_Login_MicroFunction_Design_Pattern_Working_Reference_v1.1_Aligned",
+    "00-Control-Center/Knowledge-Governance/39-AIRA_Obsidian_Codex_GitHub_Workspace_Setup_Reference_v1.1_Aligned.md",
+    "attachments/39-AIRA_Obsidian_Codex_GitHub_Workspace_Setup_Reference_v1.1_Aligned/image32.png",
+    "attachments/39-AIRA_Obsidian_Codex_GitHub_Workspace_Setup_Reference_v1.1_Aligned/image31.png",
+    "attachments/39-AIRA_Obsidian_Codex_GitHub_Workspace_Setup_Reference_v1.1_Aligned",
+    "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC/38-AIRA_Login_Function_Prompt_Standard_v1.1_Aligned.md",
+    "01-AIRA-Documentation/Developer-Guides/37-AIRA_ChatGPT_Business_Workspace_and_Project_Instructions_v1.1_Aligned.md",
+    "07-Developer-Knowledge/Training-Adoption-Change/36-AIRA_Business_User_Training_Adoption_and_Change_Management_Plan_v1.1_Aligned.md",
+    "attachments/36-AIRA_Business_User_Training_Adoption_and_Change_Management_Plan_v1.1_Aligned/image30.png",
+    "attachments/36-AIRA_Business_User_Training_Adoption_and_Change_Management_Plan_v1.1_Aligned/image29.png",
+    "attachments/36-AIRA_Business_User_Training_Adoption_and_Change_Management_Plan_v1.1_Aligned/image28.png",
+    "attachments/36-AIRA_Business_User_Training_Adoption_and_Change_Management_Plan_v1.1_Aligned",
+    "06-Runbooks-and-SOPs/BCDR-and-Restore/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned.md",
+    "attachments/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned/image27.png",
+    "attachments/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned/image26.png",
+    "attachments/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned/image25.png",
+    "attachments/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned/image24.png",
+    "attachments/35-AIRA_Business_Continuity_Disaster_Recovery_Backup_and_Restore_Validation_Standard_v1.1_Aligned",
+    "10-Evidence-Packs/Audit-Compliance-Control-Testing/34-AIRA_Internal_Audit_Compliance_Evidence_and_Control_Testing_Playbook_v1.1_Aligned.md",
+    "01-AIRA-Documentation/Database-and-Data/Migration-Cutover/33-AIRA_Data_Migration_Cutover_Reconciliation_and_Parallel_Run_Plan_v1.1_Aligned.md",
+    "attachments/33-AIRA_Data_Migration_Cutover_Reconciliation_and_Parallel_Run_Plan_v1.1_Aligned",
+    "01-AIRA-Documentation/Security/SBAC-and-IAM/32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned.md",
+    "attachments/32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned",
+    "06-Runbooks-and-SOPs/Production-Operations-SRE/31-AIRA_Production_Operations_SRE_SLA_SLO_and_Service_Management_Standard_v1.1_Aligned.md",
+    "attachments/31-AIRA_Production_Operations_SRE_SLA_SLO_and_Service_Management_Standard_v1.1_Aligned",
+    "01-AIRA-Documentation/DevSecOps/Release-Change-CAB/30-AIRA_Release_Deployment_Change_and_CAB_Governance_Standard_v1.1_Aligned.md",
+    "attachments/30-AIRA_Release_Deployment_Change_and_CAB_Governance_Standard_v1.1_Aligned",
+    "01-AIRA-Documentation/Testing-and-QA/UAT-and-Acceptance/29-AIRA_UAT_Business_Readiness_and_Production_Acceptance_Standard_v1.1_Aligned.md",
+    "01-AIRA-Documentation/Engineering-Standards/28-AIRA_Enterprise_Design_Principles_and_SOLID_Reference_Library_v1.1_Aligned.md",
+    "07-Developer-Knowledge/Onboarding-and-Training/27-AIRA_Developer_Onboarding_and_Training_Workbook_v1.1_Aligned.md",
+    "attachments/27-AIRA_Developer_Onboarding_and_Training_Workbook_v1.1_Aligned",
+    "00-Control-Center/Knowledge-Governance/26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.2_Aligned.md",
+    "00-Control-Center/Knowledge-Governance/26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.1_Aligned.md",
+    "00-Control-Center/Classification-Register/26A-AIRA_Data_Classification_Retention_and_Evidence_Register_v1.1_Aligned.md",
+    "attachments/26A-AIRA_Data_Classification_Retention_and_Evidence_Register_v1.1_Aligned",
+    "10-Evidence-Packs/MVP-Readiness-and-Acceptance/25A-AIRA_MVP_Backlog_Module_Readiness_and_Acceptance_Criteria_Pack_v1.1_Aligned.md",
+    "00-Control-Center/Knowledge-Governance/25-AIRA_Knowledge_Access_Architecture_and_Golden_Source_Standard_v1.2_Aligned.md",
+    "00-Control-Center/Knowledge-Governance/25-AIRA_Knowledge_Access_Architecture_and_Golden_Source_Standard_v1.1_Aligned.md",
+    "06-Runbooks-and-SOPs/Operations-Incident-AutoHeal/24B-AIRA_Operations_Incident_AutoHeal_and_Recovery_Runbook_Pack_v1.1_Aligned.md",
+    "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC/Database-Schema/24-AIRA_Login_PoC1_MicroFunction_Runtime_Configuration_Database_Schema_Standard_v1.1_Aligned.md",
+    "01-AIRA-Documentation/Architecture/Fitness-Functions/23B-AIRA_Architecture_Fitness_Function_Catalog_v1.1_Aligned.md"
+  ]
+}

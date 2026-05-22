@@ -1,0 +1,514 @@
+---
+document_id: "AIRA-DOC-032"
+title: "AIRA Business Process Role Permission and SBAC Catalog"
+version: "v1.1"
+status: "aligned"
+source_file: "32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned.docx"
+source_format: "docx"
+vault_folder: "01-AIRA-Documentation/Security/SBAC-and-IAM"
+generated_at: "2026-05-22"
+tags:
+  - aira
+  - obsidian
+  - knowledge-vault
+  - sbac
+  - roles-permissions
+  - security
+---
+
+# AIRA Business Process Role Permission and SBAC Catalog
+
+**AIRA**
+
+AI-Native Enterprise Platform
+
+**AIRA Business Process, Role, Permission, and SBAC Catalog**
+
+_Business Process Catalog | Role Model | Permission Baseline | Skill-Based Access Control_
+
+**v1.1 - Pack 03 v1.2 Alignment and Java 25 Skill Context Update**
+
+| **Property** | **Value** |
+| --- | --- |
+| **Document ID** | **AIRA-DOC-032** |
+| **Document Title** | **AIRA Business Process, Role, Permission, and SBAC Catalog** |
+| **Document Version** | **v1.1 - Pack 03 v1.2 Alignment and Java 25 Skill Context Update** |
+| **Supersedes** | **32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.0** |
+| **Classification** | **INTERNAL CONFIDENTIAL** |
+| **Status** | **FOR ARCHITECTURE REVIEW BOARD / CAB APPROVAL** |
+| **Owner** | **Solutions Architecture Office / IT Head** |
+| **Co-Owners** | **Enterprise Architecture; DevSecOps; Security Architecture; QA Engineering; Platform Engineering; AI Engineering; Data Governance; SRE / Operations; Internal Audit** |
+| **Effective Date** | **2026-05-21** |
+| **Review Cadence** | **Quarterly; unscheduled on material technology, source authority, security, AI-risk, operations, platform, or governance change** |
+| **Pack Context** | **Pack 03 v1.2 individual aligned file generated from Pack 03 v1.1 aligned source pack and synchronized against Packs 01, 02, 04, and 05.** |
+| **Backend Runtime Baseline** | **Java 25 LTS is mandatory for AIRA backend development and runtime evidence. Java 21 is waiver-only compatibility fallback, not the default.** |
+| **Numbering Treatment** | **SBAC catalog baseline** |
+
+**Discipline First · Automation Second · Intelligence Third · AVCI Always**
+
+## Pack 03 v1.2 Cross-Pack Alignment Notice
+
+**Purpose. **This aligned version updates the individual Pack 03 source document so it can be uploaded to Obsidian as a standalone Technology, Environment, Knowledge, and Readiness artifact while remaining synchronized with the current AIRA source-pack baseline and the completed Pack 01 / Pack 02 v1.2 individual outputs.
+
+**Document role. **Catalogs business processes, roles, permissions, skills, agent capabilities, and SBAC enforcement expectations.
+
+| **Alignment Area** | **Applied Control** |
+| --- | --- |
+| **Active input baseline** | **AIRA Source Packs v3.0 / Aligned Pack Set v1.1 remains the input baseline; Pack 03 v1.2 is the new individual output set for Obsidian upload.** |
+| **Backend runtime baseline** | **Java 25 LTS is the required AIRA backend runtime. Spring Boot 4.x and Spring Framework 7.x remain the target backend framework generation where compatible.** |
+| **Java 21 handling** | **Java 21 is not the default. It may appear only as a documented compatibility fallback with Architecture Board/CAB waiver, risk acceptance, and exit plan.** |
+| **Pack 01 governance references** | **References are aligned to AVCI v3.1, Engineering Blueprint v5.1, DevSecOps v3.1, 01A v1.1, and ADR-AIRA-2026-001 v1.1.** |
+| **Pack 02 execution references** | **References are aligned to Developer Guide v4.1, CLAUDE.md v3.1, Skills Framework v3.1, Unit Testing v3.1, GitNexus v1.2, and Developer Onboarding v1.1.** |
+| **Pack 03 numbering cleanup** | **Duplicate-number documents are promoted to suffix hierarchy: 19A/19B, 21A/21B, 22A, 23A, 25A, and 26A/26B.** |
+| **Technology baseline** | **This Pack 03 v1.2 set produces Technology Stack v9.1 as an aligned successor to v9.0 while retaining v9.0 lineage and Golden Source patch-pinning discipline.** |
+| **AI execution boundary** | **All model access routes through LiteLLM. NeMo Guardrails Input/Retrieval/Execution/Output checkpoints are mandatory. Tool actions go through Harness/SBAC/OPA.** |
+| **GitNexus** | **GitNexus is read-only, derivative, commit-bound code intelligence. It cannot commit, approve, merge, deploy, mutate production, or replace tests/scans/human review.** |
+| **Dograh** | **Dograh is governed voice-agent orchestration only. It is not a hardcoded STT/TTS/LLM provider and remains subject to classification, consent, guardrail, and audit controls.** |
+| **Obsidian / LLM Wiki** | **Obsidian and LLM Wiki are curated/derivative knowledge layers. Tier 0 sources remain approved DOCX/PDF, Git, OpenKM, databases, workflow histories, security/evidence stores, and audit records.** |
+
+### Material Changes in This Version
+
+Aligned skill and role references with Pack 02 Skills Framework v3.1 and Java 25 backend engineering baseline.
+
+Clarified SBAC scope for human users, services, AI assistants, agents, GitNexus access, Dograh voice actions, and Harness execution.
+
+Updated classification-aware permissions so Confidential/Restricted actions require stricter skill, route, and human approval controls.
+
+Reinforced separation of duties across maker, checker, approver, deployer, operator, and auditor roles.
+
+Added evidence expectations for OPA decisions, Flowable approvals, audit traces, and delegated-agent actions.
+
+### Mandatory Java 25 Backend Control
+
+| **Control** | **Pack 03 v1.2 Requirement** |
+| --- | --- |
+| **Default backend runtime** | **Java 25 LTS. All backend service templates, code-generation prompts, devcontainers, CI runners, unit/contract/architecture tests, GitNexus indexes, evidence records, and operational inventory must assume Java 25 unless explicitly waived.** |
+| **Fallback runtime** | **Java 21 is waiver-only for compatibility blockers. The waiver must include owner, reason, affected service, risk, compensating controls, target migration path, and exit date.** |
+| **Golden Source** | **Exact Java distribution, image digest, Gradle/Maven version, Spring Boot/Spring Framework compatibility, and patch versions are pinned in Golden Source repositories and validated through CI evidence.** |
+| **Review gate** | **PR/MR reviewers must reject backend code, templates, devcontainers, prompts, or CI jobs that quietly downgrade the runtime baseline or introduce untracked dual-runtime behavior.** |
+| **Evidence** | **Evidence packs must expose java.version, toolchain version, build image digest, SBOM, SAST/SCA results, architecture fitness results, and runtime health proof.** |
+
+### AVCI Compliance Summary for This Update
+
+| **AVCI Property** | **Evidence in This Pack 03 v1.2 Update** |
+| --- | --- |
+| **Attributable** | **Each file has a document ID, owner, supersedes value, source pack context, numbering treatment, and material-change list.** |
+| **Verifiable** | **The Java 25 baseline is explicitly recorded, cross-pack references are updated, duplicate numbering is resolved by suffix hierarchy, and original source content is preserved after this alignment notice.** |
+| **Classifiable** | **All generated files are marked INTERNAL CONFIDENTIAL and inherit AIRA classification-handling, routing, logging, index, and retention rules.** |
+| **Improvable** | **Open provisional-document treatment remains visible for master-register review; numbering cleanup is reversible and auditable through suffix hierarchy.** |
+
+## Updated Baseline Content
+
+**AIRA****
+Business Process, Role, Permission, and SBAC Catalog**
+
+**Business Process Authority | RBAC / ABAC / SBAC | Separation of Duties | Least Privilege | AVCI-Aligned**
+
+Document 32 | Version 1.0 | April 2026 | INTERNAL CONFIDENTIAL
+
+| **Mandatory Practice Statement**<br>No AIRA business process, role, permission, skill, approval authority, service account, AI-agent action, or privileged operation may be implemented unless it is cataloged, classified, assigned to an accountable owner, checked for separation of duties, mapped to least privilege, and evidenced through the approved access-control lifecycle. Access is not a convenience setting; it is a governed engineering artifact. |
+| --- |
+
+## Table of Contents
+
+## 1. Executive Summary
+
+## 2. Purpose, Scope, and Authority
+
+## 3. Catalog Principles and Enforcement Rules
+
+## 4. Business Process Catalog Model
+
+## 5. Role, Permission, and Skill Taxonomy
+
+## 6. SBAC Authorization Model
+
+## 7. Business Process and Role Catalog Baseline
+
+## 8. Permission and Skill Register Baseline
+
+## 9. Separation of Duties and Approval Authority Matrix
+
+## 10. Access Request, Review, and Recertification Workflow
+
+## 11. Technical Implementation Patterns
+
+## 12. Catalog Evidence and Audit Requirements
+
+## 13. AI Agent and Progressive Autonomy Controls
+
+## 14. Architecture Fitness Functions and CI Gates
+
+## 15. RACI and Operating Responsibilities
+
+## 16. Implementation Roadmap
+
+## 17. Templates and Appendices
+
+## 18. AVCI Compliance Summary
+
+## Document Control
+
+| **Property** | **Value** |
+| --- | --- |
+| Document ID | AIRA-DOC-032 |
+| Document Title | AIRA Business Process, Role, Permission, and SBAC Catalog |
+| Version | v1.0 - Initial Operational Catalog |
+| Classification | INTERNAL CONFIDENTIAL |
+| Status | FOR ARCHITECTURE REVIEW BOARD / SECURITY GOVERNANCE APPROVAL |
+| Owner | Solutions Architecture Office / Security Architecture |
+| Co-Owners | Product Owner, Business Process Owners, Security Administrator, DevSecOps Lead, Software Development Lead, Compliance, Internal Audit |
+| Effective Date | Upon Architecture Review Board / CAB approval |
+| Review Cadence | Quarterly; unscheduled on business-process, access-model, regulatory, role, permission, AI-agent, or SoD change |
+| Audience | Solutions Architect / IT Head, Product Owner, Business SMEs, Software Developers, DevSecOps, Security Administrator, QA, DBA, Internal Audit, Compliance |
+| Companion Documents | 01 AVCI; 01A Enterprise Design Principles and SOLID Enforcement Layer; 02 Engineering Blueprint; 03 Developer Guide; 07 Skills Framework; 11 DevSecOps Standard; 14 ADR/TDL; 17 Security Standard; 25 MVP Backlog; 26 Data Classification Register; 27 Developer Onboarding |
+| Purpose | Define the authoritative catalog model for AIRA business processes, roles, permissions, skills, approval authorities, separation-of-duties rules, and SBAC enforcement. |
+| Evidence Path | OpenKM Tier-0 / AIRA / Registers / Business-Process-Role-Permission-SBAC / v1.0 |
+
+## 1. Executive Summary
+
+AIRA requires a governed access model that links business process intent to system roles, permissions, skills, approval authority, evidence, and policy-as-code enforcement. This catalog standard establishes the operational structure for defining who may do what, under what conditions, using which system capability, with which evidence, and with which human accountability.
+
+The catalog is intentionally broader than RBAC. AIRA uses roles for coarse grouping, attributes for context, skills for capability-based action gating, OPA for policy decisions, and evidence records for audit. This prevents over-privileged access, uncontrolled AI-agent execution, hidden process ownership, and separation-of-duties conflicts.
+
+| **Strategic Outcome** | **Required Result** |
+| --- | --- |
+| Least-privilege delivery | Every role and permission is justified by a process need, classification, and owner approval. |
+| Skill-gated AI-native work | Human and AI-agent actions require active skills, trust, policy approval, and audit evidence. |
+| Separation of duties | Maker, checker, approver, deployer, and auditor responsibilities are separated and enforced. |
+| Business traceability | Every permission maps to a business process, service/API, data class, and evidence path. |
+| Audit readiness | Access decisions, exceptions, recertifications, and approvals are reconstructable through Zammad, Git, Keycloak/AD, OPA, and audit records. |
+
+## 2. Purpose, Scope, and Authority
+
+This document defines the AIRA operating catalog for business processes, roles, permissions, Skill-Based Access Control, approval authority, and access evidence. It converts security principles into implementable catalogs that can be stored in Git, synchronized with Keycloak/AD, evaluated by OPA, reviewed through Zammad, and audited by Compliance and Internal Audit.
+
+| **In Scope** | **Out of Scope** |
+| --- | --- |
+| Business process definitions, role catalog, permission catalog, skill catalog, approval authority, SoD rules, AI-agent skill mapping, access request, access review, and recertification evidence. | Corporate HR job descriptions outside AIRA, non-AIRA enterprise access, unmanaged shadow tools, and production access exceptions outside approved break-glass procedure. |
+| Human users, service accounts, workload identities, AI agents, administrators, approvers, reviewers, auditors, and emergency operators. | Vendor-native permissions that are not integrated into AIRA governance; these must be registered before operational use. |
+
+| **Authority Level** | **Source** | **Rule** |
+| --- | --- | --- |
+| L0 | Executive Risk / Architecture Board | Final authority for material risk acceptance and cross-domain conflicts. |
+| L1 | Engineering Blueprint and Security Standard | Govern service boundaries, identity, secrets, and access architecture. |
+| L1 | AVCI and 01A Enforcement Layer | Missing evidence, testability, security, reversibility, or design-principle compliance blocks production use. |
+| L2 | This Catalog | Governs process-role-permission-skill mappings, SoD, approval authority, and SBAC evidence. |
+| L3 | Repository, OPA, Keycloak/AD, Zammad, CI/CD, and runtime configuration | Must implement, not weaken, this catalog. |
+
+## 3. Catalog Principles and Enforcement Rules
+
+| **ID** | **Principle** | **Operational Meaning** |
+| --- | --- | --- |
+| BRP-01 | Process before permission | A permission exists only because a named business or engineering process requires it. |
+| BRP-02 | Named accountability | Human access belongs to one named person; shared accounts are prohibited except approved break-glass controls. |
+| BRP-03 | Least privilege and time bounds | Access is minimum necessary and time-bounded when possible. |
+| BRP-04 | Skill-gated actions | High-impact actions require active skill assignment, proficiency evidence, and recertification. |
+| BRP-05 | Separation of duties | No person or agent may complete incompatible maker/checker/approver/deployer/auditor actions alone. |
+| BRP-06 | Policy as code | OPA/Rego or approved policy artifacts enforce authorization decisions consistently. |
+| BRP-07 | Classification-aware access | Data classification determines visibility, prompt eligibility, logging, export, approval, and route. |
+| BRP-08 | Fail closed | Unknown role, missing skill, stale approval, expired access, or unavailable policy engine blocks the protected action. |
+| BRP-09 | Human-in-the-loop for high impact | AI and automation may propose; accountable humans approve high-risk or production-impacting actions. |
+| BRP-10 | AVCI evidence | Every access model artifact has owner, version, classification, verification evidence, and improvement path. |
+
+## 4. Business Process Catalog Model
+
+![[attachments/32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned/image21.png]]
+
+| **Catalog Entity** | **Required Fields** | **AIRA Purpose** |
+| --- | --- | --- |
+| Business Process | process_id, process_name, owner, SME, bounded_context, classification, lifecycle_state, evidence_path | Defines why access exists and which business outcome it supports. |
+| Process Activity | activity_id, process_id, actor_type, task_type, risk_tier, approval_required, SLA | Breaks process into auditable actions. |
+| Role | role_id, role_name, role_type, owner, allowed_processes, default_permissions, classification_ceiling | Groups responsibilities without granting uncontrolled authority. |
+| Permission | permission_id, resource, action, scope, environment, classification_ceiling, policy_ref | Defines machine-enforceable capability. |
+| Skill | skill_id, skill_name, required_level, evidence_required, renewal_period, trust_minimum | Gates specialized human or AI-agent actions. |
+| Approval Authority | authority_id, process_id, decision_type, approval_level, delegation_rules, evidence_required | Defines who may approve what and when. |
+| SoD Rule | sod_rule_id, incompatible_roles, incompatible_actions, mitigating_control, expiry | Prevents conflicts of interest and uncontrolled end-to-end power. |
+
+## 5. Role, Permission, and Skill Taxonomy
+
+| **Taxonomy Layer** | **Description** | **Examples** |
+| --- | --- | --- |
+| Business Role | Role aligned to a business responsibility or approval function. | Document Intake User, Loan Reviewer, Approval Officer, Business SME, UAT Approver. |
+| Engineering Role | Role aligned to software delivery responsibility. | Developer, Tech Lead, QA/SDET, DevSecOps, DBA, Security Administrator, Release Manager. |
+| Governance Role | Role aligned to control, audit, and risk oversight. | Architecture Reviewer, CAB Approver, Compliance Reviewer, Internal Auditor. |
+| System Role | Role represented in Keycloak/AD or service authorization layer. | aira.document.intake.user, aira.workflow.approver, aira.admin.readonly. |
+| Service Permission | Action against an API, event, workflow, table, or tool. | document:create, workflow:approve, release:promote, evidence:read, prompt:publish. |
+| Skill | Capability-based qualification for sensitive work. | SBAC_SKILL_RELEASE_APPROVER, SBAC_SKILL_MODEL_ROUTE_ADMIN, SBAC_SKILL_DBA_MIGRATION. |
+| Delegation | Time-bounded authority granted to another user with constraints. | Temporary UAT approver, acting release manager, incident commander alternate. |
+
+## 6. SBAC Authorization Model
+
+![[attachments/32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned/image22.png]]
+
+| **Decision Input** | **Source** | **Decision Use** |
+| --- | --- | --- |
+| Identity | Keycloak / AD / workload identity / agent registry | Who is requesting the action. |
+| Role | Keycloak/AD groups, application role mapping | Coarse access and process assignment. |
+| Skill | AIRA Skills Framework, onboarding evidence, recertification record | Capability proof for high-impact actions. |
+| Trust Score | Agent registry / human certification / incident history | Determines whether an agent or delegated actor may proceed. |
+| Resource Classification | Data Classification and Evidence Register | Controls route, approval, logging, and prompt eligibility. |
+| Environment | DEV, INT, UAT, STG, PROD | Higher environments require stricter controls. |
+| Policy Version | OPA bundle / Rego rule / policy registry | Machine decision and evidence reference. |
+| Human Approval | Flowable, Zammad, CAB record, data owner approval | Required for high-risk, restricted, production, or exceptional actions. |
+
+## 7. Business Process and Role Catalog Baseline
+
+| **Process ID** | **Process** | **Owner** | **Primary Roles** | **Classification** | **Status** |
+| --- | --- | --- | --- | --- | --- |
+| BP-001 | Document Intake and Registry | Document Owner / Intake SME | Document Intake User, Document Reviewer | Internal to Restricted | MVP Mandatory |
+| BP-002 | Workflow Approval and Exception Handling | Workflow Owner | Requestor, Checker, Approval Officer, Exception Reviewer | Internal to Confidential | MVP Mandatory |
+| BP-003 | MicroFunction Configuration Change | Solutions Architect | Config Author, Tech Lead, Architecture Reviewer | Confidential | Foundation Mandatory |
+| BP-004 | Database Migration and Data Change | DBA / Data Governance | Migration Author, DBA Reviewer, Release Manager | Confidential / Restricted | Foundation Mandatory |
+| BP-005 | Prompt / Guardrail / Model Alias Change | AI Governance Lead | Prompt Author, AI Reviewer, Security Reviewer | Internal to Restricted | AI Mandatory |
+| BP-006 | Release Promotion and CAB Approval | Release Manager | Developer, QA Approver, DevSecOps, CAB Approver | Confidential | Production Mandatory |
+| BP-007 | Incident, Auto-Heal, and Recovery | Incident Commander | SRE, Security Triage, Dev Lead, Approver | Confidential / Restricted | Operations Mandatory |
+| BP-008 | Access Request and Recertification | Security Administrator | Requester, Manager, Data Owner, Security Reviewer | Confidential | Governance Mandatory |
+
+| **Role ID** | **Role** | **Responsibility** | **Example Permissions** | **Key SoD Constraint** |
+| --- | --- | --- | --- | --- |
+| ROLE-BUS-001 | Document Intake User | Upload and register documents with required metadata. | document:create, document:read-own | Cannot approve own document. |
+| ROLE-BUS-002 | Business Reviewer | Review submitted item and add business decision. | workflow:review, evidence:read-assigned | Cannot configure system rules. |
+| ROLE-BUS-003 | Approval Officer | Approve or reject business workflow task. | workflow:approve, workflow:return | Cannot be original maker for same item. |
+| ROLE-ENG-001 | Software Developer | Implement code/config under PR review. | repo:branch-write, test:run, pr:create | Cannot approve own PR or deploy to PROD. |
+| ROLE-ENG-002 | Tech Lead | Review code, design, MicroFunction sequence. | pr:review, design:approve-tech | Cannot bypass security/CAB. |
+| ROLE-ENG-003 | QA/SDET | Own test evidence and quality gate review. | test:evidence-approve, defect:verify | Cannot self-approve production release alone. |
+| ROLE-OPS-001 | DevSecOps Engineer | Pipeline, GitOps, observability, platform automation. | pipeline:maintain, deploy:stg | No manual PROD mutation outside approved path. |
+| ROLE-SEC-001 | Security Administrator | Security policy, access approval, incidents. | access:approve, opa:review, finding:triage | Cannot approve business outcome alone. |
+| ROLE-GOV-001 | CAB Approver | Approve release/change within delegated authority. | change:approve, release:go-no-go | Must not be sole implementer. |
+
+## 8. Permission and Skill Register Baseline
+
+| **Permission ID** | **Resource** | **Action** | **Environment** | **Classification Ceiling** | **Control Rule** |
+| --- | --- | --- | --- | --- | --- |
+| PERM-DOC-CREATE | document | create | DEV/UAT/PROD | Restricted | Requires document intake role and classification metadata. |
+| PERM-DOC-READ | document | read | All | Source classification | Requires ACL and evidence purpose. |
+| PERM-WF-APPROVE | workflow_task | approve | UAT/PROD | Confidential | Requires approval role and not maker of same item. |
+| PERM-MF-PUBLISH | microfunction_config | publish | DEV/INT/UAT | Confidential | Requires config skill and architecture review. |
+| PERM-DB-MIGRATE | database_schema | migrate | DEV/INT/UAT/STG/PROD | Confidential/Restricted | Requires DBA migration skill, Flyway, and CAB for PROD. |
+| PERM-PROMPT-PUBLISH | prompt_template | publish | DEV/UAT/PROD | Confidential | Requires AI governance review and eval evidence. |
+| PERM-RELEASE-PROMOTE | release | promote | STG/PROD | Confidential | Requires QA, DevSecOps, Security/CAB approval. |
+| PERM-INCIDENT-EXECUTE | incident_action | execute | STG/PROD | Confidential/Restricted | Requires incident role, Zammad ticket, and post-action evidence. |
+
+| **Skill ID** | **Skill** | **Minimum Level** | **Evidence / Renewal** | **Allowed Use** |
+| --- | --- | --- | --- | --- |
+| SBAC-SKILL-MF-CONFIG | MicroFunction Configuration | L2 | Lab evidence, Tech Lead approval, quarterly review | Publish or modify runtime transaction definitions. |
+| SBAC-SKILL-DB-MIGRATION | Database Migration | L3 | Flyway lab, DBA approval, migration evidence | Author/review DB schema changes. |
+| SBAC-SKILL-AI-GOVERNANCE | Prompt/Guardrail/Model Governance | L3 | AI registry training, evaluation evidence, Security approval | Publish prompt, guardrail, or model alias changes. |
+| SBAC-SKILL-RELEASE-MANAGER | Release and CAB Promotion | L3 | Release drill, rollback test, CAB delegation | Promote releases and coordinate go/no-go. |
+| SBAC-SKILL-INCIDENT-COMMAND | Incident Command | L3 | Runbook exercise, SRE approval, postmortem evidence | Coordinate Sev-1/Sev-2 incident response. |
+| SBAC-SKILL-SECURITY-TRIAGE | Security Triage | L3 | Security lab, finding classification, OPA awareness | Triage Wazuh/TheHive/Cortex security cases. |
+| SBAC-SKILL-AI-AGENT-ACTION | AI Agent Tool Action | L4 | Harness/OPA/SBAC tests, trust threshold, human approval | Allow bounded AI-agent action execution through Harness only. |
+
+## 9. Separation of Duties and Approval Authority Matrix
+
+| **SoD ID** | **Rule** | **Applies To** | **Enforcement** | **Exception Rule** |
+| --- | --- | --- | --- | --- |
+| SOD-001 | Maker cannot approve same transaction | Document Intake, Workflow Approval | Flowable ownership check + audit | Business owner exception only with compensating review. |
+| SOD-002 | Developer cannot approve own PR | All repositories | CODEOWNERS + branch protection | No exception except non-merge spike branch. |
+| SOD-003 | Developer cannot deploy directly to PROD | Release and Deployment | GitOps + Argo CD + CAB | Emergency only through break-glass and post-review. |
+| SOD-004 | DB migration author cannot be sole migration approver | Database changes | DBA review + CI migration test | CAB may approve expedited change with second reviewer. |
+| SOD-005 | Prompt author cannot solely approve high-impact prompt | AI Governance | AI evaluation + Security/AI reviewer | Low-risk internal prompt may use delegated review. |
+| SOD-006 | Security administrator cannot approve business outcome alone | Access and Security | Business owner + Security dual approval | None for Restricted data access. |
+| SOD-007 | AI agent cannot approve, merge, deploy, or override policy | All AI-assisted work | Harness/OPA/SBAC + PR rules | No waiver for production override. |
+
+## 10. Access Request, Review, and Recertification Workflow
+
+![[attachments/32-AIRA_Business_Process_Role_Permission_and_SBAC_Catalog_v1.1_Aligned/image23.png]]
+
+| **Workflow Step** | **Required Action** | **Evidence** |
+| --- | --- | --- |
+| Request | Requester submits Zammad ticket with role, process, environment, justification, duration, and data classification. | Zammad ticket ID and requester identity. |
+| Manager Review | Manager validates business need and employment/assignment status. | Approval comment and scope. |
+| Owner Approval | Process owner, data owner, or system owner approves access scope. | Owner approval record. |
+| Security Validation | Security checks least privilege, SoD, classification, MFA, and policy requirements. | SoD result, OPA/access policy reference. |
+| Provisioning | Keycloak/AD group, application role, skill assignment, or JIT permission is granted. | Provisioning log, role mapping, expiry date. |
+| Verification | Requester validates access; unauthorized paths are tested as denied where practical. | Access verification evidence. |
+| Recertification | Quarterly or risk-based review confirms continued need. | Recertification decision and revocation log where applicable. |
+| Revocation | Access is removed on role change, project exit, expiry, or incident. | Revocation evidence and audit record. |
+
+## 11. Technical Implementation Patterns
+
+| **Layer** | **Implementation Pattern** | **Required Control** |
+| --- | --- | --- |
+| Identity | Keycloak federated with AD / corporate IdP. | Named user, MFA, group mapping, token audience validation. |
+| Application authorization | Spring Security with resource-level checks and OPA decision calls. | No UI-only authorization; backend validates every protected action. |
+| Policy as code | OPA/Rego bundles versioned in Git and released through CI/CD. | Policy tests, owner approval, signed bundle. |
+| SBAC registry | Skills and trust records stored in controlled registry and audited. | Skill evidence, expiry, recertification, owner approval. |
+| Workflow approvals | Flowable tasks for business, exception, CAB, and human review. | Actor, decision, reason, timestamp, trace_id. |
+| Machine workflows | Temporal for durable machine workflows, retries, and compensation. | Workflow history and versioned activity evidence. |
+| Tickets and ITSM | Zammad for access request, change, incident, and service request evidence. | Ticket ID linked to role/permission/action evidence. |
+| Audit | Immutable or append-only audit envelope. | actor, subject, resource, action, policy version, classification, decision, trace_id. |
+
+### 11.1 Sample OPA Policy Shape
+
+package aira.authz
+
+default allow := false
+
+allow if {
+ input.actor.status == "ACTIVE"
+ input.actor.mfa == true
+ input.resource.classification != "Restricted" or input.route == "private"
+ input.permission in input.actor.permissions
+ required_skill := data.aira.permission_required_skill[input.permission]
+ required_skill == "" or input.actor.skills[required_skill].status == "ACTIVE"
+ not sod_conflict
+}
+
+sod_conflict if {
+ input.action == "approve"
+ input.actor.id == input.resource.created_by
+}
+
+## 12. Catalog Evidence and Audit Requirements
+
+| **Evidence Artifact** | **Minimum Fields** | **Storage Path** |
+| --- | --- | --- |
+| Role definition record | role_id, owner, permissions, process mapping, classification ceiling, reviewer, status | Git / aira-registers/access/roles.yaml and OpenKM evidence path. |
+| Permission definition record | permission_id, resource, action, environment, policy_ref, tests | Git / aira-registers/access/permissions.yaml. |
+| Skill assignment record | person/agent, skill_id, level, evidence, approver, expiry | PostgreSQL skill registry + OpenKM evidence. |
+| Access request | requester, reason, owner approval, security review, SoD result, expiry | Zammad ticket and audit store. |
+| Policy decision | actor, resource, action, decision, policy version, trace_id | OPA/audit event store. |
+| Recertification record | scope, reviewer, retain/revoke decision, exceptions | Zammad or access review evidence folder. |
+| Exception/waiver | risk, duration, approver, compensating control, expiry | ADR/TDL or waiver register. |
+
+## 13. AI Agent and Progressive Autonomy Controls
+
+| **Autonomy Level** | **Allowed Action** | **Required Control** |
+| --- | --- | --- |
+| L0 - Advisory | AI explains, summarizes, drafts options. | Human review before use; no tool execution. |
+| L1 - Drafting | AI creates code, tests, tickets, or documentation drafts. | PR/MR declaration, tests, human checker. |
+| L2 - Controlled Non-Production Action | AI proposes and triggers bounded dev/test action through Harness. | SBAC skill, OPA allow, audit, non-production scope. |
+| L3 - Human-Approved Operational Action | AI proposes action; human approves execution through Harness. | Flowable/Zammad approval, runbook, rollback path. |
+| L4 - Production-Impacting Action | AI may assist analysis only; execution requires named human and CAB/break-glass path. | No autonomous approval, no direct credentials, post-action review. |
+
+| **Progressive Autonomy Rule**<br>Auto-Heal, Auto-Learn, and Auto-Improve must preserve or improve SOLID compliance, architecture boundaries, testability, security posture, observability, reversibility, and AVCI evidence. Any automated or AI-proposed role, permission, or skill change is a catalog change and must pass the same review gates as human-authored changes. |
+| --- |
+
+## 14. Architecture Fitness Functions and CI Gates
+
+| **Gate ID** | **Gate** | **Applies To** | **Failure Action** |
+| --- | --- | --- | --- |
+| BRP-G01 | Every permission maps to a business process, owner, resource, action, environment, classification ceiling, and policy reference. | Access catalog MR | Block merge. |
+| BRP-G02 | Every high-impact action requires active skill and evidence. | SBAC registry | Block activation. |
+| BRP-G03 | SoD conflicts are detected before approval or provisioning. | Zammad/access workflow | Block request or require waiver. |
+| BRP-G04 | Restricted data actions require private route or approved waiver. | Authorization/model routing | Block action. |
+| BRP-G05 | No role contains wildcard production admin permissions without break-glass controls. | Role catalog | Block merge and alert Security. |
+| BRP-G06 | AI agents cannot approve, merge, deploy, or override policy. | Harness/OPA policy | Block action. |
+| BRP-G07 | Access records include owner, approver, expiry, trace_id, and evidence path. | Access evidence | Block closure. |
+| BRP-G08 | Quarterly recertification produces retain/revoke decision. | Access review | Flag overdue and disable stale access where approved. |
+| BRP-G09 | Policy bundles have unit tests and negative tests. | OPA CI | Block promotion. |
+| BRP-G10 | Catalog changes include AVCI and 01A impact summary. | MR template | Block merge if incomplete. |
+
+## 15. RACI and Operating Responsibilities
+
+| **Activity** | **Solutions Architect** | **Business Owner** | **Security Admin** | **DevSecOps** | **App Owner** | **QA** | **Compliance** | **Internal Audit** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Approve catalog standard | A | C | R | C | C | C | C | C |
+| Define business process | C | A/R | C | I | R | C | C | I |
+| Define role and permission | C | R | A/R | C | R | C | C | I |
+| Define SBAC skill | A | C | R | C | C | C | C | I |
+| Approve restricted access | C | R | A/R | C | C | I | C | I |
+| Implement Keycloak/AD mapping | I | C | A/R | R | C | I | I | I |
+| Implement OPA policy | C | C | R | A/R | C | C | I | I |
+| Review SoD exception | A | R | R | C | C | C | C | C |
+| Perform recertification | I | A/R | R | C | C | I | C | C |
+| Audit access evidence | I | C | C | I | I | I | C | A/R |
+
+Legend: A = Accountable, R = Responsible, C = Consulted, I = Informed.
+
+## 16. Implementation Roadmap
+
+| **Phase** | **Activities** | **Exit Criteria** |
+| --- | --- | --- |
+| Phase 1 - Catalog Bootstrap | Create Git register, seed process/role/permission/skill templates, define owners and CODEOWNERS. | Baseline catalog reviewed and protected. |
+| Phase 2 - Identity Mapping | Map roles to Keycloak/AD groups and application claims. | Authentication and coarse role mapping verified in DEV. |
+| Phase 3 - Policy-as-Code | Implement OPA policies for permission, skill, classification, and SoD checks. | Policy tests pass including negative tests. |
+| Phase 4 - Zammad Workflow | Create access request, approval, recertification, and exception workflows. | Ticket evidence links to access records. |
+| Phase 5 - SBAC Registry | Implement skill assignment, renewal, trust, and evidence records. | High-impact actions require active skill. |
+| Phase 6 - Recertification and Audit | Run first quarterly access review and audit sampling. | Retain/revoke decisions recorded; gaps remediated. |
+
+## 17. Templates and Appendices
+
+### Appendix A. Role Catalog YAML Template
+
+role_id: ROLE-ENG-001
+role_name: Software Developer
+role_type: engineering
+owner: Software Development Lead
+classification_ceiling: Confidential
+allowed_processes:
+ - BP-003
+ - BP-006
+permissions:
+ - repo:branch-write
+ - pr:create
+ - test:run
+required_skills:
+ - SBAC-SKILL-TDD-BASIC
+separation_of_duties:
+ cannot_approve_own_pr: true
+ cannot_deploy_prod: true
+status: active
+last_reviewed_at: 2026-04-28
+next_review_due: 2026-07-28
+
+### Appendix B. Permission Catalog YAML Template
+
+permission_id: PERM-WF-APPROVE
+resource: workflow_task
+action: approve
+environments: [DEV, UAT, PROD]
+classification_ceiling: Confidential
+required_role: ROLE-BUS-003
+required_skill: SBAC-SKILL-WORKFLOW-APPROVER
+policy_ref: opa.aira.workflow.approve
+sod_rules:
+ - SOD-001
+evidence_required:
+ - trace_id
+ - approver_id
+ - decision_reason
+ - workflow_id
+status: active
+
+### Appendix C. Access Request Evidence Template
+
+access_request_id: ZAMMAD-ACCESS-000001
+requester: ""
+requested_role: ""
+requested_permission: ""
+business_process: ""
+environment: "DEV | UAT | PROD"
+classification: "Internal | Confidential | Restricted"
+justification: ""
+manager_approval: ""
+owner_approval: ""
+security_review: ""
+sod_result: "pass | fail | waiver"
+expiry_date: "YYYY-MM-DD"
+provisioning_evidence: ""
+recertification_due: "YYYY-MM-DD"
+
+### Appendix D. Copy-Ready Mermaid References
+
+flowchart LR
+ A[Access Request in Zammad] --> B[Manager Review]
+ B --> C[Process/Data Owner Approval]
+ C --> D[Security + SoD Validation]
+ D --> E[Provision Role / Skill / Permission]
+ E --> F[Audit Evidence]
+ F --> G[Quarterly Recertification]
+
+## 18. AVCI Compliance Summary
+
+| **AVCI Property** | **Compliance Statement** |
+| --- | --- |
+| Attributable | Every process, role, permission, skill, SoD rule, approval authority, and access decision has an owner, steward, approver, and source reference. |
+| Verifiable | Catalog entries are validated by policy tests, access evidence, SoD checks, recertification records, CI gates, and audit logs. |
+| Classifiable | Every role, permission, process, and action is constrained by classification ceiling, environment, route, and evidence-handling rules. |
+| Improvable | Access gaps, incidents, audit findings, failed policy tests, and recertification results become governed improvement items. |
+
+| **Final Control Statement**<br>The AIRA Business Process, Role, Permission, and SBAC Catalog is the authoritative control layer connecting business intent to enforceable access. AIRA access is approved only when it is process-justified, least-privilege, skill-gated, separation-of-duties checked, policy-enforced, human-accountable, auditable, reversible, and AVCI-complete. |
+| --- |

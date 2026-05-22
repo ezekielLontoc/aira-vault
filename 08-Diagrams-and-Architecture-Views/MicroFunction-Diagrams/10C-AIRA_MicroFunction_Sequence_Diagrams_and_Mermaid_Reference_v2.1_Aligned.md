@@ -1,0 +1,1143 @@
+---
+document_id: "AIRA-DOC-010C"
+title: "AIRA MicroFunction Sequence Diagrams and Mermaid Reference"
+version: "v2.1"
+status: "aligned"
+source_file: "10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned.docx"
+source_format: "docx"
+vault_folder: "08-Diagrams-and-Architecture-Views/MicroFunction-Diagrams"
+generated_at: "2026-05-22"
+tags:
+  - aira
+  - obsidian
+  - knowledge-vault
+  - microfunction
+  - sequence-diagrams
+  - mermaid
+---
+
+# AIRA MicroFunction Sequence Diagrams and Mermaid Reference
+
+**AIRA**
+
+AI-Native Enterprise Platform
+
+**AIRA MicroFunction Sequence Diagrams and Mermaid Reference**
+
+_Sequence Evidence | Mermaid Source | Architecture Review | Runtime Flow Verification_
+
+**v2.1 - Pack 04 v1.2 Diagram Governance and Java 25 Alignment Update**
+
+| **Property** | **Value** |
+| --- | --- |
+| **Document ID** | **AIRA-DOC-010C** |
+| **Document Title** | **AIRA MicroFunction Sequence Diagrams and Mermaid Reference** |
+| **Document Version** | **v2.1 - Pack 04 v1.2 Diagram Governance and Java 25 Alignment Update** |
+| **Supersedes** | **10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1** |
+| **Classification** | **INTERNAL CONFIDENTIAL** |
+| **Status** | **FOR ARCHITECTURE REVIEW BOARD / CAB APPROVAL** |
+| **Owner** | **Solutions Architecture Office / IT Head** |
+| **Co-Owners** | **Enterprise Architecture; Software Development Lead; DevSecOps Lead; Security Architecture; QA/SDET; Database Administration; Platform Engineering; AI Engineering; SRE / Operations; Internal Audit** |
+| **Effective Date** | **2026-05-21** |
+| **Review Cadence** | **Quarterly; unscheduled on material MicroFunction, security, database, workflow, AI, Java/runtime, or architecture-governance change** |
+| **Pack Context** | **Pack 04 v1.2 individual aligned file generated from Pack 04 v1.1 aligned source pack and synchronized against Packs 01, 02, 03, and 05.** |
+| **Backend Runtime Baseline** | **Java 25 LTS is mandatory for AIRA backend services, MicroFunction engine code, service templates, test fixtures, and CI evidence. Java 21 is waiver-only compatibility fallback, not the default.** |
+| **Numbering Treatment** | **Canonical diagram/reference companion to Document 10.** |
+
+**Configure First · Code Only the Business Gap · Govern Every Step · AVCI Always**
+
+## Pack 04 v1.2 Cross-Pack Alignment and Improvement Notice
+
+**Purpose. **This aligned version updates the individual Pack 04 source document so it can be uploaded to Obsidian as a standalone MicroFunction Framework artifact while remaining synchronized with the current AIRA source baseline, the completed Pack 01 through Pack 03 v1.2 individual outputs, and Pack 05 data/API/security/decision controls.
+
+**Document role. **Provides sequence-diagram and Mermaid standards for MicroFunction design, implementation handoff, review, Obsidian projection, and LLM Wiki retrieval.
+
+| **Alignment Area** | **Applied Control / Improvement** |
+| --- | --- |
+| **Source baseline** | **AIRA Source Packs v3.0 / Aligned Pack Set v1.1 remains the input baseline; Pack 04 v1.2 is the new individual output set for Obsidian upload.** |
+| **Backend runtime baseline** | **Java 25 LTS is the required backend runtime for MicroFunction engine code, backend services, code-generation prompts, devcontainers, CI runners, tests, and operational evidence.** |
+| **Java 21 handling** | **Java 21 is not the default. It may appear only as a documented compatibility fallback with Architecture Board/CAB waiver, risk acceptance, compensating controls, and exit plan.** |
+| **Pack 01 governance references** | **References are aligned to AVCI v3.1, Engineering Blueprint v5.1, DevSecOps v3.1, 01A v1.1, and ADR-AIRA-2026-001 v1.1.** |
+| **Pack 02 execution references** | **References are aligned to Developer Guide v4.1, CLAUDE.md v3.1, Skills Framework v3.1, Unit Testing v3.1, GitNexus v1.2, and Developer Onboarding v1.1.** |
+| **Pack 03 technology references** | **References are aligned to Technology Stack v9.1, Information Nervous System v4.1, CI/CD Evidence Pack v1.1, AI Registry 22A, Login PoC Source Generation 23A, and Obsidian/LLM Wiki governance.** |
+| **Pack 05 data/security references** | **ADR/TDL, API contract, database/Flyway, security/identity/secrets/access control, and data migration/cutover standards govern material implementation, schema, and access changes.** |
+| **Pack 04 numbering cleanup** | **Remaining Pack 04 cross-pack number conflicts are resolved by promoting Login Pattern to 22B and Fitness Catalog to 23B. Document 40 remains provisional pending master-register disposition.** |
+| **MicroFunction principle** | **Configure the process. Reuse standard steps. Code only the business logic gap. Every configuration and coded function must preserve SOLID, Clean Architecture, DDD, ports/adapters, security, observability, testability, reversibility, and AVCI evidence.** |
+| **Login principle** | **AIRA is not building a custom login system. Login is a governed assembly of identity, session, policy, audit, event, and observability controls using approved components and reusable MicroFunctions.** |
+| **AI execution boundary** | **All model access routes through LiteLLM. NeMo Guardrails Input/Retrieval/Execution/Output checkpoints are mandatory. Tool actions go through Harness/SBAC/OPA with human approval where required.** |
+| **GitNexus / Dograh awareness** | **GitNexus may support read-only impact analysis. Dograh may support voice-agent orchestration. Neither can bypass MicroFunction, security, classification, testing, CI, or human approval gates.** |
+
+### Material Improvements in This Version
+
+Aligned diagrams to show Java 25 service runtime context where backend services, MicroFunction engine, and adapter boundaries are represented.
+
+Added Mermaid governance controls so diagram source remains versioned, reviewable, and regenerated before Obsidian/LLM Wiki publication.
+
+Improved diagram review gates for architecture boundary, SOLID, security, testability, reversibility, and AVCI evidence.
+
+Clarified that sequence diagrams are design evidence, not a bypass for ADR/TDL, tests, or implementation verification.
+
+Aligned AI/RAG/tool-action diagrams with LiteLLM, NeMo Guardrails, Harness, SBAC, OPA, and human-approval boundaries.
+
+### Mandatory Java 25 and MicroFunction Implementation Control
+
+| **Control** | **Pack 04 v1.2 Requirement** |
+| --- | --- |
+| **Default backend runtime** | **Java 25 LTS. All backend MicroFunction engine, service templates, code-generation prompts, examples, test suites, GitNexus indexing metadata, and CI evidence must assume Java 25 unless explicitly waived.** |
+| **Fallback runtime** | **Java 21 is waiver-only for compatibility blockers. The waiver must include owner, reason, affected module/service, risk, target migration, compensating controls, and exit date.** |
+| **Business logic boundary** | **Business MicroFunctions must not parse transport payloads, build HTTP responses, call databases/Kafka/Redis/OpenKM/model providers directly, write audit records directly, or own framework concerns.** |
+| **Configuration governance** | **Runtime configuration, catalog entries, activation rows, and login schema data are engineering artifacts. They must be versioned, reviewed, tested, classified, and promoted through CI/DBA/approval gates.** |
+| **Database governance** | **Database setup and changes use Flyway only, including clean-slate baseline creation, control tables, seed data, views, indexes, RLS, and schema migration evidence.** |
+| **Evidence** | **Evidence packs must expose Java/toolchain version, build image digest, tests, architecture fitness, policy decisions, migration validation, trace/audit references, classification, and rollback/compensation path.** |
+
+### AVCI Compliance Summary for This Update
+
+| **AVCI Property** | **Evidence in This Pack 04 v1.2 Update** |
+| --- | --- |
+| **Attributable** | **Each file has document ID, owner, supersedes value, source pack context, numbering treatment, and material-improvement list.** |
+| **Verifiable** | **The Java 25 baseline is explicitly recorded, cross-pack references are updated, duplicate numbering is resolved, and source content is preserved after this alignment notice.** |
+| **Classifiable** | **All generated files are marked INTERNAL CONFIDENTIAL and inherit AIRA classification-handling, model-routing, logging, index, and retention rules.** |
+| **Improvable** | **Document 40 remains visible as provisional for master-register decision; 22B and 23B numbering cleanup is auditable and reversible through revision control.** |
+
+## Updated Baseline Content
+
+**AIRA**
+
+**MicroFunction Sequence Diagrams and Mermaid Reference**
+
+**Version 2.1 - Rendered Diagrams + Copy-Ready Mermaid Code**
+
+| **Core Design Rule**<br>Every sequence diagram in this reference is a governed implementation pattern. Auto-Heal, Auto-Learn, and Auto-Improve must preserve or improve SOLID compliance, Clean Architecture boundaries, DDD bounded contexts, testability, security posture, observability, reversibility, and AVCI evidence. |
+| --- |
+
+| **Property** | **Value** |
+| --- | --- |
+| Document Title | AIRA MicroFunction Sequence Diagrams and Mermaid Reference |
+| Document ID | AIRA-DOC-010C |
+| Version | v2.1 - Rendered Diagram and Mermaid Source Edition |
+| Supersedes | 10C-AIRA MicroFunction Sequence Diagrams and Mermaid Reference v1.3 |
+| Classification | INTERNAL CONFIDENTIAL |
+| Status | Developer Reference / Architecture Review Ready |
+| Owner | Solutions Architecture Office / Software Development Lead |
+| Companion Documents | 01A Enterprise Design Principles and SOLID Enforcement Layer v1.1; 01 AVCI v3.1; 02 Engineering Blueprint v5.1; 03 Developer Guide v4.1; 08 Unit Testing v3.1; 10 MicroFunction Framework v3.1; 10A v2.1; 10B v2.1; 10D v2.1 |
+| Primary Audience | Solutions Architects, Software Developers, QA/SDET, DevSecOps, DBAs, System Administrators, Security Administrators |
+| Purpose | Provide complete rendered sequence diagrams and copy-ready Mermaid code for AIRA MicroFunction implementation, including standard steps, error paths, AI-governed flows, architecture fitness gates, and operational support patterns. |
+
+_Table of Contents Note: Use Microsoft Word > References > Table of Contents > Automatic Table, then Update Field before final publication._
+
+## 1. Executive Summary
+
+This v2.1 reference upgrades the MicroFunction sequence diagram set to align with the AIRA Enterprise Design Principles and SOLID Enforcement Layer. This edition includes both rendered sequence diagrams and the exact Mermaid source code so software developers can visualize the target flow immediately and still copy the source into repositories, Obsidian, GitHub/GitLab, or approved documentation tooling.
+
+The rendered diagrams make implementation order, component boundaries, AI governance gates, error paths, and evidence responsibilities visible. The Mermaid code remains the source of truth for future diagram edits and must be updated whenever the visual diagram changes.
+
+| **Mandatory Use Rule**<br>Developers must not bypass the mandatory framework steps shown in these diagrams. A transaction or MicroFunction that removes identity, classification, authorization, validation, idempotency, error handling, audit, observability, or principle evidence is not production-ready. |
+| --- |
+
+### 1.1 v2.1 Change Summary
+
+| **Change Area** | **v2.1 Improvement** |
+| --- | --- |
+| Rendered diagrams | Adds visual sequence diagrams for every Mermaid flow so developers can understand the flow without rendering Mermaid separately. |
+| Mermaid source retained | Keeps copy-ready Mermaid code after every diagram as the authoritative source for updates. |
+| Enterprise principles | Adds 01A Enterprise Design Principles and SOLID Enforcement Layer as a controlling reference. |
+| SOLID enforcement | Adds explicit single-responsibility, interface-driven, and dependency-inverted MicroFunction expectations. |
+| Architecture boundaries | Adds Clean Architecture, DDD, and ports/adapters review points to coding and runtime flows. |
+| Auto-Heal / Auto-Learn / Auto-Improve | Clarifies that AI loops create candidates, drafts, or reviewed knowledge only; they do not self-modify production. |
+| Architecture fitness functions | Adds CI gate and principle impact assessment diagrams. |
+| Error and rollback | Strengthens retry, compensation, DLQ, safe-response, human escalation, and reversibility evidence. |
+
+## 2. Developer Usage Guidance
+
+This document is intended to be copied into the engineering repository and Obsidian vault. Each section contains a rendered diagram followed by the exact Mermaid sequence diagram code. Developers may use the image for walkthroughs and the Mermaid code for Markdown, Obsidian, GitHub/GitLab documentation, or approved diagram tooling.
+
+The intended development model remains configuration-first: add, remove, reorder, and parameterize existing standard steps whenever possible. Code should only be written for a genuinely new reusable business MicroFunction or framework capability after no-code and low-code options are determined insufficient.
+
+| **Rule** | **Required Behavior** |
+| --- | --- |
+| Source of truth | The Mermaid source is authoritative for diagram changes. Rendered images are derivative and must be regenerated after source changes. |
+| Visual reference | The rendered diagram is included for developer understanding, design walkthroughs, and onboarding discussions. |
+| No uncontrolled edits | Do not hand-edit rendered diagrams without updating Mermaid source and evidence. |
+| Review path | Diagram changes follow MR review with AVCI summary, owner, version, classification, and affected companion documents. |
+| AI use | AI may draft or improve diagrams, but a named human validates correctness, architecture alignment, and evidence. |
+| Conflicts | If a diagram conflicts with 01A, 01 AVCI, 02 Blueprint, 10 Framework, or 10B Implementation Standard, the higher-authority standard governs and the diagram must be corrected. |
+
+## 3. Enterprise Design Principles Applied to Diagrams
+
+The following principles must be visible in design reviews, sequence walkthroughs, implementation tasks, and PR/MR evidence when the diagrams are used as development references.
+
+| **Principle** | **Diagram Enforcement Meaning** |
+| --- | --- |
+| SOLID | MicroFunctions must be single-purpose, replaceable through configuration, interface-driven, and dependency-inverted. |
+| Clean Architecture | Domain logic must not depend on controllers, persistence, messaging, AI providers, or infrastructure details. |
+| DDD / Bounded Contexts | A MicroFunction must respect its owning context and must not write across another context boundary. |
+| Ports and Adapters | External systems, persistence, AI, Kafka, OpenKM, Flowable, and Temporal access must be behind ports/adapters. |
+| DRY, KISS, YAGNI | Reusable framework concerns are implemented once; speculative or duplicated business plumbing is rejected. |
+| Idempotency by Design | Mutating functions and event consumers must be retry-safe and deduplicated. |
+| Determinism and Reproducibility | Runtime assembly, tests, workflows, and migration effects must be repeatable from versioned source. |
+| Fail-Safe, Not Fail-Open | If policy, guardrails, identity, audit, or route validation is unavailable, protected actions stop. |
+| Human-in-the-Loop | High-risk, low-confidence, Restricted, waiver, production-impacting, and destructive actions require named human approval. |
+| Least Privilege / SBAC | Actors, agents, services, and tools receive only the skill and authority required for the scoped action. |
+| Separation of Duties | Maker, checker, approver, and production promoter roles must remain separable and auditable. |
+| Observability by Design | Every step must emit trace, metric, log, and audit evidence without leaking secrets or PII. |
+| Policy as Code | Governance and authorization decisions must be expressed in reviewed policy artifacts, not hidden code paths. |
+| Testability by Design | Every MicroFunction and configuration must be unit, contract, boundary, and regression testable. |
+| Secure by Design | Input validation, classification, secret safety, safe errors, tenant isolation, and redaction are mandatory. |
+| Resilience Patterns | Timeouts, retries, circuit breakers, bulkheads, DLQ, compensation, and fallback behavior are explicit. |
+| Architectural Fitness Functions | CI must automatically verify boundary, dependency, policy, test, security, and evidence rules. |
+| Progressive Autonomy | Automation moves from recommendation to execution only after evidence, trust, policy, and review thresholds are met. |
+| Reversibility / Rollbackability | State-changing actions must define compensation, forward-fix, rollback, or safe stop behavior. |
+| AVCI | Every diagram, code path, configuration, test, and improvement must be attributable, verifiable, classifiable, and improvable. |
+
+## 4. Standard Step Sequence
+
+The standard synchronous sequence remains the default baseline. Some templates may omit steps that are not applicable, but no mutating, sensitive, AI-governed, or integration-facing flow may omit mandatory safety, security, evidence, or error-handling controls without waiver.
+
+| **Order** | **Standard Step** | **Prefix** | **Purpose** |
+| --- | --- | --- | --- |
+| 1 | Receive | STP-RCV | Accept approved REST, Kafka, webhook, batch, file, or scheduled trigger. |
+| 2 | Correlate | STP-COR | Create or propagate trace_id, request_id, correlation_id, causation_id. |
+| 3 | Resolve Session / Actor / Tenant | STP-SES | Resolve human, service, agent, tenant, roles, skills, branch/unit, and channel. |
+| 4 | Rate Limit / Quota Check | STP-RATE | Apply API, tenant, user, workflow, and AI budget throttles. |
+| 5 | Authorize and Classify | STP-SEC / STP-CLS | Authenticate, authorize, classify, evaluate RBAC/ABAC/SBAC/OPA, and enforce prompt/model eligibility. |
+| 6 | Parse Payload | STP-PRS | Parse JSON, XML, CSV, Avro, CloudEvents, multipart, or file metadata. |
+| 7 | Normalize / Sanitize Input | STP-NRM | Canonicalize, sanitize, trim, encode/decode, and perform injection pre-checks. |
+| 8 | Validate Schema | STP-VAL | Validate schema, required fields, controlled values, and structural contract. |
+| 9 | Validate Business Rules / DMN / Policy | STP-VAL / STP-RUL | Run rule tables, DMN, OPA policy checks, duplicate checks, and domain invariants. |
+| 10 | Idempotency Check and Reserve | STP-IDP | Check, reserve, replay, complete, or expire idempotency state. |
+| 11 | Concurrency Guard | STP-CON | Apply optimistic lock, pessimistic lock, Redis/Redisson lock, or version check. |
+| 12 | Resolve Runtime Configuration / Feature Flags | STP-CFG | Resolve active version, feature flags, policy versions, and parameter sets. |
+| 13 | Optional Cache Lookup | STP-CAC | Use Caffeine/Redis only as derivative acceleration; never as authority. |
+| 14 | Execute Business Function or Rule | STP-BUS / STP-RUL | Execute isolated business MicroFunction, rule table, or DMN decision. |
+| 15 | Persist State / Append History | STP-DB / STP-HIS | Persist through approved repository/port and append business history. |
+| 16 | Write Audit Evidence | STP-AUD | Write immutable technical and business evidence with trace, actor, policy, and classification. |
+| 17 | Write Transactional Outbox | STP-EVT | Persist event publication intent atomically with business mutation. |
+| 18 | Publish Event / Notification | STP-EVT / STP-NOT | Publish CloudEvents and approved notifications through governed channels. |
+| 19 | Build Safe Success Response | STP-RSP | Return safe, classified, trace-correlated, user-appropriate response. |
+| 20 | Error Path | STP-ERR / STP-CMP | Classify, retry, compensate, DLQ, escalate, and build safe failure response. |
+| 21 | Principle / Fitness Gate | STP-GOV / CI | Validate SOLID, architecture boundaries, security, observability, reversibility, and AVCI evidence. |
+
+## 5. Diagram Index
+
+| **No.** | **Diagram** | **Primary Use** |
+| --- | --- | --- |
+| 1 | Standard Synchronous Transaction Template | Default configurable sequence for REST or UI-driven business transactions. Business logic is isolated in STP-BUS-* or rule/DMN steps; all other concerns are standard framework functions. |
+| 2 | Error Handling, Retry, Compensation, and Escalation | Shows the enterprise error path after a MicroFunction fails. The framework classifies the error, applies retry policy, compensates if needed, escalates to Flowable if required, and builds a safe response. |
+| 3 | Configuration Publish and Activation Flow | Shows how a new or changed transaction definition becomes active without changing Java code, while preserving architecture boundary, AVCI evidence, and principle compliance. |
+| 4 | Runtime Assembly and Cache Resolution | Shows L1 Caffeine, L2 Redis, and PostgreSQL Tier-0 source of truth. Cache accelerates processing but never becomes authoritative. |
+| 5 | Standard Step Execution Envelope | Shows the reusable envelope around every MicroFunction: security, idempotency, locking, telemetry, audit, error routing, and compensation. |
+| 6 | Kafka Async Event with DLQ | Shows CloudEvents plus idempotent consumer plus transactional execution plus DLQ for failed async events. |
+| 7 | Temporal Machine-Durable Workflow with Compensation | Shows long-running, retryable, machine-driven workflows with deterministic version pinning and compensating actions. |
+| 8 | Flowable Human Approval and Exception Review | Shows human-in-the-loop review for approval, exception handling, CAB gates, and high-risk failures. |
+| 9 | AI/RAG and Harness-Controlled Tool Action | Shows retrieval, four NeMo Guardrails checkpoints, LiteLLM-only model routing, and Harness/OPA/SBAC for tool execution. |
+| 10 | Document Intake, Malware Scan, OCR, and Indexing | Shows a configurable document workflow using OpenKM, malware scan, checksum, OCR, normalization, embedding, LightRAG, and LLM Wiki candidate creation. |
+| 11 | Runtime Customization Without Code Change | Shows how a transaction is changed by adding/removing/reordering existing standard steps or changing parameters. |
+| 12 | Business MicroFunction Extension Pattern | Shows the only normal coding path: create an isolated reusable STP-BUS-* function when existing standard functions and rules are insufficient. |
+| 13 | Reconciliation, Replay, and Reprocess Operations | Shows controlled operations for event replay, stuck workflow repair, cache rebuild, index rebuild, and state reconciliation. |
+| 14 | Auto-Heal Candidate Flow | Shows how production signals become a governed remediation candidate, not an autonomous production change. |
+| 15 | Auto-Learn and Auto-Improve Feedback Loop | Shows how production outcomes and human-reviewed lessons become approved LLM Wiki knowledge, prompts, guardrails, or MicroFunction configuration updates. |
+| 16 | Configuration Change and Cache Invalidation | Shows how a config.changed event invalidates L1/L2 cache and ensures new transactions use the active version. |
+| 17 | Retention, Archive, Supersede, and Purge Flow | Shows controlled lifecycle processing for documents, chunks, indexes, wiki artifacts, and audit-retained evidence. |
+| 18 | Observability, Audit, and Evidence Flow | Shows how every step produces trace, metric, log, and audit evidence for AVCI, troubleshooting, and compliance. |
+| 19 | Architecture Fitness Function CI Gate | Shows how CI verifies SOLID, Clean Architecture, DDD, ports/adapters, testability, security, observability, and rollbackability before merge. |
+| 20 | SOLID and Enterprise Principle Impact Assessment | Shows the standard review path for any AI-generated or human-authored change that affects MicroFunctions, configuration, workflows, prompts, policies, or adapters. |
+
+## 6. Rendered Sequence Diagrams and Copy-Ready Mermaid Code
+
+### 6.1 Standard Synchronous Transaction Template
+
+**Purpose: **Default configurable sequence for REST or UI-driven business transactions. Business logic is isolated in STP-BUS-* or rule/DMN steps; all other concerns are standard framework functions.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image1.jpg]]
+
+_Figure 10C-1. Standard Synchronous Transaction Template_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor USER as User / Channel
+ participant GW as Spring Cloud Gateway
+ participant API as Transaction API
+ participant COORD as Process Execution Coordinator
+ participant ENV as Execution Envelope
+ participant FIT as Principle / Fitness Guard
+ participant BUS as STP-BUS-* Business MicroFunction
+ participant DB as PostgreSQL
+ participant OUT as Transactional Outbox / Kafka
+ participant AUD as Audit Trail
+
+ USER->>GW: Submit transaction request
+ GW->>API: Authenticate, rate-limit, inject trace_id
+ API->>COORD: execute(txn_code, payload, actor, tenant, idempotency_key)
+ COORD->>ENV: Run standard pre-business steps
+ ENV->>ENV: Receive, correlate, resolve session, authorize, classify
+ ENV->>ENV: Parse, normalize, validate schema and business rules
+ ENV->>ENV: Idempotency check and concurrency guard
+ ENV->>FIT: Verify mandatory controls and active definition version
+ FIT-->>ENV: SOLID/Clean Architecture/AVCI boundary is preserved
+ ENV->>BUS: Execute configured business-specific MicroFunction
+ BUS->>DB: Persist state or append history through approved port/adapter
+ DB->>OUT: Write transactional outbox record
+ ENV->>AUD: Write immutable audit and principle evidence
+ COORD-->>API: ProcessExecutionResult
+ API-->>USER: Safe response with request_id
+
+### 6.2 Error Handling, Retry, Compensation, and Escalation
+
+**Purpose: **Shows the enterprise error path after a MicroFunction fails. The framework classifies the error, applies retry policy, compensates if needed, escalates to Flowable if required, and builds a safe response.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image2.jpg]]
+
+_Figure 10C-2. Error Handling, Retry, Compensation, and Escalation_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant STEP as Failed MicroFunction Step
+ participant ERR as STP-ERR Classify Error
+ participant POL as Error / Retry Policy Resolver
+ participant TEMP as Temporal Retry Scheduler
+ participant COMP as Compensation Coordinator
+ participant DLQ as DLQ / Error Event Topic
+ participant FLOW as Flowable Exception Review
+ participant FIT as Reversibility / Safety Gate
+ participant AUD as Audit Trail
+ participant RSP as Safe Response Builder
+
+ STEP->>ERR: Failure result or exception
+ ERR->>POL: Resolve error_policy_code and retry_policy_code
+ POL->>FIT: Check fail-safe, idempotency, rollbackability, and impact
+ alt Retryable and attempts remain
+ FIT-->>TEMP: Retry allowed with deterministic backoff
+ TEMP->>STEP: Schedule retry
+ else Non-retryable or attempts exhausted
+ FIT-->>COMP: Compensation required when state changed
+ COMP->>COMP: Execute configured compensation_step_code chain
+ ERR->>DLQ: Publish failed event / DLQ record for async flows
+ ERR->>FLOW: Create human review task when risk is medium/high
+ ERR->>AUD: Persist error classification, policy, and fitness evidence
+ ERR->>RSP: Build safe error response without stack trace or PII
+ end
+
+### 6.3 Configuration Publish and Activation Flow
+
+**Purpose: **Shows how a new or changed transaction definition becomes active without changing Java code, while preserving architecture boundary, AVCI evidence, and principle compliance.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image3.jpg]]
+
+_Figure 10C-3. Configuration Publish and Activation Flow_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor SA as Solutions Architect
+ participant UI as Admin / Governance UI
+ participant API as Config Governance API
+ participant DB as PostgreSQL Config Tables
+ participant VAL as Definition Validator
+ participant FIT as Enterprise Design Principle Gate
+ participant SIGN as Definition Signer
+ participant REDIS as Redis Runtime Cache
+ participant KAFKA as Kafka config.changed Topic
+ participant AUD as Audit Trail
+
+ SA->>UI: Define or update steps, parameters, retry, error, compensation
+ UI->>API: Submit DRAFT process version
+ API->>DB: Save txn_definition, bindings, parameters, policies
+ API->>VAL: Validate completeness and mandatory steps
+ VAL->>FIT: Validate SOLID, DDD boundary, security, testability, reversibility
+ alt Validation failed
+ FIT-->>API: Reject with failed principle and remediation guidance
+ API->>AUD: Record rejected publish attempt
+ API-->>UI: Return validation errors
+ else Validation passed
+ FIT-->>API: Principle compliance accepted
+ API->>SIGN: Compile and sign RuntimeProcessDefinition
+ API->>DB: Mark version APPROVED / ACTIVE
+ API->>REDIS: Store runtime definition by version key
+ API->>KAFKA: Publish config.changed event
+ API->>AUD: Record activation and AVCI evidence
+ end
+
+### 6.4 Runtime Assembly and Cache Resolution
+
+**Purpose: **Shows L1 Caffeine, L2 Redis, and PostgreSQL Tier-0 source of truth. Cache accelerates processing but never becomes authoritative.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image4.jpg]]
+
+_Figure 10C-4. Runtime Assembly and Cache Resolution_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant COORD as Process Execution Coordinator
+ participant L1 as Caffeine L1 Cache
+ participant L2 as Redis L2 Cache
+ participant ASM as Runtime Assembler
+ participant DB as PostgreSQL Config Tables
+ participant SIG as Signature Verifier
+ participant FIT as Definition Integrity Gate
+ participant AUD as Audit Trail
+
+ COORD->>L1: Get RuntimeProcessDefinition(txn_code, profile, version)
+ alt L1 cache hit
+ L1-->>COORD: Return runtime definition
+ else L1 cache miss
+ COORD->>L2: Get signed runtime definition
+ alt L2 cache hit
+ L2-->>COORD: Return signed definition
+ COORD->>SIG: Verify signature and hash
+ COORD->>FIT: Verify definition status and classification ceiling
+ COORD->>L1: Populate local cache
+ else L2 cache miss
+ COORD->>ASM: Assemble from Tier-0 configuration
+ ASM->>DB: Load active configuration rows
+ ASM->>SIG: Sign assembled definition
+ ASM->>FIT: Validate active definition and mandatory controls
+ ASM->>L2: Store versioned definition
+ ASM-->>COORD: Return runtime definition
+ end
+ end
+ COORD->>AUD: Record runtime definition version and evidence hash used
+
+### 6.5 Standard Step Execution Envelope
+
+**Purpose: **Shows the reusable envelope around every MicroFunction: security, idempotency, locking, telemetry, audit, error routing, and compensation.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image5.jpg]]
+
+_Figure 10C-5. Standard Step Execution Envelope_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant COORD as Process Coordinator
+ participant ENV as Execution Envelope
+ participant SEC as Security / Classification Guard
+ participant IDP as Idempotency Manager
+ participant LOCK as Concurrency Manager
+ participant FIT as Step Principle Guard
+ participant FUNC as MicroFunction
+ participant ERR as Error Handler
+ participant AUD as Audit Recorder
+ participant MET as Metrics / Tracing
+
+ COORD->>ENV: executeStep(step, context)
+ ENV->>SEC: Check actor, tenant, classification, SBAC
+ ENV->>IDP: Check idempotency key and replay state
+ ENV->>LOCK: Acquire lock if configured
+ ENV->>FIT: Validate step is single-responsibility and approved for context
+ ENV->>AUD: Record step started
+ ENV->>MET: Start span and metrics timer
+ ENV->>FUNC: Execute MicroFunction
+ alt Success
+ FUNC-->>ENV: MicroFunctionResult.success
+ ENV->>AUD: Record step success and evidence_ref
+ ENV->>IDP: Store result fingerprint
+ ENV->>LOCK: Release lock
+ else Failure
+ FUNC-->>ERR: Exception or MicroFunctionResult.failure
+ ERR->>AUD: Record failure and policy decision
+ ERR-->>ENV: Retry, compensate, escalate, or fail-safe
+ ENV->>LOCK: Release lock
+ end
+ ENV-->>COORD: Step result
+
+### 6.6 Kafka Async Event with DLQ
+
+**Purpose: **Shows CloudEvents plus idempotent consumer plus transactional execution plus DLQ for failed async events.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image6.jpg]]
+
+_Figure 10C-6. Kafka Async Event with DLQ_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant KAFKA as Kafka Topic
+ participant CON as Event Consumer
+ participant IDP as Processed Event Store
+ participant ENV as Execution Envelope
+ participant COORD as Process Execution Coordinator
+ participant TEMP as Temporal Workflow
+ participant OUT as Transactional Outbox
+ participant DLQ as Dead Letter Topic
+ participant AUD as Audit Trail
+
+ KAFKA->>CON: Consume CloudEvent with trace_id and schema_id
+ CON->>IDP: Check event_id / idempotency fingerprint
+ alt Already processed
+ IDP-->>CON: Skip safely and record duplicate
+ else New event
+ CON->>ENV: Validate classification, schema, and consumer policy
+ ENV->>COORD: execute configured async transaction
+ COORD->>TEMP: Start durable workflow if long running
+ COORD->>OUT: Write resulting domain events atomically
+ alt Execution succeeds
+ COORD->>IDP: Mark processed
+ COORD->>AUD: Record successful event handling
+ else Execution fails
+ COORD->>DLQ: Publish failure envelope with safe metadata
+ COORD->>AUD: Record DLQ evidence and remediation owner
+ end
+ end
+
+### 6.7 Temporal Machine-Durable Workflow with Compensation
+
+**Purpose: **Shows long-running, retryable, machine-driven workflows with deterministic version pinning and compensating actions.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image7.jpg]]
+
+_Figure 10C-7. Temporal Machine-Durable Workflow with Compensation_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant API as Transaction / Event API
+ participant TEMP as Temporal Workflow
+ participant VER as Workflow Version Pin
+ participant ACT as Temporal Activity Adapter
+ participant COORD as Process Execution Coordinator
+ participant FUNC as MicroFunction Runtime
+ participant COMP as Compensation Activity
+ participant AUD as Audit Trail
+
+ API->>TEMP: Start workflow(txn_code, version, payload, trace_id)
+ TEMP->>VER: Resolve deterministic workflow version
+ TEMP->>ACT: Execute activity with retry policy
+ ACT->>COORD: Run runtime process definition
+ COORD->>FUNC: Execute standard and business MicroFunctions
+ alt Activity succeeds
+ FUNC-->>COORD: Success result
+ COORD-->>TEMP: Activity completed
+ TEMP->>AUD: Record workflow success and version
+ else Activity fails after retry
+ TEMP->>COMP: Invoke configured compensation activities
+ COMP->>AUD: Record compensation evidence
+ TEMP->>AUD: Record failure, retry count, and escalation path
+ end
+
+### 6.8 Flowable Human Approval and Exception Review
+
+**Purpose: **Shows human-in-the-loop review for approval, exception handling, CAB gates, and high-risk failures.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image8.jpg]]
+
+_Figure 10C-8. Flowable Human Approval and Exception Review_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant COORD as Process Execution Coordinator
+ participant FLOW as Flowable BPMN / DMN
+ participant DMN as Decision Table
+ participant TASK as Human Task
+ actor APR as Approver
+ participant OPA as OPA Policy
+ participant AUD as Audit Trail
+
+ COORD->>FLOW: Start approval or exception process
+ FLOW->>DMN: Evaluate decision, risk, threshold, and routing
+ DMN-->>FLOW: Required approval level and SLA
+ FLOW->>TASK: Create named human task
+ APR->>TASK: Review evidence, classification, and proposed action
+ TASK->>OPA: Validate approver authority and separation of duties
+ alt Approved
+ OPA-->>TASK: Permit
+ TASK->>FLOW: Complete as approved
+ FLOW->>AUD: Record approval evidence
+ FLOW-->>COORD: Resume process
+ else Rejected or no authority
+ OPA-->>TASK: Deny or reject
+ TASK->>AUD: Record rejection / SoD violation
+ FLOW-->>COORD: Stop or re-route safely
+ end
+
+### 6.9 AI/RAG and Harness-Controlled Tool Action
+
+**Purpose: **Shows retrieval, four NeMo Guardrails checkpoints, LiteLLM-only model routing, and Harness/OPA/SBAC for tool execution.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image9.jpg]]
+
+_Figure 10C-9. AI/RAG and Harness-Controlled Tool Action_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor USER as User / Engineer
+ participant ORCH as Orchestrator / Hermes Agent
+ participant RET as Retrieval Service
+ participant GRR as NeMo Retrieval Rail
+ participant GRI as NeMo Input Rail
+ participant LLM as LiteLLM Gateway
+ participant GRO as NeMo Output Rail
+ participant GRE as NeMo Execution Rail
+ participant HAR as Harness
+ participant OPA as OPA + SBAC + Trust
+ participant TOOL as Approved Tool/API
+ participant AUD as Audit Evidence
+
+ USER->>ORCH: Ask question or request action
+ ORCH->>RET: Retrieve approved evidence pack
+ RET->>GRR: Validate retrieval relevance, classification, citation quality
+ ORCH->>GRI: Validate prompt, intent, and data eligibility
+ GRI->>LLM: Invoke approved model alias only
+ LLM-->>GRO: Draft answer or proposed action
+ GRO->>ORCH: Safe grounded output
+ alt Tool action proposed
+ ORCH->>GRE: Validate action intent and risk
+ GRE->>HAR: Submit action request with evidence
+ HAR->>OPA: Check skill, trust, policy, classification, SoD
+ alt Permitted and low risk
+ OPA-->>HAR: Permit
+ HAR->>TOOL: Execute approved scoped action
+ TOOL-->>HAR: Result
+ HAR->>AUD: Record action evidence
+ else Denied or high risk
+ OPA-->>HAR: Deny or require human approval
+ HAR->>AUD: Record block or escalation
+ end
+ end
+
+### 6.10 Document Intake, Malware Scan, OCR, and Indexing
+
+**Purpose: **Shows a configurable document workflow using OpenKM, malware scan, checksum, OCR, normalization, embedding, LightRAG, and LLM Wiki candidate creation.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image10.jpg]]
+
+_Figure 10C-10. Document Intake, Malware Scan, OCR, and Indexing_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor USER as User
+ participant API as Ingestion API
+ participant SCAN as Malware / Checksum Step
+ participant OKM as OpenKM
+ participant DB as PostgreSQL Registry
+ participant KAFKA as Kafka
+ participant TEMP as Temporal Intake Workflow
+ participant OCR as OCR / Extraction Worker
+ participant EMB as Embedding via Approved Route
+ participant IDX as pgvector / LightRAG
+ participant WIKI as LLM Wiki Candidate
+ participant FLOW as Human Review
+ participant AUD as Audit Trail
+
+ USER->>API: Upload document
+ API->>SCAN: Validate MIME, size, checksum, malware status
+ SCAN-->>API: Safe intake result
+ API->>OKM: Store original document and metadata
+ API->>DB: Create registry row with classification and OpenKM UUID
+ API->>KAFKA: Publish document.received CloudEvent
+ KAFKA->>TEMP: Start intake workflow
+ TEMP->>OCR: Extract text, fields, and confidence
+ OCR->>DB: Store extracted text and lineage
+ TEMP->>EMB: Generate embedding through classification-approved route
+ EMB->>IDX: Update pgvector and LightRAG derivative indexes
+ TEMP->>WIKI: Create candidate knowledge artifact if eligible
+ WIKI->>FLOW: Human review before promotion
+ TEMP->>AUD: Record end-to-end intake evidence
+
+### 6.11 Runtime Customization Without Code Change
+
+**Purpose: **Shows how a transaction is changed by adding/removing/reordering existing standard steps or changing parameters.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image11.jpg]]
+
+_Figure 10C-11. Runtime Customization Without Code Change_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor SA as Solutions Architect
+ participant UI as Admin Governance UI
+ participant CFG as PostgreSQL Configuration Tables
+ participant VAL as Definition Validator
+ participant FIT as No-Code Safety Gate
+ participant ASM as Runtime Assembler
+ participant TEST as Regression / Contract Tests
+ participant PUB as Publish Workflow
+ participant AUD as Audit Trail
+
+ SA->>UI: Modify step order, threshold, policy, or parameter
+ UI->>CFG: Save new DRAFT version only
+ UI->>VAL: Validate mandatory steps and references
+ VAL->>FIT: Confirm no architecture boundary or security weakening
+ FIT->>TEST: Run configuration regression suite
+ alt Tests and gates pass
+ TEST-->>PUB: Evidence accepted
+ PUB->>ASM: Compile and sign new runtime definition
+ PUB->>CFG: Activate new version
+ PUB->>AUD: Record no-code change evidence
+ else Any gate fails
+ TEST-->>UI: Return failed control and evidence
+ UI->>AUD: Record rejected customization
+ end
+
+### 6.12 Business MicroFunction Extension Pattern
+
+**Purpose: **Shows the only normal coding path: create an isolated reusable STP-BUS-* function when existing standard functions and rules are insufficient.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image12.jpg]]
+
+_Figure 10C-12. Business MicroFunction Extension Pattern_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor DEV as Software Developer
+ participant ADR as ADR / TDL
+ participant CODE as Java MicroFunction Class
+ participant PORT as Domain Port
+ participant ADAPT as Infrastructure Adapter
+ participant TEST as Unit / Contract / Boundary Tests
+ participant CI as CI Pipeline
+ participant FIT as Architecture Fitness Functions
+ participant CAT as Step Catalog
+ participant AUD as Audit Trail
+
+ DEV->>ADR: Justify why no-code/low-code is insufficient
+ ADR-->>DEV: Approved or delegated to TDL
+ DEV->>CODE: Implement narrow STP-BUS-* MicroFunction
+ CODE->>PORT: Depend on domain port, not infrastructure detail
+ ADAPT-->>PORT: Provide adapter implementation outside domain core
+ DEV->>TEST: Add failing tests first, then implementation
+ TEST->>CI: Submit PR with AVCI and principle impact
+ CI->>FIT: Run SOLID, Clean Architecture, DDD, security, mutation gates
+ alt Gates pass
+ FIT-->>CI: Accepted
+ CI->>CAT: Register function in step_catalog after approval
+ CI->>AUD: Persist evidence
+ else Gates fail
+ FIT-->>DEV: Reject with boundary/test/security findings
+ end
+
+### 6.13 Reconciliation, Replay, and Reprocess Operations
+
+**Purpose: **Shows controlled operations for event replay, stuck workflow repair, cache rebuild, index rebuild, and state reconciliation.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image13.jpg]]
+
+_Figure 10C-13. Reconciliation, Replay, and Reprocess Operations_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor OPS as Operations / Support
+ participant UI as Operations Console
+ participant HAR as Harness
+ participant OPA as OPA Policy
+ participant TEMP as Temporal Repair Workflow
+ participant KAFKA as Kafka Replay
+ participant DB as PostgreSQL
+ participant IDX as pgvector / LightRAG
+ participant CACHE as Redis / Caffeine
+ participant AUD as Audit Trail
+
+ OPS->>UI: Request replay, reprocess, rebuild, or reconcile
+ UI->>HAR: Submit governed operations action
+ HAR->>OPA: Check role, skill, SoD, classification, risk
+ alt Permitted
+ OPA-->>HAR: Permit with scope and expiry
+ HAR->>TEMP: Start controlled repair workflow
+ TEMP->>DB: Read authoritative state and evidence
+ alt Event replay
+ TEMP->>KAFKA: Replay scoped event range with idempotency
+ else Index rebuild
+ TEMP->>IDX: Rebuild derivative index from Tier-0 sources
+ else Cache rebuild
+ TEMP->>CACHE: Invalidate and repopulate derivative cache
+ end
+ TEMP->>AUD: Record operation result and evidence
+ else Denied
+ OPA-->>HAR: Deny
+ HAR->>AUD: Record blocked operation
+ end
+
+### 6.14 Auto-Heal Candidate Flow
+
+**Purpose: **Shows how production signals become a governed remediation candidate, not an autonomous production change.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image14.jpg]]
+
+_Figure 10C-14. Auto-Heal Candidate Flow_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant OBS as Observability Stack
+ participant ALERT as Detection Rule / Alert
+ participant HAR as Harness
+ participant AGT as AI Diagnostic Agent
+ participant WIKI as LLM Wiki / Obsidian
+ participant FIT as Principle Impact Analyzer
+ participant PR as Draft Pull Request
+ participant CI as CI / Test / Security Gates
+ participant FLOW as Human Approval
+ participant AUD as Audit Evidence
+
+ OBS->>ALERT: SLO breach, exception spike, failed job, or security signal
+ ALERT->>HAR: Create diagnostic task with trace_id and evidence
+ HAR->>AGT: Provide bounded read-only context
+ AGT->>WIKI: Retrieve approved runbooks and architecture rules
+ AGT->>FIT: Analyze if proposed fix preserves SOLID, boundaries, security, observability
+ alt Safe candidate
+ FIT-->>AGT: Candidate acceptable for draft PR
+ AGT->>PR: Draft remediation branch and tests only
+ PR->>CI: Run deterministic tests, scans, and fitness functions
+ CI->>FLOW: Route for human review and approval
+ FLOW->>AUD: Record decision and evidence
+ else Unsafe or uncertain
+ FIT-->>HAR: Block or escalate to human owner
+ HAR->>AUD: Record no autonomous change
+ end
+
+### 6.15 Auto-Learn and Auto-Improve Feedback Loop
+
+**Purpose: **Shows how production outcomes and human-reviewed lessons become approved LLM Wiki knowledge, prompts, guardrails, or MicroFunction configuration updates.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image15.jpg]]
+
+_Figure 10C-15. Auto-Learn and Auto-Improve Feedback Loop_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant PROD as Production Outcomes
+ participant AUD as Audit / Evidence Store
+ participant LEARN as Auto-Learn Candidate Builder
+ participant FIT as Conflict and Principle Gate
+ participant REV as Human Review Board
+ participant WIKI as LLM Wiki
+ participant OBS as Obsidian Knowledge Vault
+ participant REPO as Git Repository
+ participant CI as Regression / Evaluation Gates
+
+ PROD->>AUD: Incidents, approvals, failures, remediations, metrics
+ AUD->>LEARN: Provide evidence pack and outcome labels
+ LEARN->>FIT: Check conflict, staleness, classification, and principle impact
+ alt Candidate is valid
+ FIT-->>REV: Submit lesson or improvement candidate
+ REV->>REV: Review attribution, verification, classification, improvement path
+ alt Approved knowledge
+ REV->>WIKI: Promote curated knowledge with citations
+ REV->>OBS: Update canonical note through MR
+ else Approved implementation improvement
+ REV->>REPO: Create change proposal / PR
+ REPO->>CI: Run tests, evaluations, and fitness functions
+ end
+ else Conflict or weak evidence
+ FIT-->>LEARN: Reject or return for more evidence
+ end
+
+### 6.16 Configuration Change and Cache Invalidation
+
+**Purpose: **Shows how a config.changed event invalidates L1/L2 cache and ensures new transactions use the active version.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image16.jpg]]
+
+_Figure 10C-16. Configuration Change and Cache Invalidation_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant API as Config Governance API
+ participant KAFKA as Kafka config.changed Topic
+ participant NODES as Runtime Service Nodes
+ participant L1 as Caffeine L1 Cache
+ participant L2 as Redis L2 Cache
+ participant DB as PostgreSQL Config Tables
+ participant AUD as Audit Trail
+
+ API->>DB: Activate approved configuration version
+ API->>KAFKA: Publish config.changed(txn_code, profile, version, hash)
+ KAFKA->>NODES: Broadcast change event
+ NODES->>L1: Invalidate matching local runtime definition
+ NODES->>L2: Invalidate or update signed runtime definition
+ NODES->>DB: Load active version on next request if needed
+ NODES->>AUD: Record cache invalidation and version adoption
+
+### 6.17 Retention, Archive, Supersede, and Purge Flow
+
+**Purpose: **Shows controlled lifecycle processing for documents, chunks, indexes, wiki artifacts, and audit-retained evidence.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image17.jpg]]
+
+_Figure 10C-17. Retention, Archive, Supersede, and Purge Flow_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant POL as Retention Policy Trigger
+ participant TEMP as Temporal Retention Workflow
+ participant DB as PostgreSQL
+ participant OKM as OpenKM
+ participant IDX as pgvector / LightRAG
+ participant WIKI as LLM Wiki / Obsidian
+ participant FLOW as Human / Legal Approval
+ participant AUD as Audit Trail
+
+ POL->>TEMP: Start retention lifecycle action
+ TEMP->>DB: Resolve classification, legal hold, lineage, and dependencies
+ alt Legal hold or approval required
+ TEMP->>FLOW: Create review task with evidence
+ FLOW-->>TEMP: Approve, reject, or defer
+ end
+ alt Archive or supersede
+ TEMP->>OKM: Mark original document archived or superseded
+ TEMP->>DB: Update lifecycle status and retention metadata
+ TEMP->>IDX: Rebuild or remove derivative chunks/indexes
+ TEMP->>WIKI: Quarantine or supersede curated artifacts
+ else Purge approved
+ TEMP->>IDX: Remove derivative vectors and graph links
+ TEMP->>DB: Purge eligible non-audit records
+ TEMP->>OKM: Purge or tombstone source per policy
+ end
+ TEMP->>AUD: Preserve immutable retention evidence
+
+### 6.18 Observability, Audit, and Evidence Flow
+
+**Purpose: **Shows how every step produces trace, metric, log, and audit evidence for AVCI, troubleshooting, and compliance.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image18.jpg]]
+
+_Figure 10C-18. Observability, Audit, and Evidence Flow_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant ENV as Execution Envelope
+ participant OTEL as OpenTelemetry
+ participant LOG as Structured Logs
+ participant MET as Metrics Store
+ participant AUD as Immutable Audit Store
+ participant SLO as SLO / Alert Rules
+ participant WIKI as Knowledge Feedback Queue
+
+ ENV->>OTEL: Emit trace span with trace_id and step_code
+ ENV->>LOG: Emit redacted structured log event
+ ENV->>MET: Emit duration, outcome, retry, compensation metrics
+ ENV->>AUD: Persist actor, policy, classification, evidence_ref
+ MET->>SLO: Evaluate SLI/SLO and error budget rules
+ alt Failure or learning signal
+ SLO->>WIKI: Create governed feedback candidate
+ AUD->>WIKI: Attach evidence references for review
+ end
+
+### 6.19 Architecture Fitness Function CI Gate
+
+**Purpose: **Shows how CI verifies SOLID, Clean Architecture, DDD, ports/adapters, testability, security, observability, and rollbackability before merge.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image19.jpg]]
+
+_Figure 10C-19. Architecture Fitness Function CI Gate_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ actor DEV as Developer / AI-Assisted Author
+ participant PR as Pull Request
+ participant CI as CI Pipeline
+ participant ARCH as ArchUnit / Dependency Rules
+ participant SAST as SonarQube / Semgrep / SCA
+ participant TEST as Unit / Contract / Mutation Tests
+ participant OPA as OPA / Conftest Policies
+ participant EVID as AVCI Evidence Pack
+ participant REV as Human Reviewer
+
+ DEV->>PR: Submit change with AVCI and principle impact
+ PR->>CI: Trigger pipeline
+ CI->>ARCH: Run architecture boundary and dependency rules
+ CI->>SAST: Run quality, security, and dependency scans
+ CI->>TEST: Run deterministic tests and mutation thresholds
+ CI->>OPA: Validate policy-as-code and environment rules
+ alt All gates pass
+ CI->>EVID: Generate signed evidence pack
+ EVID->>REV: Present evidence for Maker-Checker review
+ else Any gate fails
+ CI-->>PR: Block merge with failed principle and evidence
+ end
+
+### 6.20 SOLID and Enterprise Principle Impact Assessment
+
+**Purpose: **Shows the standard review path for any AI-generated or human-authored change that affects MicroFunctions, configuration, workflows, prompts, policies, or adapters.
+
+**Enterprise principle check: **Before implementing or modifying this flow, validate affected SOLID duties, architecture boundaries, idempotency, fail-safe behavior, observability, testability, security, reversibility, and AVCI evidence.
+
+**Rendered sequence diagram:**
+
+![[attachments/10C-AIRA_MicroFunction_Sequence_Diagrams_and_Mermaid_Reference_v2.1_Aligned/image20.jpg]]
+
+_Figure 10C-20. SOLID and Enterprise Principle Impact Assessment_
+
+**Copy-ready Mermaid source:**
+
+sequenceDiagram
+ autonumber
+ participant CHANGE as Proposed Change
+ participant ASSESS as Principle Impact Assessment
+ participant OWNER as Code / Domain Owner
+ participant SEC as Security Reviewer
+ participant QA as QA / Test Reviewer
+ participant ARCH as Architecture Reviewer
+ participant CAB as CAB / Approval Gate
+ participant AUD as Evidence Store
+
+ CHANGE->>ASSESS: Declare affected components and intended outcome
+ ASSESS->>OWNER: Verify SRP, OCP, domain ownership, and business correctness
+ ASSESS->>SEC: Verify least privilege, SBAC, classification, and fail-safe behavior
+ ASSESS->>QA: Verify deterministic tests, idempotency, rollback, and regression evidence
+ ASSESS->>ARCH: Verify Clean Architecture, DDD, ports/adapters, and reversibility
+ alt Low risk and all reviews pass
+ ARCH->>AUD: Record approval and principle evidence
+ else High risk or production-impacting
+ ARCH->>CAB: Escalate with evidence and rollback plan
+ CAB->>AUD: Record approval, rejection, or waiver
+ end
+
+## 7. Developer Checklist
+
+Use the standard synchronous template unless the transaction is event-driven, AI-governed, document-intake, workflow-driven, or operations/reconciliation-specific.
+
+Do not implement logging, audit, idempotency, concurrency, cache, security, retry, compensation, or error mapping inside business code. Use standard MicroFunctions and the execution envelope.
+
+Business-specific Java code belongs in STP-BUS-* MicroFunctions only after configuration, DMN/rule tables, OPA policy, and existing catalog functions are insufficient.
+
+Every transaction definition must include error_policy_code, retry_policy_code, on_failure_step_code, timeout_ms, and compensation_step_code where applicable.
+
+Every state-changing transaction must be idempotent, observable, auditable, compensatable or forward-fixable, and testable.
+
+Every AI/RAG/tool-action flow must pass through retrieval, input, execution, and output guardrails, with LiteLLM-only model routing and Harness-mediated tool execution.
+
+Every diagram copied to documentation must include the Mermaid source and must identify the companion document and version used.
+
+Every PR/MR must include an AVCI summary and a principle impact statement when diagrams, transaction configuration, MicroFunction code, prompts, guardrails, or workflow behavior change.
+
+## 8. Diagram Verification and Review Gates
+
+| **Gate** | **Required Evidence** | **Reject If** |
+| --- | --- | --- |
+| Architecture boundary gate | Dependency graph, ArchUnit results, package/module review, domain ownership statement | Domain code depends on infrastructure, another bounded context is modified directly, or adapters are bypassed. |
+| SOLID gate | Function responsibility statement, input/output contract, extension path, interface usage | Function mixes framework concerns with business logic or introduces hardcoded orchestration. |
+| Security gate | SBAC/OPA result, classification handling, secret/PII redaction evidence, safe error behavior | Sensitive action fails open, logs leak PII/secrets, or bypasses policy/guardrail routes. |
+| Testability gate | Unit, contract, boundary, idempotency, rollback/compensation, and negative tests | Change cannot be tested deterministically or lacks unhappy-path evidence. |
+| Reversibility gate | Compensation, forward-fix, rollback, retry/DLQ, replay/reconcile evidence | State change has no safe recovery path. |
+| AVCI gate | Owner, version, source, classification, verification evidence, improvement path | Any AVCI property is missing or stale. |
+
+## 9. RACI
+
+| **Activity** | **Solutions Architect** | **Developer** | **QA/SDET** | **DevSecOps** | **Security** | **DBA** | **Architecture Board** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Maintain diagram standard | A | C | C | C | C | C | I |
+| Modify Mermaid source | A/R | R | C | C | C | C | I |
+| Regenerate rendered diagram | A/R | R | C | C | C | C | I |
+| Implement MicroFunction based on diagram | C | A/R | C | C | C | C | I |
+| Validate tests and fitness functions | C | R | A/R | R | C | C | I |
+| Approve architecture boundary change | R | C | C | C | C | C | A |
+| Approve security or AI action exception | C | C | C | C | A/R | C | I |
+| Publish updated reference | A/R | C | C | R | C | C | I |
+
+## 10. AVCI Compliance Summary
+
+| **AVCI Property** | **Compliance Statement** |
+| --- | --- |
+| Attributable | Each diagram has a stable title, versioned document reference, defined owner, companion documents, intended implementation audience, and rendered figure number. |
+| Verifiable | Each diagram provides both rendered visual output and copy-ready Mermaid source so behavior can be regenerated, inspected, tested, and validated through CI and architecture review. |
+| Classifiable | This document is INTERNAL CONFIDENTIAL and intended for authorized AIRA engineering, architecture, DevSecOps, security, QA, and database roles. |
+| Improvable | Diagram changes must be made in Mermaid source first, reviewed through MR, validated against 01A principles and fitness gates, then regenerated into DOCX/Obsidian/LLM Wiki as approved knowledge. |

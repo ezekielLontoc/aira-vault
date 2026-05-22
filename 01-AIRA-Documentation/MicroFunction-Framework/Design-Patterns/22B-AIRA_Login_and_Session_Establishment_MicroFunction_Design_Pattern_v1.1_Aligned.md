@@ -1,0 +1,904 @@
+---
+document_id: "AIRA-DOC-022B"
+title: "AIRA Login and Session Establishment MicroFunction Design Pattern"
+version: "v1.1"
+status: "aligned"
+source_file: "22B-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1_Aligned.docx"
+source_format: "docx"
+vault_folder: "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns"
+generated_at: "2026-05-22"
+tags:
+  - aira
+  - obsidian
+  - knowledge-vault
+  - login-poc
+  - microfunction
+---
+
+# AIRA Login and Session Establishment MicroFunction Design Pattern
+
+**AIRA**
+
+AI-Native Enterprise Platform
+
+**AIRA Login and Session Establishment MicroFunction Design Pattern**
+
+_Identity Assembly | Session Context | OIDC/Keycloak | SBAC/OPA | Audit and Observability Pattern_
+
+**v1.1 - Canonical 22B Numbering, Java 25, and Login Pattern Alignment Update**
+
+| **Property** | **Value** |
+| --- | --- |
+| **Document ID** | **AIRA-DOC-022BB** |
+| **Document Title** | **AIRA Login and Session Establishment MicroFunction Design Pattern** |
+| **Document Version** | **v1.1 - Canonical 22B Numbering, Java 25, and Login Pattern Alignment Update** |
+| **Supersedes** | **22-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1** |
+| **Classification** | **INTERNAL CONFIDENTIAL** |
+| **Status** | **FOR ARCHITECTURE REVIEW BOARD / SECURITY / DBA REVIEW** |
+| **Owner** | **Solutions Architecture Office / IT Head** |
+| **Co-Owners** | **Enterprise Architecture; Software Development Lead; DevSecOps Lead; Security Architecture; QA/SDET; Database Administration; Platform Engineering; AI Engineering; SRE / Operations; Internal Audit** |
+| **Effective Date** | **2026-05-21** |
+| **Review Cadence** | **Quarterly; unscheduled on material MicroFunction, security, database, workflow, AI, Java/runtime, or architecture-governance change** |
+| **Pack Context** | **Pack 04 v1.2 individual aligned file generated from Pack 04 v1.1 aligned source pack and synchronized against Packs 01, 02, 03, and 05.** |
+| **Backend Runtime Baseline** | **Java 25 LTS is mandatory for AIRA backend services, MicroFunction engine code, service templates, test fixtures, and CI evidence. Java 21 is waiver-only compatibility fallback, not the default.** |
+| **Numbering Treatment** | **Renumbered from duplicate Document 22 to 22B to avoid collision with Pack 03 22A AI registry document.** |
+
+**Configure First · Code Only the Business Gap · Govern Every Step · AVCI Always**
+
+## Pack 04 v1.2 Cross-Pack Alignment and Improvement Notice
+
+**Purpose. **This aligned version updates the individual Pack 04 source document so it can be uploaded to Obsidian as a standalone MicroFunction Framework artifact while remaining synchronized with the current AIRA source baseline, the completed Pack 01 through Pack 03 v1.2 individual outputs, and Pack 05 data/API/security/decision controls.
+
+**Document role. **Defines the reusable governed login/session-establishment MicroFunction pattern for assembling identity, session, policy, audit, event, and observability controls.
+
+| **Alignment Area** | **Applied Control / Improvement** |
+| --- | --- |
+| **Source baseline** | **AIRA Source Packs v3.0 / Aligned Pack Set v1.1 remains the input baseline; Pack 04 v1.2 is the new individual output set for Obsidian upload.** |
+| **Backend runtime baseline** | **Java 25 LTS is the required backend runtime for MicroFunction engine code, backend services, code-generation prompts, devcontainers, CI runners, tests, and operational evidence.** |
+| **Java 21 handling** | **Java 21 is not the default. It may appear only as a documented compatibility fallback with Architecture Board/CAB waiver, risk acceptance, compensating controls, and exit plan.** |
+| **Pack 01 governance references** | **References are aligned to AVCI v3.1, Engineering Blueprint v5.1, DevSecOps v3.1, 01A v1.1, and ADR-AIRA-2026-001 v1.1.** |
+| **Pack 02 execution references** | **References are aligned to Developer Guide v4.1, CLAUDE.md v3.1, Skills Framework v3.1, Unit Testing v3.1, GitNexus v1.2, and Developer Onboarding v1.1.** |
+| **Pack 03 technology references** | **References are aligned to Technology Stack v9.1, Information Nervous System v4.1, CI/CD Evidence Pack v1.1, AI Registry 22A, Login PoC Source Generation 23A, and Obsidian/LLM Wiki governance.** |
+| **Pack 05 data/security references** | **ADR/TDL, API contract, database/Flyway, security/identity/secrets/access control, and data migration/cutover standards govern material implementation, schema, and access changes.** |
+| **Pack 04 numbering cleanup** | **Remaining Pack 04 cross-pack number conflicts are resolved by promoting Login Pattern to 22B and Fitness Catalog to 23B. Document 40 remains provisional pending master-register disposition.** |
+| **MicroFunction principle** | **Configure the process. Reuse standard steps. Code only the business logic gap. Every configuration and coded function must preserve SOLID, Clean Architecture, DDD, ports/adapters, security, observability, testability, reversibility, and AVCI evidence.** |
+| **Login principle** | **AIRA is not building a custom login system. Login is a governed assembly of identity, session, policy, audit, event, and observability controls using approved components and reusable MicroFunctions.** |
+| **AI execution boundary** | **All model access routes through LiteLLM. NeMo Guardrails Input/Retrieval/Execution/Output checkpoints are mandatory. Tool actions go through Harness/SBAC/OPA with human approval where required.** |
+| **GitNexus / Dograh awareness** | **GitNexus may support read-only impact analysis. Dograh may support voice-agent orchestration. Neither can bypass MicroFunction, security, classification, testing, CI, or human approval gates.** |
+
+### Material Improvements in This Version
+
+Renumbered from Document 22 to 22B to complete cross-pack numbering cleanup after Pack 03 assigned 22A to the AI registry.
+
+Strengthened the key design message: AIRA is not building a custom login system; it is assembling governed identity, session, policy, audit, event, and observability flow using approved components and reusable MicroFunctions.
+
+Updated backend implementation assumptions to Java 25 LTS and aligned Login PoC code-generation references to Pack 03 23A and Pack 04 24.
+
+Improved login controls for Keycloak/OIDC, AD federation, MFA, Vault/OpenBao, OPA/SBAC, JWT validation, token/session lifecycle, audit, telemetry, and fail-closed behavior.
+
+Clarified that all login database/configuration artifacts must be created through Flyway-controlled migrations and validated through security, Playwright, policy, and architecture fitness tests.
+
+### Mandatory Java 25 and MicroFunction Implementation Control
+
+| **Control** | **Pack 04 v1.2 Requirement** |
+| --- | --- |
+| **Default backend runtime** | **Java 25 LTS. All backend MicroFunction engine, service templates, code-generation prompts, examples, test suites, GitNexus indexing metadata, and CI evidence must assume Java 25 unless explicitly waived.** |
+| **Fallback runtime** | **Java 21 is waiver-only for compatibility blockers. The waiver must include owner, reason, affected module/service, risk, target migration, compensating controls, and exit date.** |
+| **Business logic boundary** | **Business MicroFunctions must not parse transport payloads, build HTTP responses, call databases/Kafka/Redis/OpenKM/model providers directly, write audit records directly, or own framework concerns.** |
+| **Configuration governance** | **Runtime configuration, catalog entries, activation rows, and login schema data are engineering artifacts. They must be versioned, reviewed, tested, classified, and promoted through CI/DBA/approval gates.** |
+| **Database governance** | **Database setup and changes use Flyway only, including clean-slate baseline creation, control tables, seed data, views, indexes, RLS, and schema migration evidence.** |
+| **Evidence** | **Evidence packs must expose Java/toolchain version, build image digest, tests, architecture fitness, policy decisions, migration validation, trace/audit references, classification, and rollback/compensation path.** |
+
+### AVCI Compliance Summary for This Update
+
+| **AVCI Property** | **Evidence in This Pack 04 v1.2 Update** |
+| --- | --- |
+| **Attributable** | **Each file has document ID, owner, supersedes value, source pack context, numbering treatment, and material-improvement list.** |
+| **Verifiable** | **The Java 25 baseline is explicitly recorded, cross-pack references are updated, duplicate numbering is resolved, and source content is preserved after this alignment notice.** |
+| **Classifiable** | **All generated files are marked INTERNAL CONFIDENTIAL and inherit AIRA classification-handling, model-routing, logging, index, and retention rules.** |
+| **Improvable** | **Document 40 remains visible as provisional for master-register decision; 22B and 23B numbering cleanup is auditable and reversible through revision control.** |
+
+## Updated Baseline Content
+
+**AIRA**
+
+AI-Native Enterprise Platform
+
+**Login and Session Establishment MicroFunction Design Pattern**
+
+**Spring Security · Keycloak · Active Directory · JWT · Vault · OPA/SBAC · AVCI-Governed**
+
+Version 1.1 · May 2026 · INTERNAL CONFIDENTIAL
+
+| **Mandatory Login Design Rule**<br>AIRA shall not implement a custom password validation, password storage, account lockout, password policy, MFA, token issuance, or authentication engine inside application code. Login is a governed identity and session-context establishment transaction assembled from reusable MicroFunctions. Authentication is delegated to Keycloak federated with Active Directory; secrets and cryptographic material are governed through Vault; authorization is evaluated through RBAC, ABAC, SBAC, and OPA; every success, failure, denial, and exception is attributable, verifiable, classifiable, and improvable. |
+| --- |
+
+| **Property** | **Value** |
+| --- | --- |
+| Document ID | AIRA-DOC-022B |
+| Document Title | AIRA Login and Session Establishment MicroFunction Design Pattern |
+| Version | v1.1 - Initial Formal Design Pattern |
+| Classification | INTERNAL CONFIDENTIAL |
+| Status | FOR ARCHITECTURE REVIEW BOARD / SECURITY REVIEW / ENGINEERING ADOPTION |
+| Owner | Solutions Architecture Office / Security Architecture |
+| Co-Owners | Software Development Lead; DevSecOps Lead; QA Lead; Security Administrator; System Administrator; DBA; AI Governance Lead |
+| Primary Audience | Solutions Architects, Software Developers, DevSecOps, QA/SDET, Security, System Administrators, Internal Audit |
+| Effective Date | Upon Architecture Review Board / CAB approval |
+| Review Cadence | Quarterly; unscheduled on material identity, security, token, model-routing, AI-tooling, or architecture change |
+| Companion Documents | 01 AVCI; 02 Engineering Blueprint; 03 Developer Guide; 08 Unit Testing; 10/10A/10B/10C/10D MicroFunction suite; 11 DevSecOps; 12 CLAUDE.md Rollout; 15 API Contract; 16 Database; 17 Security; 18 Repository Bootstrap; 21 Knowledge Control Plane |
+| Evidence Path | OpenKM Tier-0 / AIRA / Engineering Standards / Login MicroFunction Pattern / v1.1/ |
+
+## Table of Contents
+
+## 1. Executive Summary
+
+## 2. Purpose, Scope, and Authority
+
+## 3. Design Principles and Non-Negotiable Rules
+
+## 4. Reference Architecture
+
+## 5. Runtime Transaction Definition
+
+## 6. Modular Login MicroFunction Catalog
+
+## 7. Functions That Must Not Be Coded From Scratch
+
+## 8. Login Sequence and Runtime Flow
+
+## 9. Error and Fail-Closed Handling
+
+## 10. Configuration Baselines
+
+## 11. Security, Session, Token, and Classification Rules
+
+## 12. Audit, Eventing, and Observability Evidence
+
+## 13. Testing, Quality Gates, and Architecture Fitness Functions
+
+## 14. DevSecOps and Repository Enforcement
+
+## 15. Auto-Heal, Auto-Learn, and Auto-Improve Controls
+
+## 16. RACI and Operating Responsibilities
+
+## 17. Implementation Roadmap and Acceptance Criteria
+
+## 18. Risks and Mitigations
+
+## 19. AVCI Compliance Summary
+
+Appendix A. Copy-Ready Mermaid: Login Sequence
+
+Appendix B. Copy-Ready Mermaid: Error and Fail-Closed Handling
+
+Appendix C. Sample Runtime Process Definition YAML
+
+Appendix D. Sample OPA Policy Skeleton
+
+Appendix E. PR/MR Compliance Summary Template
+
+Word TOC Note: This document uses a static table of contents for deterministic rendering. A dynamic Microsoft Word TOC may be inserted before final publication if required.
+
+## 1. Executive Summary
+
+This document formalizes the AIRA Login and Session Establishment MicroFunction Design Pattern. It converts the working login concept into a controlled, reusable, testable, observable, secure, and evidence-producing authentication pattern suitable for inclusion in the AIRA documentation baseline.
+
+The design position is intentionally strict: AIRA does not build its own authentication engine. The platform uses enterprise identity capabilities already available through Spring Security, Keycloak, Active Directory, JWT validation, HashiCorp Vault, encryption, OPA, and AIRA MicroFunctions. Application code establishes a governed session context only after enterprise identity, token, policy, classification, idempotency, audit, and observability controls have passed.
+
+This pattern becomes the first reusable security transaction pattern for AIRA. The same structure can be reused for logout, token refresh, privilege elevation, step-up MFA, admin access, service-to-service authentication, and break-glass workflows.
+
+| **Strategic Outcome** | **Required Result** |
+| --- | --- |
+| No custom authentication engine | Passwords, lockout, MFA, token issuance, and password policy remain in Keycloak and Active Directory, not AIRA business code. |
+| MicroFunction-based login | Login is assembled from reusable standard steps instead of a hardcoded controller method. |
+| Fail-closed security | Unavailable or untrusted identity, policy, Vault, audit, or token validation blocks protected access. |
+| AVCI evidence by construction | Every login success, failure, denial, logout, token refresh, revocation, and suspicious attempt produces traceable evidence. |
+| SOLID and Clean Architecture preservation | Controllers, adapters, domain code, policies, audit, events, and observability remain separated through ports and adapters. |
+| Security and audit defensibility | The pattern supports ISO 27001, CIS, NIST SSDF, NIST AI RMF, OWASP ASVS, SOC 2, and BSP IT Risk expectations. |
+
+## 2. Purpose, Scope, and Authority
+
+### 2.1 Purpose
+
+Define the formal AIRA login design pattern using approved identity, security, session, audit, eventing, and observability components.
+
+Define the reusable MicroFunction catalog for AUTH_LOGIN_CONTEXT_ESTABLISH.
+
+Prevent custom authentication, unsafe token handling, scattered authorization logic, duplicated audit code, and inconsistent login telemetry.
+
+Establish the mandatory configuration, testing, evidence, and review gates required before login is promoted beyond development.
+
+### 2.2 In Scope
+
+Browser and API login flows using Spring Security OAuth2/OIDC and Keycloak.
+
+Keycloak federation to Active Directory for credentials, account status, groups, MFA, lockout, and password policy enforcement.
+
+JWT issuance by Keycloak and JWT validation by Spring Security Resource Server / Gateway.
+
+Session context establishment, policy authorization, classification ceiling, audit evidence, security events, observability, and safe response handling.
+
+Login callback replay protection, idempotency, token revocation behavior, logout, suspicious login handling, and break-glass considerations.
+
+### 2.3 Out of Scope
+
+Building custom password verification, local password stores, custom MFA engine, or custom token signing service.
+
+Business-specific menu authorization after landing context, except initial entry eligibility and classification ceiling.
+
+Detailed firewall, network, and endpoint hardening procedures unless required by the login flow.
+
+Human HR policies except where access approval, account lifecycle, and break-glass accountability are required.
+
+### 2.4 Authority and Precedence
+
+| **Level** | **Document / Control** | **Login Design Impact** |
+| --- | --- | --- |
+| L0 | AIRA Architecture Board / Consolidated Architecture Decisions | Final authority for identity boundary, trust boundary, and exception decisions. |
+| L1 | 02 Engineering Blueprint and 17 Security Standard | Controls service boundaries, identity architecture, model route, security posture, and fail-closed obligations. |
+| L2 | 01 AVCI and 01A Enterprise Design Principles | Universal evidence, SOLID, architecture, security, testability, reversibility, and improvement gates. |
+| L2 | 10 MicroFunction Framework and support suite | Controls runtime assembly, standard steps, catalog evidence, configuration activation, error handling, and safe response. |
+| L3 | This Login Design Pattern | Defines login-specific MicroFunction sequence, configuration baseline, tests, evidence, and review gates. |
+| L4 | Keycloak realm, AD groups, OPA policies, Vault paths, repository rules, CI tests | Executable implementation artifacts that may tighten but never weaken this design pattern. |
+
+## 3. Design Principles and Non-Negotiable Rules
+
+| **No.** | **AIRA Principle** | **Login Enforcement Meaning** |
+| --- | --- | --- |
+| 1 | SOLID | Each login function has one responsibility; authentication, authorization, token validation, audit, events, and response handling are separate replaceable components. |
+| 2 | Clean Architecture | Domain/application code does not depend on Keycloak, AD, Vault, Redis, Kafka, or provider SDKs directly; adapters implement ports. |
+| 3 | DDD / Bounded Contexts | Identity context owns authentication/session semantics. Other contexts consume identity claims through contracts, not by direct AD/Keycloak access. |
+| 4 | Ports and Adapters | Keycloak, AD, Vault, OPA, Redis, Kafka, and observability integrations are adapters behind approved interfaces. |
+| 5 | DRY, KISS, YAGNI | Do not duplicate identity plumbing per controller; reuse standard STP-* functions and enterprise identity features. |
+| 6 | Idempotency by Design | Login callback processing and token refresh/revocation handling are replay-safe and duplicate-effect safe. |
+| 7 | Determinism and Reproducibility | Realm/client configuration, OPA policies, Vault paths, tests, and runtime definitions are versioned and reproducible. |
+| 8 | Fail-Safe, Not Fail-Open | If identity, policy, Vault, audit, token validation, or required guard fails, protected access is denied and evidenced. |
+| 9 | Human-in-the-Loop | Privileged access, break-glass, policy exception, disabled-account override, and repeated suspicious login require named human review. |
+| 10 | Least Privilege / SBAC | Actors receive only approved roles, skills, tenant scope, branch/unit scope, and classification ceiling. |
+| 11 | Separation of Duties | Identity administrators, policy authors, developers, reviewers, deployers, and auditors remain separable. |
+| 12 | Observability by Design | Every login path emits safe trace, metric, log, audit, and alert signals without credential/token leakage. |
+| 13 | Policy as Code | Critical access decisions are expressed in OPA policies and reviewed as code, not hidden if/else logic. |
+| 14 | Testability by Design | Token validation, policy denial, account states, replay, timeout, error paths, and security headers are testable. |
+| 15 | Secure by Design | No secrets in source, prompts, logs, screenshots, errors, tests, or telemetry. No PII/token leakage. |
+| 16 | Resilience Patterns | Timeouts, retries, circuit breakers, fallback denial, alerting, and escalation are defined for each dependency. |
+| 17 | Architecture Fitness Functions | CI checks enforce import bans, package boundaries, no direct provider calls, policy tests, and evidence completeness. |
+| 18 | Progressive Autonomy | Agents may analyze login failures and draft remediation but cannot change identity policy or promote fixes without review. |
+| 19 | Reversibility / Rollbackability | Realm/client, OPA, Vault, and runtime-definition changes have rollback or forward-fix plans. |
+| 20 | AVCI | Every login artifact has owner, version, classification, evidence, and improvement path. |
+
+## 4. Reference Architecture
+
+The login architecture separates identity verification, token issuance, token validation, session-context establishment, authorization, secrets, eventing, audit, and response handling. Keycloak and AD authenticate the user. AIRA validates tokens and assembles a governed session context through reusable MicroFunctions.
+
+![[attachments/22B-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1_Aligned/image21.png]]
+
+Diagram Note: This schematic is included for developer understanding. The copy-ready Mermaid sequence in Appendix A remains the editable source for repository and Obsidian use.
+
+### 4.1 Identity Boundary
+
+| **Boundary** | **Owner** | **Rule** |
+| --- | --- | --- |
+| Authentication | Keycloak federated with Active Directory | AIRA delegates credential validation, disabled/locked/expired account checks, password policy, and MFA enforcement. |
+| Token issuance | Keycloak | Access token, ID token, refresh token, issuer, audience, expiry, signature, scopes, and claims are governed by realm/client policy. |
+| Token validation | Spring Security Resource Server / Gateway | Validate issuer, audience, signature, expiry, nonce/state where applicable, required claims, and route eligibility. |
+| Authorization | OPA with RBAC/ABAC/SBAC inputs | AIRA evaluates entry eligibility, skills, tenant/unit/branch scope, privileged access, and classification ceiling. |
+| Secrets and cryptographic material | HashiCorp Vault | Client secrets, TLS/mTLS material, key references, DB credentials, and encryption keys are retrieved only through approved paths. |
+| Session context | AIRA Auth/Session service | AIRA establishes minimal, classified, auditable session context. Do not persist raw passwords, refresh tokens in unsafe storage, or full claim sets unnecessarily. |
+
+## 5. Runtime Transaction Definition
+
+| **Attribute** | **Value** |
+| --- | --- |
+| Transaction Code | AUTH_LOGIN_CONTEXT_ESTABLISH |
+| Purpose | Establish an authenticated AIRA session context after Keycloak/AD authentication and token validation. |
+| Trigger | OIDC login callback, authenticated session bootstrap, or controlled token/session refresh callback. |
+| Primary Actor | Human user through React UI / browser; service actors use separate client-credentials pattern. |
+| Classification | CONFIDENTIAL by default; may become RESTRICTED when privileged admin, break-glass, or sensitive claims are involved. |
+| Authority | AIRA Security Standard, Engineering Blueprint, MicroFunction Framework, AVCI Standard, CLAUDE.md rules, OPA policies. |
+| Core Prohibition | Do not implement password validation, password policy, MFA logic, custom token issuance, or local credential storage in AIRA application code. |
+| Completion State | Session context established, classification ceiling assigned, audit written, security event produced, observability emitted, safe response returned. |
+| Failure State | Protected access denied, safe generic response returned, audit and observability evidence produced, escalation triggered when thresholds are met. |
+
+## 6. Modular Login MicroFunction Catalog
+
+The following functions form the baseline ordered sequence for AUTH_LOGIN_CONTEXT_ESTABLISH. The sequence may be refined by architecture decision or policy, but mandatory controls must not be removed without approved waiver, compensating control, expiry date, and remediation plan.
+
+| **Order** | **Step Code** | **Function** | **Main Technology** | **Purpose / Rule** |
+| --- | --- | --- | --- | --- |
+| 1 | STP-RCV-AUTH-REQUEST | Receive Login Request | Spring Cloud Gateway / React UI | Accept login start or callback request; reject unsupported methods, invalid routes, or unsafe redirect parameters. |
+| 2 | STP-COR-TRACE | Correlation | Gateway / OpenTelemetry | Create or propagate trace_id, request_id, correlation_id, causation_id for evidence and observability. |
+| 3 | STP-RATE-LOGIN | Rate Limit / Brute-Force Guard | Gateway / Keycloak | Throttle repeated attempts, suspicious login patterns, abusive IPs, and high-risk request bursts. |
+| 4 | STP-SEC-CSRF-CORS | Browser Security Guard | Spring Security | Validate state, nonce, CSRF posture, CORS, redirect URI, SameSite/Secure cookie posture, and security headers. |
+| 5 | STP-AUTH-REDIRECT | Redirect to IdP | Spring Security OAuth2 Client | Start OIDC Authorization Code + PKCE flow against approved Keycloak client. |
+| 6 | STP-IDP-AUTHN | Authenticate User | Keycloak + AD | Delegate credential validation, AD account state, group membership, lockout, password expiry, and MFA policy. |
+| 7 | STP-IDP-CLAIMS | Map Identity Claims | Keycloak | Map AD groups, user attributes, branch/unit, department, role, skill signals, and classification ceiling candidates. |
+| 8 | STP-JWT-ISSUE | Issue Token | Keycloak | Issue signed access token, ID token, and refresh token according to realm/client policy. |
+| 9 | STP-JWT-VALIDATE | Validate JWT | Gateway + Spring Security Resource Server | Validate issuer, audience, signature, expiry, key ID, required claims, token type, and trusted realm. |
+| 10 | STP-SES-RESOLVE | Resolve Session / Actor / Tenant | MicroFunction Envelope | Resolve actor, tenant, role, skill, branch/unit, channel, device/context signals, and session correlation. |
+| 11 | STP-SEC-OPA-AUTHZ | Authorization Decision | OPA + RBAC/ABAC/SBAC | Evaluate entry eligibility, required role/skill, privileged status, tenant/branch scope, and policy version. |
+| 12 | STP-CLS-CONTEXT | Classification Context | Policy / Data Classification | Set allowed classification ceiling and data-handling scope for the initial session context. |
+| 13 | STP-IDP-LOGIN-IDEMP | Login Idempotency / Replay Guard | Redis + PostgreSQL | Prevent duplicate login callback processing, replay abuse, token-code reuse, and duplicate audit/event effects. |
+| 14 | STP-VAULT-SECRETS | Resolve Runtime Secrets | HashiCorp Vault | Retrieve only required secret references, client credentials, certificates, or key references through approved paths and leases. |
+| 15 | STP-ENC-SESSION | Session Data Protection | Vault Transit / Application Crypto | Encrypt, sign, or protect sensitive session metadata where required; do not expose secrets or raw tokens. |
+| 16 | STP-AUD-LOGIN | Audit Evidence | PostgreSQL Audit / OpenKM Evidence Path | Record login success/failure, actor, tenant, policy decision, trace, classification, and evidence references. |
+| 17 | STP-EVT-LOGIN | Publish Login Event | Kafka / CloudEvents / Outbox | Publish safe security event metadata for SIEM, monitoring, risk analytics, and operational response. |
+| 18 | STP-OBS-LOGIN | Observability | OpenTelemetry / Prometheus / Loki / Tempo / Sentry | Emit metrics, spans, safe structured logs, error correlation, alerts, and dashboard signals. |
+| 19 | STP-RSP-SAFE-LOGIN | Safe Response | API / UI | Return landing context, session state, allowed routes, and safe messages without secrets, tokens, raw claims, or PII leakage. |
+| 20 | STP-ERR-AUTH | Error Handling | Error Policy / Safe Response Builder | Handle invalid token, locked account, MFA failure, OPA deny, Vault failure, timeout, replay, and dependency outage. |
+
+![[attachments/22B-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1_Aligned/image22.png]]
+
+## 7. Functions That Must Not Be Coded From Scratch
+
+| **Do Not Code From Scratch** | **Use Instead** | **Reason** |
+| --- | --- | --- |
+| Password validation | Active Directory through Keycloak federation | Prevents local credential risk and reuses enterprise controls. |
+| Password policy | AD domain password policy and Keycloak policy | Prevents inconsistent rules and audit gaps. |
+| Account lockout and disabled-account logic | AD and Keycloak brute-force / account-state policies | Centralizes identity lifecycle and lockout evidence. |
+| MFA logic | Keycloak / enterprise IdP MFA integration | Avoids fragile custom authentication factors. |
+| JWT creation/signing | Keycloak | Token issuance is identity-provider responsibility. |
+| JWT validation parser from scratch | Spring Security OAuth2 Resource Server | Use mature library validation and avoid crypto mistakes. |
+| Role storage inside application code | AD groups, Keycloak mappers, policy registry | Prevents role drift and duplicated authorization. |
+| Authorization if/else per controller | OPA policies with RBAC/ABAC/SBAC inputs | Makes authorization reviewable and testable as policy-as-code. |
+| Secret loading from files or environment sprawl | Vault / approved secret injection | Prevents secret leakage and enables leases/rotation. |
+| Manual audit logging per controller | Standard STP-AUD-* MicroFunction | Creates consistent evidence and prevents missing audit paths. |
+| Custom error messages | Standard safe-response/error catalog | Avoids user enumeration, stack traces, token leakage, and PII leakage. |
+| Custom session telemetry | Standard observability envelope | Ensures trace, metric, log, alert, and Sentry correlation consistency. |
+
+## 8. Login Sequence and Runtime Flow
+
+The normal path begins at the React UI and Spring Cloud Gateway, delegates authentication to Keycloak and AD, validates tokens through Spring Security, then invokes AUTH_LOGIN_CONTEXT_ESTABLISH to establish the AIRA session context. The runtime path is security-first: identity, policy, classification, idempotency, Vault, audit, eventing, observability, and safe response must all be represented in the design and evidence.
+
+| **Stage** | **Description** | **Mandatory Evidence** |
+| --- | --- | --- |
+| 1. Login initiation | User requests login through React UI. Gateway applies TLS, security headers, and rate limiting. | trace_id, request_id, route, rate-limit decision, no credentials logged. |
+| 2. OIDC redirect | Spring Security starts Authorization Code + PKCE flow to Keycloak. | state/nonce, redirect URI validation, client ID, policy version. |
+| 3. Enterprise authentication | Keycloak validates with AD and enforces account status and MFA. | IdP audit, AD account flags, group mapping, MFA result. |
+| 4. Token issuance and validation | Keycloak issues tokens; AIRA validates JWT issuer, audience, signature, expiry, and claims. | JWT validation result, key ID, issuer, audience, expiry, no raw token in logs. |
+| 5. Session context establishment | MicroFunction Coordinator executes AUTH_LOGIN_CONTEXT_ESTABLISH. | runtime definition version, OPA decision, classification ceiling, idempotency state. |
+| 6. Evidence and response | Audit, event, observability, and safe response are produced. | audit record, CloudEvent ID, trace/span IDs, safe response status. |
+
+## 9. Error and Fail-Closed Handling
+
+Login failure is not an exception to governance. Failure paths are first-class security flows. Every failure must be safely classified, audited, observed, and returned through the safe response builder.
+
+| **Failure Scenario** | **Required AIRA Behavior** | **Evidence / Escalation** |
+| --- | --- | --- |
+| Keycloak or AD unavailable | New login fails closed with generic service-unavailable response. Existing valid sessions follow approved session-continuity policy only if token validation remains trustworthy. | Critical identity dependency alert, audit record, trace, incident candidate. |
+| Vault unavailable | Fail closed for flows requiring secret/key resolution. Do not continue with unmanaged stale secrets. | Vault failure event, audit, alert, safe response. |
+| OPA unavailable | Fail closed for protected access. Do not bypass policy checks. | Policy engine outage audit and alert. |
+| Invalid credential or MFA failure | Return generic failure. Do not disclose whether user exists, password is wrong, MFA failed, or account state changed. | Safe failed-login evidence and failure counter. |
+| Locked, disabled, expired, or outside policy | Deny login or route to enterprise-approved remediation flow without exposing sensitive reason to UI. | Account-state reference, policy decision, human-review trigger if needed. |
+| Replay or duplicate callback | Block duplicate processing and record replay attempt. | Idempotency violation evidence, security event, possible review task. |
+| Suspicious repeated failure | Throttle, alert, and create security review task when threshold is met. | SIEM event, Flowable review task, audit trail. |
+| Token tampering or signature failure | Deny access and record security event without logging token content. | Token validation failure evidence and alert. |
+
+## 10. Configuration Baselines
+
+### 10.1 Keycloak Baseline
+
+| **Configuration Area** | **Baseline Requirement** |
+| --- | --- |
+| Realm | Dedicated AIRA realm or approved enterprise realm partition with clear ownership, naming, lifecycle, and backup/restore evidence. |
+| Client | OIDC confidential/public client selected by architecture; Authorization Code + PKCE for browser flows; implicit flow prohibited. |
+| Redirect URIs | Explicit allowlist only. Wildcards prohibited except approved local development pattern with limited scope. |
+| Token lifetime | Short-lived access tokens; refresh token rotation and revocation enabled according to risk profile. |
+| Scopes and claims | Minimum claims only; group/role/skill mapping uses approved mappers and avoids excessive PII. |
+| MFA | Required for privileged users, administrators, developers, break-glass, high-risk access, and other policy-defined cases. |
+| Brute-force protection | Enabled with thresholds, lockout, alerting, and review evidence. |
+| Audit | Login, failure, MFA, lockout, admin change, mapper change, client change, and realm change events retained. |
+
+### 10.2 Active Directory Baseline
+
+| **AD Capability** | **AIRA Usage** |
+| --- | --- |
+| Credential verification | Delegated through Keycloak federation. AIRA does not receive or validate passwords. |
+| Groups and nested groups | Mapped to roles, skills, and authorization attributes through Keycloak mappers and policy registry. |
+| Account status | Disabled, locked, expired, password-expired, and account-expired states influence login eligibility. |
+| Organizational Units | May contribute branch/unit, department, or environment-specific policy attributes when approved. |
+| Password policy | Enforced by AD/domain policy and surfaced only through safe remediation UX. |
+| Lifecycle | Joiner, mover, leaver, privilege review, and offboarding evidence must reconcile with AIRA access. |
+
+### 10.3 Vault Baseline
+
+| **Vault Area** | **Baseline Requirement** |
+| --- | --- |
+| Secrets | Client secrets, DB credentials, webhook secrets, and integration credentials are stored only in Vault or approved equivalent. |
+| PKI / certificates | TLS/mTLS certificates and service identity materials are issued, rotated, and audited through approved paths. |
+| Transit / encryption | Use Vault Transit or approved application crypto for sensitive session metadata where required. |
+| Leases and rotation | Secrets must have TTL, rotation policy, revocation path, and evidence. |
+| Access control | Service accounts use least privilege and workload identity where possible. Human secret access is exceptional and audited. |
+
+### 10.4 OPA / SBAC Policy Baseline
+
+| **Policy Domain** | **Baseline Rule** |
+| --- | --- |
+| Login eligibility | Actor must be active, authenticated, within allowed tenant/unit/channel/context, and satisfy entry policy. |
+| Role and skill mapping | AD/Keycloak roles are inputs; SBAC controls sensitive actions and privileged access. |
+| Classification ceiling | Policy sets the maximum data classification the session may access. |
+| Privileged / admin access | Requires MFA, named accountability, segregation of duties, enhanced audit, and review. |
+| Break-glass | Requires dual approval, time-bound access, immutable audit, post-use review, and remediation evidence. |
+| Policy failure | OPA unavailable or policy bundle invalid means deny protected access. |
+
+## 11. Security, Session, Token, and Classification Rules
+
+| **Area** | **Mandatory Rule** |
+| --- | --- |
+| Browser token handling | Prefer secure httpOnly SameSite cookies or approved BFF/session pattern. Do not store access or refresh tokens in browser localStorage. |
+| JWT validation | Validate issuer, audience, signature, expiry, key ID, required claims, token type, and trusted realm. Fail closed if validation cannot be trusted. |
+| Refresh token handling | Refresh token rotation and revocation must be enabled. Refresh tokens must not be exposed to logs, scripts, test fixtures, or prompts. |
+| Logout | Support front-channel and/or back-channel logout as approved; revoke/expire session context and record audit/event evidence. |
+| CSRF / state / nonce | State and nonce are mandatory for browser OIDC flows. CSRF protection follows the chosen UI/BFF pattern. |
+| CORS and redirect URI | Only explicit allowlists are permitted. Unsafe redirects are blocked and evidenced. |
+| mTLS / workload identity | Service-to-service identity uses SPIFFE/SVID or approved short-lived workload identity where applicable. |
+| Classification | Session context receives classification ceiling from OPA/SBAC policy. Restricted data must not be exposed to cloud AI prompts or logs. |
+| Logging and telemetry | Never log passwords, access tokens, refresh tokens, authorization codes, full claims, secrets, PII, or raw prompts. Use hashed user identifiers where needed. |
+| Safe response | Failure responses are generic and do not disclose account existence, lockout state, AD status, token internals, policy details, stack traces, or secret paths. |
+
+## 12. Audit, Eventing, and Observability Evidence
+
+| **Evidence Type** | **Required Fields / Behavior** |
+| --- | --- |
+| Audit record | event_type, actor_id_hash, tenant_id, session_id_hash, trace_id, request_id, decision, policy_version, classification, source_ip_hash where permitted, timestamp, reviewer/escalation reference when applicable. |
+| Login success event | Safe CloudEvent containing actor reference hash, tenant/unit, policy decision, classification ceiling, channel, trace_id, event_id, and no secrets or raw tokens. |
+| Login failure event | Failure category, safe reason code, threshold counter, trace_id, policy/dependency status, no credential/token/PII leakage. |
+| Metrics | login_success_total, login_failure_total, login_denied_total, auth_dependency_failure_total, token_validation_failure_total, replay_blocked_total, latency histograms. |
+| Traces | Gateway, Security, Keycloak callback, token validation, MicroFunction execution, OPA, Vault, audit, outbox, response spans. |
+| Logs | Structured JSON logs with trace_id, service.name, env, release, safe event type, status, and no high-cardinality sensitive labels. |
+| Sentry / error correlation | Only error fingerprints, release, environment, route, trace_id, and safe context; no secrets, tokens, passwords, or raw claims. |
+| SIEM / Wazuh | Security events forwarded for failed login threshold, suspicious patterns, admin login, break-glass, policy denial, and identity dependency outage. |
+
+## 13. Testing, Quality Gates, and Architecture Fitness Functions
+
+| **Gate** | **Required Tests / Evidence** |
+| --- | --- |
+| Unit tests | Token-claim mapping, safe response builder, session-context resolver, policy input builder, idempotency guard, error classifier. |
+| Integration tests | Keycloak test realm, AD/federation stub or approved test directory, JWKS validation, Vault test path, OPA policy decision, audit/outbox write. |
+| Security tests | Tampered token, wrong issuer, wrong audience, expired token, missing claim, replayed callback, unsafe redirect, CSRF/state/nonce failure. |
+| Account-state tests | Disabled user, locked user, expired password, expired account, missing MFA, missing required group, revoked access. |
+| Policy tests | OPA allow, deny, privileged, break-glass, classification ceiling, skill missing, tenant mismatch, OPA unavailable fail-closed. |
+| E2E tests | Successful login, failed login, unauthorized landing context, logout, session timeout, token refresh where applicable, safe error UX. |
+| Architecture tests | No direct Keycloak/AD/Vault/OPA/Kafka dependencies inside domain logic; no custom JWT parser; no local password storage; no direct secret files. |
+| Observability tests | Trace emitted, audit persisted, safe log generated, no tokens/secrets/PII in logs, dashboard/alert sample. |
+| CI/CD gates | SAST, SCA, secret scan, Semgrep, ArchUnit, OPA/Conftest, unit/integration/E2E evidence, SBOM/provenance, PR AVCI summary. |
+| DAST / header tests | Security headers, cookie flags, redirect behavior, CORS posture, TLS posture, no token leakage in browser-visible surfaces. |
+
+## 14. DevSecOps and Repository Enforcement
+
+Root and directory-level CLAUDE.md rules must apply to all login-related source, configuration, OPA policy, test, and infrastructure files.
+
+CODEOWNERS must require review from Security, DevSecOps, QA, and Architecture for changes to login, Keycloak configuration, OPA policies, Vault paths, token validation, session handling, and audit/event flows.
+
+Repository checks must block direct provider SDK calls in business/domain code, local password storage, custom JWT signing, unsafe redirects, token leakage, and missing audit or observability evidence.
+
+All AI-assisted code generation for login must include an AI involvement declaration, design-principle impact statement, test evidence, and human verification.
+
+Login configuration changes must be versioned, reviewed, reproducible, and linked to an ADR/TDL when they affect security posture, identity boundary, token policy, or privileged access.
+
+## 15. Auto-Heal, Auto-Learn, and Auto-Improve Controls
+
+| **Capability** | **Allowed Login Use** | **Reject If** |
+| --- | --- | --- |
+| Auto-Heal | Detect dependency outages, propose safe configuration fixes, draft tests, create PRs, rerun non-production checks. | It bypasses Keycloak/AD, disables MFA, weakens OPA, suppresses audit, logs tokens, or promotes directly to production. |
+| Auto-Learn | Convert reviewed login incidents, failed tests, and security findings into candidate runbooks or knowledge artifacts. | The lesson is unreviewed, uncited, stale, classification-unsafe, or conflicts with approved standards. |
+| Auto-Improve | Propose better policy tests, token validation checks, observability dashboards, or architecture fitness functions. | It adds speculative complexity, weakens usability/security balance without evidence, or breaks bounded-context ownership. |
+| AutoResearch | Collect external security advisories and framework guidance through approved sources and citation rules. | It introduces unverified vendor claims or directly changes policy/configuration without review. |
+
+Auto Loop Master Rule: Automated loops may propose, draft, test, and recommend. They must not self-approve identity, policy, Vault, Keycloak, AD, OPA, token, or session changes. All material changes require named human accountability and AVCI evidence.
+
+## 16. RACI and Operating Responsibilities
+
+| **Activity** | **Solutions Architect** | **Security** | **Dev Lead** | **Developer** | **QA** | **DevSecOps** | **System Admin** | **Internal Audit** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Approve login design pattern | A | R | C | I | C | C | C | I |
+| Configure Keycloak realm/client | C | A/R | C | I | C | C | R | I |
+| Configure AD federation / groups | C | A/R | C | I | I | C | R | I |
+| Define OPA/SBAC policies | A | R | C | C | C | R | C | I |
+| Define Vault paths and secret policy | C | A/R | C | I | C | R | R | I |
+| Implement MicroFunction steps | C | C | A/R | R | C | C | I | I |
+| Write tests and evidence | C | C | C | R | A/R | C | I | I |
+| Configure CI/security gates | C | C | C | C | C | A/R | C | I |
+| Approve production promotion | A | A/R | R | I | C | R | C | I |
+| Audit evidence sampling | I | C | I | I | C | C | C | A/R |
+
+## 17. Implementation Roadmap and Acceptance Criteria
+
+| **Phase** | **Objective** | **Key Actions** | **Exit Criteria** |
+| --- | --- | --- | --- |
+| Phase 1 - Design Approval | Approve the pattern and authority boundary. | Review with Architecture, Security, DevSecOps, QA; confirm no custom authentication engine; log ADR/TDL if needed. | Approved design pattern, named owners, companion references, risk register entries. |
+| Phase 2 - Identity Baseline | Prepare Keycloak and AD configuration. | Create realm/client, federation, group mappers, MFA, token policy, redirect URI allowlist, audit settings. | Configuration in Git/approved store, review evidence, non-production validation. |
+| Phase 3 - Policy and Secrets | Prepare OPA/SBAC and Vault controls. | Define login eligibility policy, classification ceiling, break-glass policy, Vault paths, secret TTL/rotation. | OPA tests pass, Vault paths approved, policy versions recorded. |
+| Phase 4 - MicroFunction Implementation | Implement AUTH_LOGIN_CONTEXT_ESTABLISH. | Create step catalog, runtime definition, coordinator integration, audit/event/observability hooks. | Unit/integration tests pass, architecture checks pass, no forbidden patterns. |
+| Phase 5 - End-to-End Verification | Prove login safety and evidence completeness. | Run E2E, negative, DAST/header, SIEM, observability, failure, replay, and account-state tests. | Evidence pack complete, PR/MR AVCI summary approved. |
+| Phase 6 - Controlled Promotion | Promote through governed release path. | CAB/ARB approval, rollback plan, monitoring, support runbook, alert thresholds, audit sampling. | Release approved, monitoring active, rollback/forward-fix plan tested. |
+
+## 18. Risks and Mitigations
+
+| **Risk** | **Impact** | **Mitigation** |
+| --- | --- | --- |
+| Application starts validating passwords locally | Major security and compliance exposure | Prohibit custom credential validation through code review, architecture tests, and CLAUDE.md rules. |
+| Tokens leak to logs, browser storage, prompts, or test fixtures | Credential compromise and audit finding | Secret scanning, log redaction tests, no localStorage tokens, safe telemetry, reviewer attestation. |
+| OPA or Vault failure bypassed | Fail-open security defect | Health gates and explicit fail-closed tests. |
+| AD group mapping drifts from roles/skills | Unauthorized or blocked access | Approved mapper registry, SBAC policy tests, periodic access reviews. |
+| Generic error UX too vague for support | Support inefficiency | Show safe user message plus trace/reference ID; support team uses audit evidence, not exposed internals. |
+| Refresh token misuse | Session hijack risk | Refresh rotation, revocation, secure storage, short-lived access tokens, logout evidence. |
+| Keycloak realm/client change not reviewed | Authentication outage or weakened posture | Git-managed configuration, CODEOWNERS, CI validation, backup/restore plan. |
+| Over-engineered login flow | Complexity and delivery delay | Keep authentication delegated to enterprise components; MicroFunctions only govern session context and evidence. |
+| AI-generated code weakens security | Hidden technical debt | AI involvement declaration, human review, security tests, architecture fitness checks, no autonomous promotion. |
+
+## 19. AVCI Compliance Summary
+
+| **AVCI Dimension** | **Login Design Evidence** |
+| --- | --- |
+| Attributable | Document owner, system owner, Keycloak/AD/Vault/OPA configuration owners, PR author, checker, approver, and evidence path are recorded. |
+| Verifiable | Unit, integration, E2E, security, token, OPA, architecture, DAST, observability, audit, and CI evidence prove behavior. |
+| Classifiable | Login artifacts are Confidential by default. Privileged and break-glass flows may be Restricted. Secrets, tokens, and PII are never logged or exposed. |
+| Improvable | Incidents, failed tests, audit findings, false positives, and support outcomes feed candidate improvements through human-reviewed Auto-Learn / Auto-Improve workflow. |
+| **Production-Readiness Gate** | **Required Result** |
+| Security boundary | Credential validation delegated to Keycloak/AD; no custom authentication engine. |
+| Architecture boundary | No direct identity, Vault, Kafka, or OPA dependencies in domain logic. |
+| Policy boundary | OPA/SBAC policies tested and versioned; OPA unavailable fails closed. |
+| Evidence boundary | Audit, event, trace, metric, log, alert, and PR evidence complete. |
+| Reversibility | Realm/client, OPA, Vault, runtime definition, and deployment changes have rollback or forward-fix plan. |
+| Human accountability | Security and Architecture approve material login changes; AI cannot approve or promote. |
+
+## Appendix A. Copy-Ready Mermaid: Login Sequence
+
+sequenceDiagram
+
+autonumber
+
+actor USER as User
+
+participant UI as React UI
+
+participant GW as Spring Cloud Gateway
+
+participant SEC as Spring Security
+
+participant KC as Keycloak
+
+participant AD as Active Directory
+
+participant VAULT as HashiCorp Vault
+
+participant API as Auth / Session API
+
+participant COORD as MicroFunction Coordinator
+
+participant ENV as Execution Envelope
+
+participant OPA as OPA Policy Engine
+
+participant IDP as Idempotency Manager
+
+participant AUD as Audit Trail
+
+participant OUT as Kafka / CloudEvents Outbox
+
+participant OBS as OTel / Logs / Metrics / Sentry
+
+participant RSP as Safe Response Builder
+
+USER->>UI: Open AIRA login
+
+UI->>GW: Request /login
+
+GW->>OBS: Create trace_id and request_id
+
+GW->>GW: TLS, rate limit, security headers
+
+GW->>SEC: Start OIDC Authorization Code + PKCE flow
+
+SEC->>KC: Redirect to Keycloak authorization endpoint
+
+KC->>AD: Validate credential and account status
+
+AD-->>KC: User valid / invalid, groups, account flags
+
+KC->>KC: Enforce MFA, lockout, password expiry, login policy
+
+KC->>KC: Map AD groups and attributes to claims
+
+KC-->>SEC: Return authorization code
+
+SEC->>KC: Exchange code for signed JWT / ID token / refresh token
+
+KC-->>SEC: Tokens with issuer, audience, expiry, roles, claims
+
+SEC->>GW: Authenticated callback
+
+GW->>API: Forward authenticated request with JWT and trace_id
+
+API->>SEC: Validate JWT issuer, audience, signature, expiry, required claims
+
+API->>COORD: Execute AUTH_LOGIN_CONTEXT_ESTABLISH
+
+COORD->>ENV: Load signed runtime process definition
+
+ENV->>IDP: Check login callback idempotency / replay state
+
+ENV->>OPA: Evaluate RBAC / ABAC / SBAC access policy
+
+OPA-->>ENV: Allow / deny with policy version
+
+alt Policy allows access
+
+ENV->>VAULT: Resolve required secret references / encryption keys
+
+VAULT-->>ENV: Lease or key reference; no secret leakage
+
+ENV->>ENV: Resolve actor, tenant, role, skill, classification ceiling
+
+ENV->>AUD: Record login success, actor, policy decision, trace_id
+
+ENV->>OUT: Write safe login event to transactional outbox
+
+OUT-->>OBS: Publish security event metadata
+
+ENV->>OBS: Emit metrics, trace span, safe structured logs
+
+ENV->>RSP: Build safe login/session response
+
+RSP-->>UI: Return landing context / session state
+
+else Policy denies or control fails
+
+ENV->>AUD: Record deny/failure with safe reason and trace_id
+
+ENV->>OBS: Emit security failure metric and trace
+
+ENV->>RSP: Build safe error response without PII or stack trace
+
+RSP-->>UI: Show generic login/access error
+
+end
+
+## Appendix B. Copy-Ready Mermaid: Error and Fail-Closed Handling
+
+sequenceDiagram
+
+autonumber
+
+participant STEP as Login MicroFunction Step
+
+participant ERR as STP-ERR-AUTH
+
+participant POL as Error / Retry Policy
+
+participant AUD as Audit Trail
+
+participant OBS as Observability
+
+participant RSP as Safe Response Builder
+
+participant FLOW as Flowable Human Review
+
+STEP->>ERR: Authentication, token, policy, Vault, or session failure
+
+ERR->>POL: Resolve error category and retry policy
+
+alt Keycloak / AD unavailable
+
+POL->>AUD: Record identity dependency failure
+
+POL->>OBS: Emit critical auth dependency alert
+
+POL->>RSP: Fail closed with generic service unavailable message
+
+else Vault unavailable
+
+POL->>AUD: Record secret/control failure
+
+POL->>OBS: Emit Vault failure alert
+
+POL->>RSP: Fail closed; do not continue with cached unsafe secret
+
+else OPA unavailable
+
+POL->>AUD: Record policy engine unavailable
+
+POL->>OBS: Emit policy failure alert
+
+POL->>RSP: Fail closed; deny protected access
+
+else Suspicious login or repeated failure
+
+POL->>AUD: Record suspicious login evidence
+
+POL->>FLOW: Create security review task when threshold is reached
+
+POL->>RSP: Return safe generic login failure
+
+else Invalid credential / invalid token
+
+POL->>AUD: Record safe failed-login evidence
+
+POL->>RSP: Return generic login failure
+
+end
+
+## Appendix C. Sample Runtime Process Definition YAML
+
+transaction_code: AUTH_LOGIN_CONTEXT_ESTABLISH
+
+version: 1.0.0
+
+status: draft-for-review
+
+classification: CONFIDENTIAL
+
+owner: security-architecture
+
+bounded_context: identity-and-access
+
+idempotency_profile: login-callback-replay-guard-v1
+
+error_policy: fail-closed-auth-v1
+
+observability_profile: auth-login-otel-v1
+
+audit_profile: auth-login-audit-v1
+
+rollback_strategy: revert-runtime-definition-and-opa-policy-version
+
+steps:
+
+- STP-RCV-AUTH-REQUEST
+
+- STP-COR-TRACE
+
+- STP-RATE-LOGIN
+
+- STP-SEC-CSRF-CORS
+
+- STP-AUTH-REDIRECT
+
+- STP-IDP-AUTHN
+
+- STP-IDP-CLAIMS
+
+- STP-JWT-ISSUE
+
+- STP-JWT-VALIDATE
+
+- STP-SES-RESOLVE
+
+- STP-SEC-OPA-AUTHZ
+
+- STP-CLS-CONTEXT
+
+- STP-IDP-LOGIN-IDEMP
+
+- STP-VAULT-SECRETS
+
+- STP-ENC-SESSION
+
+- STP-AUD-LOGIN
+
+- STP-EVT-LOGIN
+
+- STP-OBS-LOGIN
+
+- STP-RSP-SAFE-LOGIN
+
+- STP-ERR-AUTH
+
+avci:
+
+attributable: ticket_or_adr_required
+
+verifiable: tests_and_ci_evidence_required
+
+classifiable: confidential_default
+
+improvable: incident_and_test_feedback_to_candidate_backlog
+
+## Appendix D. Sample OPA Policy Skeleton
+
+package aira.auth.login
+
+default allow := false
+
+default classification_ceiling := "Internal"
+
+allow if {
+
+input.actor.authenticated == true
+
+input.actor.account_status == "active"
+
+input.token.issuer_trusted == true
+
+input.token.audience_valid == true
+
+input.token.expired == false
+
+input.session.replay_detected == false
+
+required_skill_present
+
+tenant_scope_valid
+
+}
+
+required_skill_present if {
+
+input.actor.skills[_] == "AIRA_LOGIN"
+
+}
+
+tenant_scope_valid if {
+
+input.actor.tenant_id == input.request.tenant_id
+
+}
+
+classification_ceiling := "Confidential" if {
+
+allow
+
+input.actor.roles[_] == "AIRA_STANDARD_USER"
+
+}
+
+classification_ceiling := "Restricted" if {
+
+allow
+
+input.actor.roles[_] == "AIRA_SECURITY_ADMIN"
+
+input.actor.mfa_verified == true
+
+}
+
+deny_reason := "POLICY_DENY_SAFE" if not allow
+
+## Appendix E. PR/MR Compliance Summary Template
+
+## AVCI + Design Principles Compliance Summary
+
+- Owner / Ticket / ADR:
+
+- Change intent:
+
+- AI assistance used: yes/no; tool/model; prompt intent; human checker:
+
+- Authentication boundary preserved: yes/no
+
+- Keycloak / AD impact:
+
+- JWT validation impact:
+
+- Vault / secrets impact:
+
+- OPA / SBAC policy impact:
+
+- Session / token handling impact:
+
+- SOLID impact: preserved / improved / exception requested
+
+- Clean Architecture / DDD impact:
+
+- Ports-and-adapters impact:
+
+- Idempotency / replay protection impact:
+
+- Security / least privilege impact:
+
+- Observability / audit evidence impact:
+
+- Test evidence: unit, integration, E2E, security, OPA, architecture, DAST
+
+- Reversibility: rollback / forward-fix / compensation / policy version rollback
+
+- Classification and data handling:
+
+- Secrets/PII/token leakage check:
+
+- Known limitations and improvement backlog:
+
+![[attachments/22B-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1_Aligned/image23.png]]
+
+![[attachments/22B-AIRA_Login_and_Session_Establishment_MicroFunction_Design_Pattern_v1.1_Aligned/image24.png]]

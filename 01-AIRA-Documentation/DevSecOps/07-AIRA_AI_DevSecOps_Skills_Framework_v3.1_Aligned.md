@@ -1,0 +1,534 @@
+---
+document_id: "AIRA-DOC-007"
+title: "AIRA AI DevSecOps Skills Framework"
+version: "v3.1"
+status: "aligned"
+source_file: "07-AIRA_AI_DevSecOps_Skills_Framework_v3.1_Aligned.docx"
+source_format: "docx"
+vault_folder: "01-AIRA-Documentation/DevSecOps"
+generated_at: "2026-05-22"
+tags:
+  - aira
+  - obsidian
+  - knowledge-vault
+  - devsecops
+---
+
+# AIRA AI DevSecOps Skills Framework
+
+**AIRA**
+
+AI-Native Enterprise Platform
+
+**AIRA AI-Native DevSecOps Skills Framework**
+
+_Layered Skills Model | SBAC | Trust Governance | Harness-Enforced Execution | SOLID/AVCI Evidence_
+
+**v3.1 - Java 25 Skill Baseline and Cross-Pack Alignment Update**
+
+| **Property** | **Value** |
+| --- | --- |
+| **Document ID** | **AIRA-DOC-007** |
+| **Document Title** | **AIRA AI-Native DevSecOps Skills Framework** |
+| **Document Version** | **v3.1 - Java 25 Skill Baseline and Cross-Pack Alignment Update** |
+| **Supersedes** | **07-AIRA_AI_DevSecOps_Skills_Framework_v3.1** |
+| **Classification** | **INTERNAL CONFIDENTIAL** |
+| **Status** | **FOR ARCHITECTURE REVIEW BOARD / CAB APPROVAL** |
+| **Owner** | **Solutions Architecture Office / IT Head** |
+| **Co-Owners** | **Software Development Lead; DevSecOps Lead; Security Architecture; QA Engineering; Platform Engineering; AI Engineering; Internal Audit** |
+| **Effective Date** | **2026-05-21** |
+| **Review Cadence** | **Quarterly; unscheduled on material runtime, technology, security, AI-risk, or governance change** |
+| **Pack Context** | **Pack 02 v1.2 individual aligned file generated from Pack 02 v1.1 aligned source pack and synchronized against Packs 01, 03, 04, and 05.** |
+| **Backend Runtime Baseline** | **Java 25 LTS is mandatory for AIRA backend development. Java 21 is waiver-only fallback, not the default.** |
+
+**Discipline First · Automation Second · Intelligence Third · AVCI Always**
+
+## Pack 02 v1.2 Cross-Pack Alignment Notice
+
+**Purpose. **This aligned version updates the individual Pack 02 source document so it can be uploaded to Obsidian as a standalone canonical Developer Execution artifact while remaining synchronized with the current AIRA source-pack baseline and Pack 01 v1.2 outputs.
+
+**Document role. **Defines human and AI-agent skills, proficiency evidence, SBAC constraints, delegation limits, and trust-governed execution rules.
+
+| **Alignment Area** | **Applied Control** |
+| --- | --- |
+| **Active source baseline** | **AIRA Source Packs v3.1 / Aligned Pack Set v1.1 remains the input baseline; Pack 02 v1.2 is the new individual output set for Obsidian upload.** |
+| **Backend runtime baseline** | **Java 25 LTS is the required backend baseline. Spring Boot 4.x and Spring Framework 7.x are the target backend framework baseline where compatible.** |
+| **Java 21 handling** | **Java 21 is not the default. It may appear only as a documented compatibility fallback with Architecture Board/CAB waiver, risk acceptance, and exit plan.** |
+| **Pack 01 governance references** | **References are aligned to AVCI v3.1, Engineering Blueprint v5.1, DevSecOps v3.1, 01A v1.1, and ADR-AIRA-2026-001 v1.1.** |
+| **Technology baseline** | **Technology Stack v9.0 remains the canonical technology reference and explicitly includes Java 25 LTS as the primary backend runtime.** |
+| **Information fabric baseline** | **Information Nervous System v4.0 governs source authority, retrieval eligibility, Obsidian / LLM Wiki, GitNexus indexing, and derivative knowledge handling.** |
+| **AI execution boundary** | **All model access routes through LiteLLM. NeMo Guardrails Input/Retrieval/Execution/Output checkpoints are mandatory. Tool actions go through Harness/SBAC/OPA.** |
+| **GitNexus** | **GitNexus is read-only, derivative, commit-bound code intelligence. It cannot commit, approve, merge, deploy, mutate production, or replace tests/scans/human review.** |
+| **Dograh** | **Dograh is governed voice-agent orchestration only. It is not a hardcoded STT/TTS/LLM provider and remains subject to classification, consent, guardrail, and audit controls.** |
+| **Flyway / Database** | **Flyway remains mandatory from initial database creation through all migrations, data fixes, RLS, extensions, seed data, and schema evolution.** |
+
+### Material Changes in This Version
+
+Added Java 25 LTS and Spring Boot 4.x skills as the default backend engineering baseline for developers and AI coding agents.
+
+Aligned skill evidence expectations with AVCI v3.1, 01A v1.1, Developer Guide v4.1, Unit Testing v3.1, and Technology Stack v9.0.
+
+Clarified that AI agents may reason using GitNexus context but require Harness/SBAC/OPA control for any tool-action proposal.
+
+Added Dograh voice-agent orchestration awareness as a conditional skill domain with transcript, consent, guardrail, and routing constraints.
+
+Reinforced progressive autonomy: advisory first, non-production test execution only through approved Harness paths, no merge/deploy/production mutation authority.
+
+### Mandatory Java 25 Backend Control
+
+| **Control** | **Pack 02 v1.2 Requirement** |
+| --- | --- |
+| **Default backend runtime** | **Java 25 LTS. All backend service templates, coding examples, devcontainers, Gradle toolchains, CI runners, unit tests, architecture tests, and onboarding labs must assume Java 25 unless explicitly waived.** |
+| **Fallback runtime** | **Java 21 is waiver-only for compatibility blockers. The waiver must include owner, reason, affected service, risk, compensating controls, and exit date.** |
+| **Review gate** | **PR/MR reviewers must reject backend code, templates, devcontainers, or CI jobs that quietly downgrade the runtime baseline or introduce untracked dual-runtime behavior.** |
+| **Evidence** | **CI evidence must expose java.version, toolchain version, Gradle/Maven version, build image digest, SBOM, and architecture fitness results.** |
+
+### AVCI Compliance Summary for This Update
+
+| **AVCI Property** | **Evidence in This Pack 02 v1.2 Update** |
+| --- | --- |
+| **Attributable** | **Each file has a document ID, owner, supersedes value, source pack context, and material-change list.** |
+| **Verifiable** | **The Java 25 baseline is explicitly recorded, cross-pack references are updated, and original source content is preserved after the alignment notice.** |
+| **Classifiable** | **All generated files are marked INTERNAL CONFIDENTIAL and inherit AIRA classification-handling rules.** |
+| **Improvable** | **Remaining numbering issues such as duplicate 19/25 are retained for master-register cleanup rather than hidden.** |
+
+## Updated Baseline Content
+
+**AIRA**
+
+Mission-Critical AI-Native Enterprise System
+
+AI-Native DevSecOps Skills Framework
+
+_Layered Skills Model · Skill-Based Access Control · Trust Governance · Harness-Enforced Execution · SOLID/AVCI Evidence_
+
+**Version 3.1 · April 2026**
+
+| **Strategic Intent**<br>This framework enables AIRA to scale AI-native DevSecOps using bounded human and agent skills. Every human, AI assistant, and agent action must preserve or improve SOLID compliance, Clean Architecture boundaries, DDD bounded contexts, testability, security posture, observability, reversibility, and AVCI evidence. |
+| --- |
+
+| **Property** | **Value** |
+| --- | --- |
+| Document Title | AIRA AI-Native DevSecOps Skills Framework |
+| Document ID | AIRA-DOC-007 |
+| Version | v3.1 - Enterprise Design Principles and SOLID Enforcement Revision |
+| Supersedes | 07-AIRA_AI_DevSecOps_Skills_Framework_v3.0 |
+| Classification | INTERNAL CONFIDENTIAL |
+| Status | FOR ARCHITECTURE REVIEW BOARD APPROVAL |
+| Owner | Solutions Architecture Office / AI Engineering / DevSecOps Lead |
+| Co-Owners | Enterprise Architecture · Security Architecture · QA Engineering · Platform Engineering · Knowledge Governance |
+| Audience | CTO, Enterprise Architects, DevSecOps Leads, Software Development Leads, AI Engineers, Security, QA, SRE, Internal Audit |
+| Primary Decision Inputs | ADR-AIRA-2026-001; AIRA Cross-Document Revision Control Matrix v1.1; 01A Enterprise Design Principles and SOLID Enforcement Layer v1.1 |
+| Companion Documents | 01 AVCI v3.1; 01A Enterprise Design Principles v1.1; 02 Engineering Blueprint v5.1; 03 Developer Guide v4.1; 04 Technology Stack v9.0; 05 Information Nervous System v4.0; 06 CLAUDE.md Reference v3.1; 08 Unit Testing v3.1; 10 MicroFunction Framework v3.1; 11 DevSecOps v3.1; 12 Rollout Starter Pack v3.1 |
+| Compliance Scope | AVCI; ISO/IEC 27001:2022; CIS Controls v8.1; NIST AI RMF; NIST AI 600-1; NIST SSDF; OWASP ASVS 5.0.0; SOC 2; SLSA Build Level 3 target; BSP IT Risk expectations |
+| Purpose | Define skills, proficiency levels, Skill-Based Access Control, trust scoring, delegation rules, Harness controls, evidence schema, and operating procedures for human and AI-assisted DevSecOps work in AIRA. |
+
+## Table of Contents
+
+## 1. Executive Summary
+
+## 2. Scope, Authority, and Adoption Basis
+
+## 3. Enterprise Design Principles Applied to Skills
+
+## 4. AIRA AI DevSecOps Operating Model
+
+## 5. Skills Taxonomy and Skill Families
+
+## 6. Proficiency Levels, Trust Scores, and Risk Tiers
+
+## 7. Skill-Based Access Control Model
+
+## 8. Agent Role Catalog and Human Role Mapping
+
+## 9. Harness-Enforced Action Flow
+
+## 10. Auto-Heal, Auto-Learn, and Auto-Improve Governance
+
+## 11. SOLID, Architecture, and Fitness Function Skill Evidence
+
+## 12. Evidence Records, Audit, and Reporting
+
+## 13. Onboarding, Review, Decay, Suspension, and Waivers
+
+## 14. RACI and Operating Responsibilities
+
+## 15. Implementation Roadmap and Acceptance Criteria
+
+## 16. AVCI Compliance Summary
+
+Appendices: Skill Evidence Record, Agent Action Evidence Record, PR/MR Skill Declaration
+
+## 1. Executive Summary
+
+This framework defines how AIRA operates a governed AI-native DevSecOps organization where human engineers remain accountable and AI agents operate as bounded, evidence-producing digital team members. Version 3.1 incorporates the Enterprise Design Principles and SOLID Enforcement Layer so that capability multiplication does not create architecture drift, security drift, test debt, or unaccountable AI behaviour.
+
+The core rule is simple: AI may draft, analyze, recommend, test, and propose; policy decides; Harness executes; humans approve high-impact change. No AI assistant or agent may directly execute production-impacting actions or weaken SOLID compliance, Clean Architecture boundaries, DDD bounded contexts, ports-and-adapters separation, testability, secure-by-design posture, observability, reversibility, or AVCI evidence.
+
+| **Mandatory Practice Statement**<br>A human or AI agent may perform only the actions for which it has active skills, sufficient proficiency, valid trust score, approved classification scope, OPA-permitted policy decision, Harness-mediated execution path, and complete AVCI evidence. Any action that weakens enterprise design principles is blocked or escalated. |
+| --- |
+
+| **Capability** | **AIRA v3.1 Outcome** |
+| --- | --- |
+| Auto-Heal | Agents detect failures, classify likely cause, draft remediation, create evidence-backed PRs, and rerun safe non-production checks. Fixes must preserve architecture boundaries, idempotency, observability, rollbackability, and security posture. |
+| Auto-Learn | Resolved incidents, successful remediations, reviews, and post-mortem lessons are converted into governed knowledge artifacts only after human review, citation, classification, regression validation, and conflict checks. |
+| Auto-Improve | Recurring failure patterns trigger refactoring proposals, architecture drift alerts, fitness function improvements, security posture reviews, and technology-stack recommendations under change control. |
+| Capability Multiplication | Each engineer may be augmented by specialized agents such as Code Review Agent, Test Author Agent, Security Triage Agent, SRE Analysis Agent, Documentation Agent, Architecture Consistency Agent, and MicroFunction Assembly Agent. |
+| Governance at Scale | SBAC, trust scoring, OPA, Harness, NeMo Guardrails, LiteLLM routing, policy-as-code, and immutable audit ensure scaling does not outpace control. |
+
+| **v2.0 Area** | **v3.1 Enhancement** |
+| --- | --- |
+| Skill governance | Adds SOLID, Clean Architecture, DDD, ports/adapters, testability, reversibility, and architecture fitness function skills as mandatory capability families. |
+| Trust model | Adds principle-preservation and evidence-quality scoring to trust promotion, trust decay, and incident caps. |
+| Agent execution | Strengthens the rule that no agent executes state-changing work outside Harness, SBAC, OPA, guardrails, audit, and human escalation. |
+| Auto-Heal / Auto-Learn / Auto-Improve | Adds explicit rejection of fixes or learning updates that weaken SOLID compliance, architecture boundaries, security, observability, tests, reversibility, or AVCI. |
+| Evidence records | Adds architecture_boundary_impact, design_principle_impact, fitness_function_result, rollback_plan_ref, and human_checker fields. |
+| Skills assessment | Adds evidence-driven certification, quarterly recertification, decay, suspension, and waiver procedures for human and AI skills. |
+
+## 2. Scope, Authority, and Adoption Basis
+
+| **In Scope** | **Out of Scope** |
+| --- | --- |
+| Human developer, architect, QA, security, DevSecOps, SRE, DBA, system administrator, and AI-engineering skills used for AIRA work. | General HR performance management, compensation, and employment policy. |
+| AI assistants, task agents, remediation agents, documentation agents, testing agents, security agents, and architecture review agents. | Unapproved personal AI accounts, unmanaged scripts, shadow agents, or external tools not registered in the AIRA technology stack. |
+| SBAC, trust scoring, action delegation, Harness enforcement, OPA policy decisions, skill evidence, audit records, and recertification workflow. | Production incident response playbooks except where skills are required to execute or approve them. |
+| Skills required for Auto-Heal, Auto-Learn, Auto-Improve, AutoResearch, MicroFunction assembly, CI/CD remediation, test generation, code review, and architecture consistency review. | Business role definitions that do not influence AIRA systems, data, workflows, or AI outputs. |
+
+| **Authority Level** | **Document / Control** | **Concern** | **Conflict Rule** |
+| --- | --- | --- | --- |
+| L0 | AIRA Architecture Authority / Engineering Blueprint v5.0 | Service boundaries, workflow partitioning, AI execution boundary, architecture principles | Architecture conflicts resolve here. |
+| L1 | This Skills Framework v3.1 | Human and AI skill governance, SBAC, trust scoring, delegation, recertification, and action evidence | Skill/action conflicts resolve here when not architectural. |
+| L2 | 01 AVCI v3.1 and 01A Enterprise Design Principles v1.1 | Universal artifact quality and SOLID/design-principle enforcement | Missing AVCI or principle evidence blocks action readiness. |
+| L2 | Developer Guide, Unit Testing, CLAUDE.md, DevSecOps, MicroFunction, Technology Stack, Security Standards | Implementation, testing, repository, pipeline, technology, and security controls | Most specific current standard applies inside its domain. |
+| L3 | ADR/TDL, tickets, PR/MR evidence, runbooks, onboarding records | Implementation-specific authorization and evidence | Must trace to approved standards and cannot weaken them. |
+
+Adoption basis: this v3.1 revision is driven by ADR-AIRA-2026-001 and the Cross-Document Revision Control Matrix. It makes 01A Enterprise Design Principles and SOLID Enforcement Layer a mandatory skill and action gate across AIRA.
+
+## 3. Enterprise Design Principles Applied to Skills
+
+The 20 enterprise design principles are not only architecture rules; they are skill eligibility requirements. A person or agent cannot safely perform a task if it lacks the skill to preserve the principle affected by that task.
+
+| **Principle** | **Skill Enforcement Meaning** |
+| --- | --- |
+| SOLID | Agents proposing code must understand SRP, OCP, LSP, ISP, and DIP and must not generate changes that increase coupling or responsibility sprawl. |
+| Clean Architecture | Agents must preserve domain/application/adapter boundaries and must not place business rules in controllers, infrastructure, prompts, or UI. |
+| DDD / Bounded Contexts | Skills must be scoped to bounded contexts. Cross-context changes require architecture review and contract/event impact analysis. |
+| Ports and Adapters | External systems, AI providers, databases, queues, and document stores must be accessed through approved ports and adapters. |
+| DRY, KISS, YAGNI | Agents must avoid duplicate plumbing, unnecessary abstractions, speculative framework code, and uncontrolled generation. |
+| Idempotency by Design | Mutation, workflow, event, and external-call actions require retry-safe design and duplicate-effect prevention. |
+| Determinism and Reproducibility | Tests, builds, migrations, prompts, model routes, and remediation proposals must be reproducible and evidence-linked. |
+| Fail-Safe, Not Fail-Open | If policy, guardrails, Harness, identity, secrets, or audit is unavailable, protected actions are blocked. |
+| Human-in-the-Loop | High-impact, low-confidence, production, Confidential/Restricted, or policy-exception actions require named human approval. |
+| Least Privilege / SBAC | Skills are minimal, active, scoped, time-bounded, and action-specific; no broad or implicit agent authority. |
+| Separation of Duties | Maker and checker roles are separated for high-risk work; agents cannot self-approve. |
+| Observability by Design | Every action must preserve traceability, metrics, logs, audit, SLOs, and explainability. |
+| Policy as Code | Authorization, admission, routing, guardrails, and action permission must be policy artifacts, not informal judgement. |
+| Testability by Design | Proposed changes must remain unit-testable, contract-testable, security-testable, and architecture-testable. |
+| Secure by Design | Skills must include secrets hygiene, classification handling, secure coding, model-routing safety, and zero-trust assumptions. |
+| Resilience Patterns | Retries, timeouts, circuit breakers, bulkheads, DLQ, compensation, and fallback must be explicit when dependencies fail. |
+| Architectural Fitness Functions | Automated checks must validate boundaries, forbidden dependencies, direct provider calls, direct DB writes, coverage, and policy compliance. |
+| Progressive Autonomy | Authority increases only after evidence-backed performance; it decays and is reduced after incidents. |
+| Reversibility / Rollbackability | Actions require rollback, forward-fix, compensation, feature-flag, or disablement path before acceptance. |
+| AVCI | Every skill, action, decision, output, and trust change must be attributable, verifiable, classifiable, and improvable. |
+
+## 4. AIRA AI DevSecOps Operating Model
+
+AIRA separates human intent, agent reasoning, policy decision, tool execution, and evidence production. This separation allows aggressive AI augmentation without direct uncontrolled access to code, data, tools, or runtime systems.
+
+| **Layer** | **Constituents** | **Primary Responsibility** |
+| --- | --- | --- |
+| L1 - Human Workstation Plane | Hardened workstation, VS Code, devcontainer, Git client, approved AI tools, pre-commit hooks, local test and scan tools | Humans plan, code, test, review AI drafts, and push through the single Git contribution path. |
+| L2 - Agent Reasoning Plane | Hermes Agent, code review agents, test agents, documentation agents, security triage agents, architecture consistency agents | Agents reason, draft, analyze, classify, explain, and propose. They do not directly execute state-changing actions. |
+| L3 - Harness Control Plane | Harness service, skill catalogue, agent registry, trust scoring, delegation service, OPA decision point, audit outbox | Validates identity, skill, trust, scope, classification, rate limits, policy, guardrails, and evidence before any action. |
+| L4 - Platform Tool Plane | Git, CI/CD, Argo CD, Kubernetes, Vault, PostgreSQL, Kafka, Temporal, Flowable, OpenKM, LiteLLM, NeMo Guardrails | Receives actions only from approved, audited, identity-bound paths. |
+| L5 - Evidence and Knowledge Plane | Audit store, LLM Wiki, Obsidian, OpenKM, pgvector, LightRAG, telemetry, incident records, test reports | Stores evidence, approved knowledge, feedback, improvement records, skill evidence, and trust-score history. |
+
+| flowchart TD<br> H[Human Owner / System Signal] --> A[Agent Reasoning Plane]<br> A --> R[Evidence Retrieval + Classification]<br> R --> G1[NeMo Input/Retrieval Rails]<br> G1 --> P[Proposed Action: risk, confidence, principle impact]<br> P --> HAR[Harness Control Plane]<br> HAR --> SBAC[Skill-Based Access Control]<br> HAR --> OPA[OPA Policy Decision]<br> HAR --> TS[Trust Score Check]<br> HAR --> HITL[Human Approval if Required]<br> HAR --> TOOL[Approved Tool/API]<br> TOOL --> AUD[Immutable Audit + Evidence Record]<br> AUD --> LEARN[Governed Auto-Learn Candidate] |
+| --- |
+
+## 5. Skills Taxonomy and Skill Families
+
+Skills are versioned control artifacts. A skill defines what an actor may do, under what conditions, for which artifact types, classifications, environments, tools, and risk tier. Skills apply to humans, AI assistants, task agents, and automation services.
+
+| **Skill Family** | **Representative Skills** | **Use in AIRA** |
+| --- | --- | --- |
+| S1 Architecture and Design | SOLID, Clean Architecture, DDD, ports/adapters, architecture review, bounded-context modelling, ADR/TDL authoring | Required for service boundary, MicroFunction, workflow, integration, AI orchestration, and data ownership decisions. |
+| S2 Secure Engineering | Secure coding, secrets hygiene, classification handling, OPA/Rego, SBAC, IAM, Vault, SPIFFE/SVID, threat modelling | Required for access-control, secrets, model-routing, security policy, and Restricted-data changes. |
+| S3 Development | Java/Spring, TypeScript/React, API contracts, MicroFunctions, adapters, error handling, idempotency, resilience | Required for code generation, refactoring, package changes, and business function implementation. |
+| S4 Test and Quality | TDD, unit/component/contract tests, mutation testing, AI evaluation, architecture tests, deterministic tests | Required before any code, prompt, guardrail, configuration, or model route can be promoted. |
+| S5 DevSecOps and Platform | CI/CD, GitOps, containers, Kubernetes, Argo CD, Helm, SBOM, SLSA, supply-chain scanning | Required for pipeline, deployment, infrastructure, and release automation actions. |
+| S6 Data and Retrieval | PostgreSQL, Flyway, RLS, pgvector, LightRAG, metadata, lineage, embeddings, retrieval evaluation | Required for schema, migration, vector, retrieval, and information nervous system work. |
+| S7 Workflow and Process | Temporal, Flowable, BPMN, DMN, sagas, compensation, human approvals, SLA timers | Required for durable workflow, human-in-the-loop, and exception path changes. |
+| S8 AI Governance | LiteLLM, NeMo Guardrails, Hermes, prompt lifecycle, model aliases, evaluation datasets, red-team tests | Required for any prompt, model, guardrail, tool proposal, or agent behaviour change. |
+| S9 Observability and SRE | OpenTelemetry, Prometheus, Loki, Tempo, Sentry, Grafana, SLOs, incident analysis, runbooks | Required for telemetry, alerting, auto-heal trigger, operational evidence, and remediation validation. |
+| S10 Knowledge Governance | Obsidian, LLM Wiki, citations, provenance, source tiering, conflict resolution, Auto-Learn review | Required for knowledge promotion, documentation synthesis, and retrieval content approval. |
+| S11 Business Domain | Loans/mortgage servicing, asset management, document workflows, approvals, domain rules | Required for business-rule changes and domain-specific MicroFunctions. |
+| S12 Compliance and Audit | AVCI, ISO, CIS, NIST, OWASP, SOC 2, BSP IT Risk, evidence retention, waiver governance | Required for risk acceptance, control mapping, production readiness, and audit-response actions. |
+
+## 6. Proficiency Levels, Trust Scores, and Risk Tiers
+
+| **Level** | **Human Meaning** | **AI / Agent Meaning** | **Allowed Scope** |
+| --- | --- | --- | --- |
+| L0 - Awareness | Understands concepts but cannot perform independently. | May summarize approved knowledge only. | Read-only learning and documentation draft under review. |
+| L1 - Assisted | Can perform with detailed guidance and reviewer oversight. | May draft code/tests/docs but cannot trigger tools except local non-state-changing checks. | Low-risk draft work; no merge, publish, deploy, or data mutation. |
+| L2 - Practitioner | Can execute standard tasks using approved patterns and complete evidence. | May create PR drafts and run approved sandbox checks through Harness. | Internal/low-risk changes with reviewer approval. |
+| L3 - Senior / Checker | Can review, verify, and approve within delegated scope. | May act as checker agent for low/medium risk but cannot self-approve own output. | Review, regression analysis, evidence verification. |
+| L4 - Lead / Authority | Owns design, risk, and operating decisions within a domain. | May recommend high-impact actions; execution still requires human authority and policy approval. | Architecture/security/change review; high-risk recommendation. |
+| L5 - Governance Owner | Sets standards, approves exceptions, and owns control effectiveness. | No AI agent receives L5 authority. AI may only assist with evidence preparation. | CAB/ARB/security/audit approval and waiver governance. |
+
+| **Risk Tier** | **Examples** | **Minimum Human / Agent Requirements** | **Approval Gate** |
+| --- | --- | --- | --- |
+| R0 Informational | Summaries, documentation formatting, non-authoritative drafts | L1 skill; trust score >= 40; source citations for knowledge outputs | Human review before publication if included in official docs. |
+| R1 Low | Unit test draft, non-production refactor proposal, README update | L2 skill; trust score >= 55; local tests; no data exposure | PR review. |
+| R2 Medium | Application code change, MicroFunction config change, prompt/template change | L2/L3 skill; trust score >= 70; CI evidence; principle impact assessment | Maker-checker review and CODEOWNERS. |
+| R3 High | Security policy, migration, workflow compensation, model routing, guardrail change | L3/L4 human; agent trust >= 80 for recommendation only; full tests and rollback | Architecture/Security approval and CAB as applicable. |
+| R4 Critical | Production-impacting, Restricted data, access-control override, break-glass, compliance exception | L4/L5 human only; AI advisory only; no autonomous execution | Formal CAB/ARB/Security approval; post-action review. |
+
+| **Trust Score Driver** | **Positive Evidence** | **Negative Evidence** |
+| --- | --- | --- |
+| Task success | Repeated accepted PRs, correct tests, no rework, verified runbooks | Rejected PRs, incomplete evidence, recurring defects |
+| Principle preservation | Fitness functions pass, boundary violations reduced, security posture improved | SOLID violations, direct provider calls, architecture boundary drift |
+| Verification quality | TDD evidence, mutation improvement, contract tests, policy tests, rollback validation | Skipped tests, flaky tests, weak assertions, unverified rollback |
+| Classification discipline | Correct routing, redaction, no PII/secrets leakage | Misclassification, prompt leakage, overbroad retrieval |
+| Incident history | Successful safe remediation, fast escalation, good postmortem evidence | Failed remediation, delayed escalation, policy bypass attempt |
+| Freshness | Recent recertification and current skill evidence | Expired skill evidence or stale tool/version knowledge |
+
+## 7. Skill-Based Access Control Model
+
+SBAC authorizes actions based on active skills rather than broad job titles alone. A role may request an action, but the action is permitted only when the actor has the required skill, proficiency, scope, classification clearance, trust score, and policy approval.
+
+| **SBAC Attribute** | **Required Value / Evidence** |
+| --- | --- |
+| actor_id | Named human, approved service identity, or registered agent identity; no anonymous or shared identity. |
+| skill_id and version | Active skill definition with owner, scope, classification ceiling, allowed actions, expiry, and dependencies. |
+| proficiency_level | Minimum level required by risk tier and action type. |
+| trust_score | Current score after decay, incidents, recertification, and evidence quality assessment. |
+| classification_scope | Maximum data classification that the actor may access, retrieve, summarize, modify, or route. |
+| environment_scope | DEV/INT/UAT/STG/PROD permission boundary; production is human-controlled and exceptional. |
+| tool_scope | Allowed tools and APIs. Agents do not receive direct credentials; Harness mediates tool actions. |
+| policy_decision | OPA allow/deny with policy version, input facts, decision ID, and trace_id. |
+| human_approval | Required for R3/R4 risk, low confidence, Restricted data, policy exceptions, and production-impacting action. |
+| evidence_ref | Audit record, tests, scans, reviews, prompt/model route, guardrail result, rollback plan, and AVCI summary. |
+
+| **Action Type** | **Required Skills** | **Default Agent Permission** |
+| --- | --- | --- |
+| Draft code | Development + relevant domain + testing awareness | Allowed for R1/R2 draft only; PR requires human author/checker. |
+| Modify MicroFunction configuration | MicroFunction design + architecture + testing + security classification | Allowed as draft MR only; publish activation requires human approval. |
+| Change prompt or guardrail | AI governance + security + test/evaluation + classification | Allowed as proposal only; golden dataset and guardrail tests required. |
+| Run local tests | Test and quality skill | Allowed through local sandbox or Harness-approved non-state-changing action. |
+| Run CI pipeline | DevSecOps skill | Allowed through approved branch/MR workflow; no policy override. |
+| Change OPA policy | Secure engineering + policy-as-code + compliance | Proposal only; security review and policy tests required. |
+| Deploy to production | Platform + release governance + CAB approval | Not allowed for AI agents. Human-controlled GitOps promotion only. |
+| Read Confidential/Restricted evidence | Classification handling + approved clearance | Agent access only through classification-aware retrieval and approved private routes. |
+| Execute remediation | SRE + DevSecOps + affected domain + rollback skill | Non-prod only unless human-approved production change path is followed. |
+
+## 8. Agent Role Catalog and Human Role Mapping
+
+Agents are bounded digital team members, not autonomous owners. Each agent profile has a purpose, required skills, forbidden actions, evidence obligations, trust threshold, and human accountable owner.
+
+| **Agent / Role** | **Primary Purpose** | **Required Skill Families** | **Forbidden Actions** |
+| --- | --- | --- | --- |
+| Architecture Consistency Agent | Detect boundary drift, SOLID violations, dependency direction issues, ADR gaps, and cross-document conflicts. | S1, S4, S10, S12 | Cannot approve architecture decisions, merge PRs, or weaken an accepted ADR. |
+| Code Review Agent | Review code for SOLID, security, testability, maintainability, and standards compliance. | S1, S2, S3, S4 | Cannot approve own generated code or override human reviewer. |
+| Test Author Agent | Draft failing tests, edge cases, mutation targets, architecture tests, and AI eval tests. | S4, S3, S8 | Cannot remove tests or lower coverage gates. |
+| Security Triage Agent | Analyze findings, classify risk, propose fixes, draft policy/test changes. | S2, S8, S12 | Cannot suppress findings, change secrets, or approve risk acceptance. |
+| SRE Analysis Agent | Correlate telemetry, incidents, traces, logs, SLOs, and propose remediation candidates. | S5, S7, S9 | Cannot execute production remediation or disable alerts without human approval. |
+| MicroFunction Assembly Agent | Suggest step sequence, error policy, compensation, idempotency, and standard function reuse. | S1, S3, S4, S7, S11 | Cannot activate configuration or bypass mandatory steps. |
+| Documentation Agent | Draft standards, runbooks, PR summaries, ADR/TDL drafts, and knowledge updates. | S10, S12, relevant domain skills | Cannot mark knowledge authoritative or publish unreviewed outputs. |
+| Knowledge Steward Agent | Detect stale knowledge, conflicts, missing citations, and Auto-Learn candidates. | S10, S12, S8 | Cannot promote knowledge without human review. |
+| DevSecOps Pipeline Agent | Analyze CI failures, propose pipeline fixes, draft evidence packaging improvements. | S5, S2, S4 | Cannot disable gates, bypass scans, or change protected branch rules. |
+| Data/Retrieval Agent | Analyze schema, embeddings, retrieval quality, lineage, chunking, and re-index triggers. | S6, S4, S8, S10 | Cannot index raw production data or route Restricted content to cloud models. |
+
+| **Human Role** | **Primary Accountability** | **Minimum Skill Baseline** |
+| --- | --- | --- |
+| Solutions Architect / IT Head | Architecture direction, conflict resolution, standards approval, high-impact AI use | S1 L4/L5, S8 L4, S10 L4, S12 L4 |
+| Software Development Lead | Developer discipline, code review, MicroFunction implementation, technical debt control | S1 L3, S3 L4, S4 L3, S11 L3 |
+| DevSecOps Lead | CI/CD, GitOps, evidence pipeline, supply-chain, platform automation | S5 L4, S2 L3, S4 L3, S12 L3 |
+| Security Administrator | Identity, secrets, access control, SBAC, OPA, classification, security waivers | S2 L4, S8 L3, S12 L4 |
+| QA / SDET Lead | TDD discipline, coverage, mutation, contract, AI eval, fitness functions | S4 L4, S3 L2, S8 L3 |
+| DBA / Data Engineer | Schema, migrations, RLS, data lineage, vector storage, retrieval evidence | S6 L4, S2 L3, S4 L3 |
+| Knowledge Governance Lead | Obsidian/LLM Wiki, citations, source tiers, Auto-Learn promotion | S10 L4, S12 L3, S8 L3 |
+
+## 9. Harness-Enforced Action Flow
+
+Harness is the boundary between AI reasoning and tool execution. An agent may propose an action, but Harness evaluates the action vocabulary, actor identity, skill, trust, classification, OPA policy, guardrail result, rate limit, approval requirement, and evidence contract before execution.
+
+| **Step** | **Control** | **Minimum Evidence** |
+| --- | --- | --- |
+| 1. Receive request or signal | Human request, CI failure, alert, incident, test failure, drift event, or knowledge review task | request_id, source, classification, trace_id |
+| 2. Assemble context | Approved retrieval only; source-tier and ACL filters applied | evidence pack, citations, source versions, freshness score |
+| 3. Guardrail pre-check | NeMo Input/Retrieval rail validates context and prompt eligibility | guardrail policy version, allow/block result |
+| 4. Propose action | Agent declares intended action, risk tier, confidence, principle impact, expected files/tools | action proposal record |
+| 5. SBAC validation | Skill, proficiency, classification, environment, and tool scope are checked | skill decision ID, trust score, expiry status |
+| 6. OPA policy decision | Policy-as-code determines allow/deny/escalate | OPA input/output, policy bundle version |
+| 7. Human approval if required | R3/R4, Confidential/Restricted, low confidence, production, or exception actions go to Flowable/CAB | approver, reason, expiry, conditions |
+| 8. Tool execution | Harness invokes approved tool/API with bounded credentials and rate limits | tool invocation ID, inputs, outputs, duration, status |
+| 9. Post-check and evidence | Tests/scans/fitness functions/audit records are attached | test result, scan result, fitness result, rollback evidence |
+| 10. Feedback loop | Outcome updates skill evidence, trust score, and Auto-Learn candidate queue | feedback record, review status, improvement owner |
+
+| **Reject Condition** | **Required Response** |
+| --- | --- |
+| Missing active skill or insufficient proficiency | Block action; route to human owner or training path. |
+| Trust score below threshold | Block or downgrade to draft-only recommendation. |
+| Classification exceeds route or actor scope | Block; require redaction, private route, or authorized human review. |
+| Guardrail unavailable or failed | Fail closed; do not bypass. |
+| OPA deny | Block; only policy owner may update policy through governed MR. |
+| No rollback/compensation path for state-changing action | Reject until reversibility plan exists. |
+| Fitness function failure | Reject or convert into remediation task; no merge until fixed or formally waived. |
+| Missing AVCI evidence | Reject as not production-ready. |
+
+## 10. Auto-Heal, Auto-Learn, and Auto-Improve Governance
+
+| **Non-Negotiable Loop Rule**<br>Auto-Heal, Auto-Learn, and Auto-Improve must not only fix, learn, or improve. They must preserve or improve SOLID compliance, architecture boundaries, testability, security posture, observability, reversibility, and AVCI evidence. |
+| --- |
+
+| **Loop** | **Allowed Outputs** | **Mandatory Gates** | **Rejected Patterns** |
+| --- | --- | --- | --- |
+| Auto-Heal | Root-cause hypothesis, remediation branch/PR, rollback proposal, runbook update, regression test, alert tuning proposal | Evidence pack, risk tier, SBAC, OPA, tests, fitness functions, human approval where required | Autonomous production patch, disabling controls, direct DB edit, skipping tests, weakening policy. |
+| Auto-Learn | Lessons learned, LLM Wiki candidate, Obsidian note draft, prompt improvement candidate, guardrail test update, skill improvement record | Source citation, human review, conflict check, classification routing, regression validation, approval | Unreviewed model memory, stale source promotion, unsupported generalization, raw PII ingestion. |
+| Auto-Improve | Refactoring proposal, architecture drift report, fitness function addition, technology refresh candidate, policy improvement, test suite hardening | ADR/TDL when material, impact assessment, CI evidence, rollback path, owner approval | Speculative over-engineering, broad rewrite without evidence, YAGNI violation, hidden coupling. |
+| AutoResearch | External signal summary, version/security update proposal, standard comparison, regulatory change candidate | Source attribution, freshness review, legal/security review where applicable, no direct production change | Treating external material as approved AIRA knowledge without review. |
+
+| **Capability** | **Minimum Required Skills Before Agent Participation** |
+| --- | --- |
+| Auto-Heal code remediation | S1 Architecture, S3 Development, S4 Testing, S9 SRE, affected domain skill, S12 AVCI evidence. |
+| Auto-Heal infrastructure/pipeline remediation | S5 DevSecOps, S2 Security, S4 Testing, S9 SRE, S12 Compliance. |
+| Auto-Learn knowledge promotion | S10 Knowledge Governance, S12 Compliance, S8 AI Governance, affected domain skill. |
+| Auto-Improve architecture proposal | S1 Architecture L3+, S4 Fitness Functions, S10 Knowledge, S12 Compliance, human architecture owner. |
+| AutoResearch technical comparison | S10 Knowledge, S12 Evidence, affected technology/domain skill, human reviewer. |
+
+## 11. SOLID, Architecture, and Fitness Function Skill Evidence
+
+AIRA does not rely on verbal claims of skill. Skill activation and trust promotion require evidence from accepted work, tests, reviews, simulations, drills, or supervised agent performance. The strongest skills are demonstrated through repeatable, automated fitness functions.
+
+| **Fitness Function** | **Purpose** | **Evidence Tooling** |
+| --- | --- | --- |
+| SOLID responsibility check | Detect classes/functions with mixed concerns, god objects, infrastructure leakage into domain logic | ArchUnit, SonarQube complexity/coupling rules, code review checklist |
+| Dependency direction check | Ensure domain/application layers do not depend on adapters, frameworks, databases, or model providers | ArchUnit, import linting, package rules, build graph analysis |
+| Bounded-context isolation check | Prevent direct database writes, shared ownership, and unauthorized cross-context dependencies | Contract tests, module boundaries, schema ownership checks |
+| Ports/adapters check | Ensure external systems and AI providers are accessed through interfaces/adapters | Static analysis, forbidden import rules, CLAUDE.md hooks |
+| Direct model/provider block | Prevent direct SDK/API calls to model providers outside LiteLLM path | Semgrep, dependency scan, import lint |
+| Idempotency and replay check | Verify mutation paths, event consumers, workflows, and external calls are retry-safe | Unit/component tests, idempotency registry tests, Temporal replay tests |
+| Policy-as-code check | Validate OPA/Rego, Conftest, admission rules, and authorization decisions | OPA test, Conftest, CI policy gate |
+| Security and secrets check | Detect secrets, PII leakage, unsafe logs, prompt exposure, and broad permissions | Gitleaks, Semgrep, SAST/SCA, redaction tests |
+| Observability check | Ensure trace_id, metrics, logs, audit, error taxonomy, and SLO events are present | OTel tests, log schema tests, audit evidence validation |
+| Reversibility check | Verify rollback, forward-fix, compensation, feature flag, or disablement path | Runbook test, migration validation, compensation tests, release evidence |
+
+| **Skill Evidence Type** | **Acceptable Evidence** |
+| --- | --- |
+| Accepted PR/MR | Merged change with AVCI summary, tests, review, fitness result, and no unresolved defects. |
+| Review record | Documented architecture/security/test review with comments resolved and evidence retained. |
+| Simulation / drill | Non-production execution of remediation, rollback, incident analysis, or workflow compensation. |
+| Evaluation result | Golden dataset, guardrail, retrieval, model-routing, or AI tool-action evaluation with pass/fail record. |
+| Training and certification | Internal walkthrough, quiz, supervised task, or approved external certification mapped to AIRA skill family. |
+| Post-incident learning | Approved postmortem action that demonstrably improved tests, observability, runbooks, policies, or architecture fitness functions. |
+
+## 12. Evidence Records, Audit, and Reporting
+
+Every skill grant, skill update, agent action, policy decision, trust-score change, and learning promotion must produce machine-readable evidence. These records are stored in the AIRA evidence repository and indexed into the governed information fabric where classification allows.
+
+| **Field** | **Description** |
+| --- | --- |
+| record_id | Unique identifier for the Skill Evidence Record or Agent Action Evidence Record. |
+| actor_id / agent_id | Named human, service, or registered agent identity. |
+| skill_id / skill_version | Skill family, specific skill, version, owner, and expiry date. |
+| action_type | Draft, analyze, review, test, remediate, retrieve, route, execute, approve, publish, deploy, rollback. |
+| risk_tier and classification | R0-R4 risk and Public/Internal/Confidential/Restricted classification. |
+| design_principle_impact | Impacted 01A principles; expected preservation or improvement statement. |
+| architecture_boundary_impact | Affected bounded context, layer, port/adapter, MicroFunction, workflow, data owner, or model route. |
+| fitness_function_result | Architecture, security, test, policy, and observability checks passed/failed/waived. |
+| policy_decision_ref | OPA decision ID, policy bundle version, SBAC decision, guardrail result, Harness action ID. |
+| evidence_refs | Ticket, ADR/TDL, commit, PR/MR, CI run, tests, scans, runbook, rollback plan, audit record. |
+| human_checker | Named human reviewer or approver where required. |
+| trust_delta | Trust score effect and reason: promotion, no change, decay, suspension, or reset. |
+| improvement_path | Backlog item, knowledge candidate, skill update, policy update, or no action. |
+
+| agent_action_evidence:<br> record_id: AIRA-AAER-YYYY-000001<br> actor_id: agent://code-review-agent<br> human_owner: user://named-engineer<br> action_type: review_pr<br> risk_tier: R2<br> classification: INTERNAL<br> skills_checked: [S1-ARCH-L3, S4-TEST-L3, S12-AVCI-L2]<br> design_principle_impact: [SOLID, CleanArchitecture, Testability, AVCI]<br> architecture_boundary_impact: services/workflow-service, microfunctions/STP-BUS<br> guardrail_result: allow<br> opa_decision_ref: opa://decision/12345<br> fitness_function_result: pass<br> evidence_refs: [PR-104, CI-8821, TEST-REPORT-8821, ADR-AIRA-2026-001]<br> human_checker: user://tech-lead<br> trust_delta: +1.5<br> status: accepted |
+| --- |
+
+## 13. Onboarding, Review, Decay, Suspension, and Waivers
+
+| **Process** | **Required Steps** | **Evidence** |
+| --- | --- | --- |
+| Onboarding | Assign role, map required skills, complete reading plan, perform supervised task, acknowledge data/classification/AI rules. | Onboarding record, acknowledgement, initial skill grants, workstation baseline, access review. |
+| Skill activation | Owner reviews evidence, sets proficiency level, scope, classification ceiling, expiry, dependencies, and reviewer requirements. | Skill Evidence Record, approver, expiry, scope, trust baseline. |
+| Quarterly recertification | Review accepted work, incidents, tool/version changes, policy changes, training gaps, and trust decay. | Recertification record, trust update, action plan. |
+| Trust decay | Automatically reduce trust for inactivity, stale evidence, expired training, tool version change, or unresolved incident. | Trust ledger entry with reason and recovery path. |
+| Skill suspension | Suspend on policy bypass attempt, secret/PII exposure, repeated failed remediation, unauthorized tool action, or serious review finding. | Suspension record, incident ref, remediation plan, reactivation criteria. |
+| Waiver | Temporary exception only; must define owner, scope, expiry, risk acceptance, compensating controls, and remediation plan. | Waiver record, CAB/ARB/Security approval, expiry monitor. |
+
+| **No.** | **Rule** |
+| --- | --- |
+| 1 | No shared AI, developer, or agent identities. |
+| 2 | No skill is permanent; all skills expire or decay without evidence. |
+| 3 | No AI agent receives production override authority. |
+| 4 | No agent may self-approve, self-merge, self-promote, or self-certify. |
+| 5 | No human or agent may bypass CLAUDE.md, Harness, SBAC, OPA, guardrails, tests, CI gates, or AVCI evidence. |
+| 6 | No Confidential/Restricted data is used in prompts, logs, tests, examples, or agent memory without approved classification-aware routing. |
+
+## 14. RACI and Operating Responsibilities
+
+| **Activity** | **Solutions Architect / IT Head** | **DevSecOps Lead** | **Security Admin** | **QA Lead** | **Knowledge Lead** | **Software Dev Lead** | **Internal Audit** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Approve skill framework and major revisions | A | R/C | C | C | C | C | I |
+| Define skill catalog and proficiency requirements | A/R | R | R | R | R | R | C |
+| Approve SBAC policy and OPA enforcement | A | R | A/R | C | I | C | C |
+| Register AI agents and action vocabulary | A | R | C | C | C | C | I |
+| Grant or revoke human skills | A | C | C | C | I | R | I |
+| Grant or revoke agent skills | A | R | R | C | C | C | I |
+| Review trust score changes and incidents | A | R | R | C | C | C | C |
+| Approve Auto-Heal / Auto-Improve high-risk actions | A | R | R | R | C | R | I |
+| Promote Auto-Learn knowledge artifacts | A/C | I | C | C | A/R | C | I |
+| Audit evidence completeness | I | C | C | C | C | C | A/R |
+
+## 15. Implementation Roadmap and Acceptance Criteria
+
+| **Phase** | **Implementation Activities** | **Exit Criteria** |
+| --- | --- | --- |
+| S0 - Baseline Approval | Approve v3.1 framework, align with 01A, AVCI v3.1, Engineering Blueprint v5.0, Developer Guide v4.1, Unit Testing v3.1, and DevSecOps v3.1. | Approved document, communication memo, and revision matrix updated. |
+| S1 - Skill Catalog Bootstrap | Define skill IDs, proficiency levels, dependencies, risk thresholds, classification ceilings, and skill owners. | Initial skill catalog committed to Git and reviewed. |
+| S2 - SBAC Policy Implementation | Encode SBAC and OPA policies for action types, environment scope, tool scope, risk tiers, and approval gates. | Policy tests pass; denied scenarios verified. |
+| S3 - Agent Registry and Harness Binding | Register approved agents, action vocabulary, evidence schema, trust thresholds, and tool adapters. | Agents cannot call tools directly; Harness audit evidence generated. |
+| S4 - Fitness Function Integration | Add architecture, SOLID, dependency, provider-call, testability, security, observability, and reversibility checks to CI. | CI blocks known violations and produces evidence pack. |
+| S5 - Onboarding and Recertification | Train team, certify baseline skills, execute supervised tasks, and record acknowledgements. | All active contributors have required skills and access aligned to role. |
+| S6 - Continuous Improvement | Use incidents, PR outcomes, review feedback, and audits to update skills, trust, policies, and knowledge artifacts. | Quarterly review completed with measurable improvements and no stale skills. |
+
+| **Acceptance Gate** | **Pass Criteria** |
+| --- | --- |
+| Skill catalog completeness | All core AIRA roles and approved agents have mapped skills, proficiency requirements, classification ceiling, and owner. |
+| SBAC enforceability | At least one allow, deny, and escalate path is tested for each high-risk action family. |
+| Harness mediation | No registered agent can execute Git, CI/CD, database, Kubernetes, OpenKM, model route, or production API action directly. |
+| Fitness function coverage | CI validates SOLID/architecture boundaries, direct provider calls, policy tests, security scans, test coverage, and rollback evidence. |
+| Evidence completeness | Skill Evidence Records and Agent Action Evidence Records are generated and retrievable for audit. |
+| Human accountability | Every high-impact action has named human checker/approver and cannot be self-approved by the originating actor or agent. |
+
+## 16. AVCI Compliance Summary
+
+| **AVCI Property** | **How This Standard Satisfies It** |
+| --- | --- |
+| Attributable | Every skill, skill grant, action, trust change, agent profile, policy decision, evidence record, and approval has an owner, actor identity, version, source, timestamp, and accountable human. |
+| Verifiable | Skills are supported by evidence, tests, reviews, fitness functions, CI results, simulations, drills, policy decisions, and audit records. |
+| Classifiable | Skills and actions carry data classification, risk tier, environment scope, tool scope, model route eligibility, and handling rules. |
+| Improvable | Skill evidence, trust scores, incident outcomes, PR reviews, audits, and Auto-Learn candidates feed controlled updates through MR/CAB/Flowable governance. |
+
+| **Final Control Statement**<br>AIRA will scale human and AI capability only through governed skills. Intelligence is useful only when bounded by evidence, architecture discipline, policy, security, tests, reversibility, and human accountability. Discipline first. Automation second. Intelligence third. AVCI always. |
+| --- |
+
+## Appendix A. Skill Evidence Record Template
+
+| **Field** | **Example** |
+| --- | --- |
+| skill_record_id | AIRA-SER-2026-0001 |
+| actor_id | user://developer-name or agent://test-author-agent |
+| skill_id | S4-TEST-TDD-ARCHFIT |
+| proficiency_level | L2 Practitioner |
+| scope | DEV/INT only; Java/Spring services; Internal data only |
+| evidence_refs | PR-123; CI-456; TEST-REPORT-789; review by QA Lead |
+| granted_by | QA Lead / DevSecOps Lead |
+| effective_from / expiry | 2026-04-27 / 2026-07-27 |
+| status | ACTIVE / SUSPENDED / EXPIRED / REVOKED |
+
+## Appendix B. PR/MR Skill Declaration
+
+| AIRA Skill and Agent Declaration<br>- Human author: <name / role><br>- AI tools or agents used: <ChatGPT / Codex / Hermes / agent profile><br>- Skill IDs applied: <S1-ARCH-L2, S4-TEST-L3, ...><br>- Risk tier: <R0-R4><br>- Classification: <Public/Internal/Confidential/Restricted><br>- Design principles affected: <SOLID, Clean Architecture, Idempotency, ...><br>- Fitness functions executed: <ArchUnit, Semgrep, OPA test, mutation, contract, ...><br>- Evidence links: <ticket, ADR/TDL, CI run, test report, scan result><br>- Human checker: <name><br>- Rollback/compensation path: <link or N/A with justification> |
+| --- |
