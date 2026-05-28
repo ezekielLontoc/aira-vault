@@ -6,17 +6,12 @@ status: "improved"
 source_file: "42-AIRA_Foundation_Capability_Package_and_Mandatory_Functionality_Standard_v1.1_Improved.docx"
 source_format: "docx"
 vault_folder: "01-AIRA-Documentation/Architecture"
-generated_at: "2026-05-25"
+generated_at: "2026-05-28"
 tags:
   - aira
   - obsidian
   - knowledge-vault
-  - standard
   - foundation-capabilities
-  - foundation
-  - capability-package
-  - mandatory-functionality
-  - architecture
 ---
 
 # AIRA Foundation Capability Package and Mandatory Functionality Standard

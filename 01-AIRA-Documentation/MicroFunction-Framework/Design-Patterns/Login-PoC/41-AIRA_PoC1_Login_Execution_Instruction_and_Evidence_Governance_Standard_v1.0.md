@@ -2,20 +2,17 @@
 document_id: "AIRA-DOC-041"
 title: "AIRA PoC1 Login Execution Instruction and Evidence Governance Standard"
 version: "v1.0"
-status: "aligned"
+status: "current"
 source_file: "41-AIRA_PoC1_Login_Execution_Instruction_and_Evidence_Governance_Standard_v1.0.docx"
 source_format: "docx"
 vault_folder: "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC"
-generated_at: "2026-05-22"
+generated_at: "2026-05-28"
 tags:
   - aira
   - obsidian
   - knowledge-vault
   - evidence
   - login-poc
-  - microfunction
-  - execution-instructions
-  - governance
 ---
 
 # AIRA PoC1 Login Execution Instruction and Evidence Governance Standard
