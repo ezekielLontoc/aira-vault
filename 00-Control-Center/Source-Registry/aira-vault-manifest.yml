@@ -87,3 +87,36 @@ known_priority_items:
   - id: "PRI-004"
     item: "Expand validation from metadata checks into policy, schema, evidence, and link checks."
     status: "open"
+
+duplicate_document_id_register:
+  - document_id: "AIRA-DOC-026B"
+    classification: "version-lineage"
+    decision: "Allowed temporarily; v1.2 is the preferred aligned version and v1.1 is retained for traceability until superseded/archive cleanup."
+    action: "Mark v1.1 superseded or archive after source-pack reconciliation."
+
+  - document_id: "AIRA-DOC-025"
+    classification: "version-lineage"
+    decision: "Allowed temporarily; v1.2 is the preferred aligned version and v1.1 is retained for traceability until superseded/archive cleanup."
+    action: "Mark v1.1 superseded or archive after source-pack reconciliation."
+
+  - document_id: "AIRA-DOC-023A"
+    classification: "version-lineage"
+    decision: "Allowed temporarily; v1.2 is the preferred aligned version and v1.1 is retained for traceability until superseded/archive cleanup."
+    action: "Mark v1.1 superseded or archive after source-pack reconciliation."
+
+  - document_id: "AIRA-DOC-041"
+    classification: "true-collision"
+    decision: "Requires Architecture Board / revision-control decision because three different document families currently share the same document ID."
+    affected_files:
+      - "01-AIRA-Documentation/DevSecOps/41-AIRA_Agentic_DevSecOps_and_System_Factory_Standard_v1.1_Improved.md"
+      - "01-AIRA-Documentation/Dynamic-Workspace/Architecture/41-AIRA_Dynamic_User_Workspace_Framework_v1.1.md"
+      - "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC/41-AIRA_PoC1_Login_Execution_Instruction_and_Evidence_Governance_Standard_v1.0.md"
+    recommended_action: "Retain Agentic DevSecOps as AIRA-DOC-041; renumber Dynamic Workspace Framework and Login PoC execution standard through controlled suffix or new document IDs."
+
+  - document_id: "AIRA-DOC-042"
+    classification: "true-collision"
+    decision: "Requires Architecture Board / revision-control decision because two different document families currently share the same document ID."
+    affected_files:
+      - "01-AIRA-Documentation/Architecture/42-AIRA_Foundation_Capability_Package_and_Mandatory_Functionality_Standard_v1.1_Improved.md"
+      - "01-AIRA-Documentation/Dynamic-Workspace/Experience-Framework/42-AIRA_Composable_Experience_Framework_v1.0.md"
+    recommended_action: "Retain Foundation Capability Package as AIRA-DOC-042; renumber Composable Experience Framework through controlled suffix or new document ID."
