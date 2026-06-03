@@ -1,5 +1,5 @@
----
-document_id: "AIRA-DOC-041"
+﻿---
+document_id: "AIRA-DOC-041-LP"
 title: "AIRA PoC1 Login Execution Instruction and Evidence Governance Standard"
 version: "v1.0"
 status: "current"
@@ -429,3 +429,5 @@ The following message may be sent to the software developer team as the controll
 
 | Krisha Marie Yambao, Ezekiel E. Lontoc, and Christian J. Obida,<br><br>We will now execute AIRA PoC 1 - Login Authentication, Session Context Establishment, and Basic Authorization. Execution must be done one step at a time and must follow the approved AIRA standards, especially 38-AIRA_Login_Function_Prompt_Standard_v1.1_Aligned, the Login/MicroFunction documents, Unit Testing Standard, Security Standard, Developer Guide, GitNexus Standard, CI/CD Evidence Standard, and AVCI/SOLID governance requirements.<br><br>Before generating or modifying code, confirm the correct prompt source, companion documents, target transaction AUTH_LOGIN_CONTEXT_ESTABLISH, implementation scope, and synthetic-data-only rule.<br><br>After generation, do not immediately accept the result. Ask Codex/Hermes/Claude or another approved reviewer to generate and execute a verification prompt to confirm whether the original Login prompt was properly followed. Produce a gap table with severity and recommended fixes.<br><br>Conduct unit testing twice: first using Codex as maker, then using Claude as checker. Run backend, frontend, OPA, security, failure-mode, contract, mutation, SAST, DAST, and Playwright testing where applicable.<br><br>For every code generation, review, test, scan, and fix, produce GitNexus outputs, Derived Artifact Generator outputs, and GitLens attribution evidence. Document all changes, tags, branch names, commit hashes, AI tools used, evidence summaries, known limitations, and recommendations.<br><br>Please confirm before execution. I need to observe the behavior and quality of the generated code, database schema, configuration, tests, and evidence. Based on the result, we may improve the AIRA prompt standards, MicroFunction pattern, unit testing prompts, security controls, or developer execution process. |
 | --- |
+
+

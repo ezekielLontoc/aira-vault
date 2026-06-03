@@ -1,5 +1,5 @@
----
-document_id: "AIRA-DOC-042"
+﻿---
+document_id: "AIRA-DOC-042-DW"
 title: "AIRA Composable Experience Framework"
 version: "v1.0"
 status: "current"
@@ -31,7 +31,7 @@ Dynamic, composable, AI-assisted, and multimodal capabilities must remain backen
 | Property | Value |
 | --- | --- |
 | Document Title | AIRA Composable Experience Framework |
-| Document ID | AIRA-DOC-042 |
+| Document ID | AIRA-DOC-042-DW |
 | Version | v1.0 |
 | Classification | INTERNAL CONFIDENTIAL |
 | Status | DRAFT FOR ARCHITECTURE REVIEW BOARD / CAB APPROVAL |
@@ -226,3 +226,5 @@ The experience layer composes the user journey. The MicroFunction layer executes
 | Verifiable | Blocks and packs require tests, policy checks, contract checks, rendering checks, and evidence records. |
 | Classifiable | Blocks and packs declare classification ceiling, handling rules, and model/output eligibility. |
 | Improvable | Packs evolve through usage telemetry, feedback, incidents, ADR/TDL updates, and versioned releases. |
+
+

@@ -1,5 +1,5 @@
----
-document_id: "AIRA-DOC-041"
+﻿---
+document_id: "AIRA-DOC-041-DW"
 title: "AIRA Dynamic User Workspace Framework"
 version: "v1.1"
 status: "current"
@@ -30,7 +30,7 @@ Dynamic, composable, AI-assisted, and multimodal capabilities must remain backen
 | Property | Value |
 | --- | --- |
 | Document Title | AIRA Dynamic User Workspace Framework |
-| Document ID | AIRA-DOC-041 |
+| Document ID | AIRA-DOC-041-DW |
 | Version | v1.1 - Composable Experience, Rendering Readiness, and Multimodal AI Update |
 | Supersedes | 41-AIRA_Dynamic_User_Workspace_Framework_v1.0 |
 | Classification | INTERNAL CONFIDENTIAL |
@@ -258,3 +258,5 @@ The v1.1 framework is complete only when:
 | Verifiable | Rendering behavior, policy filtering, layout validation, AI response generation, artifact creation, and MicroFunction invocation are testable and evidence-producing. |
 | Classifiable | Each block, prompt, response, artifact, screen, and action carries classification and handling rules. |
 | Improvable | Experience packs, layout telemetry, AI feedback, artifact usage, and workflow outcomes feed governed improvement through ADR/TDL and PR/MR review. |
+
+
