@@ -25,7 +25,7 @@ tags:
 **Document ID:** AIRA-DOC-008A  
 **Version:** v1.0  
 **Classification:** INTERNAL CONFIDENTIAL  
-**Status:** FOR ENGINEERING ADOPTION / ARCHITECTURE REVIEW BOARD AND CAB APPROVAL  
+**Status:** For Review  Engineering Adoption / Architecture Review Board / CAB Approval  
 **Effective Date:** 2026-05-22  
 **Owner:** Solutions Architecture Office / IT Head
 > Discipline First · Automation Second · Intelligence Third · AVCI Always
@@ -37,7 +37,7 @@ tags:
 | Version | v1.0 |
 | Supersedes | New companion execution standard |
 | Classification | INTERNAL CONFIDENTIAL |
-| Status | FOR ENGINEERING ADOPTION / ARCHITECTURE REVIEW BOARD AND CAB APPROVAL |
+| Status | For Review  Engineering Adoption / Architecture Review Board / CAB Approval |
 | Owner | Solutions Architecture Office / IT Head |
 | Co-Owners | Software Development Lead; QA/SDET Lead; DevSecOps Lead; Security Architecture; AI Engineering; Internal Audit |
 | Effective Date | 2026-05-22 |
@@ -963,4 +963,5 @@ Begin now by reviewing the Codex maker output and the repository.
 - Human checker:
 - AVCI summary: Attributable | Verifiable | Classifiable | Improvable
 ```
+
 
