@@ -1,9 +1,13 @@
----
+﻿---
 document_id: AIRA-DOC-008A
 title: AIRA AI-Assisted Unit Testing Maker-Checker Prompt Standard
 version: v1.0
 classification: INTERNAL CONFIDENTIAL
-status: FOR ENGINEERING ADOPTION / ARCHITECTURE REVIEW BOARD AND CAB APPROVAL
+status: "for-review"
+source_file: "08A-AIRA_AI_Assisted_Unit_Testing_Maker_Checker_Prompt_Standard_v1.0.md"
+source_format: "md"
+vault_folder: "01-AIRA-Documentation/Testing-and-QA"
+generated_at: "2026-06-03"
 owner: Solutions Architecture Office / IT Head
 effective_date: 2026-05-22
 review_cadence: Quarterly; unscheduled on material runtime, technology, security, AI-risk, or governance change
@@ -959,3 +963,4 @@ Begin now by reviewing the Codex maker output and the repository.
 - Human checker:
 - AVCI summary: Attributable | Verifiable | Classifiable | Improvable
 ```
+
