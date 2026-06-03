@@ -1,0 +1,27 @@
+﻿name: AIRA Vault Governance Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-vault:
+    name: Validate vault governance metadata
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run AIRA Vault validation
+        shell: pwsh
+        run: |
+          ./tools/validation/Validate-AiraVault.ps1 -RootPath .

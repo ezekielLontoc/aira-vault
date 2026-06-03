@@ -1,0 +1,89 @@
+﻿vault:
+  id: "aira-vault"
+  name: "AIRA Vault"
+  repository: "ezekielLontoc/aira-vault"
+  default_branch: "main"
+  classification: "INTERNAL CONFIDENTIAL"
+  purpose: "Governed knowledge, architecture, DevSecOps, AI-governance, and evidence-control repository for AIRA."
+  owner: "Solutions Architecture Office / IT Head"
+  review_cadence: "Quarterly; unscheduled on material governance, architecture, security, AI, or delivery-control change."
+
+status_values:
+  - draft
+  - for-review
+  - aligned
+  - current
+  - approved
+  - supplemental-update
+  - superseded
+  - archived
+
+classification_values:
+  - PUBLIC
+  - INTERNAL
+  - INTERNAL CONFIDENTIAL
+  - CONFIDENTIAL
+  - RESTRICTED
+
+required_frontmatter_fields:
+  - document_id
+  - title
+  - version
+  - status
+  - source_file
+  - source_format
+  - vault_folder
+  - generated_at
+  - tags
+
+canonical_folders:
+  - path: "00-Control-Center"
+    purpose: "Source registry, revision control, knowledge governance, and vault control-plane documents."
+  - path: "01-AIRA-Documentation"
+    purpose: "Architecture, DevSecOps, developer, security, testing, dynamic workspace, and engineering standards."
+  - path: "05-ADRs-and-TDLs"
+    purpose: "Architecture decisions and technical decision logs."
+  - path: "06-Runbooks-and-SOPs"
+    purpose: "Operational runbooks, SOPs, SRE, incident, BCDR, and restore procedures."
+  - path: "10-Evidence-Packs"
+    purpose: "Sprint, delivery, audit, implementation, and readiness evidence."
+  - path: "tools"
+    purpose: "Validation scripts, generators, packers, and repository governance utilities."
+  - path: ".github"
+    purpose: "GitHub Actions, repository workflows, issue templates, and pull request automation."
+
+golden_source_rules:
+  source_code: "GitHub / Git repositories"
+  code_intelligence: "GitNexus"
+  governed_knowledge: "Obsidian / Git-backed documentation vault"
+  unified_retrieval: "LLM Wiki / LightRAG"
+  policies: "GitHub / policy registry"
+  ci_cd_evidence: "CI artifact store / evidence repository"
+  security_scan_outputs: "Evidence repository / security tooling"
+  raw_logs_and_telemetry: "Observability platform"
+  secrets_and_credentials: "Vault / approved secret manager"
+
+repository_controls:
+  require_unique_document_ids: true
+  require_frontmatter_for_markdown: true
+  require_valid_status: true
+  require_valid_classification_when_declared: true
+  detect_duplicate_document_ids: true
+  detect_missing_required_frontmatter: true
+  detect_forbidden_secret_patterns: true
+  detect_large_codebase_copy_risk: true
+  validate_on_pull_request: true
+
+known_priority_items:
+  - id: "PRI-001"
+    item: "Resolve duplicate or conflicting document IDs."
+    status: "open"
+  - id: "PRI-002"
+    item: "Promote key draft or review-state standards after ARB/CAB approval."
+    status: "open"
+  - id: "PRI-003"
+    item: "Keep this manifest synchronized with the revision-control matrix."
+    status: "open"
+  - id: "PRI-004"
+    item: "Expand validation from metadata checks into policy, schema, evidence, and link checks."
+    status: "open"
