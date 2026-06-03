@@ -10,6 +10,10 @@ This script performs lightweight governance validation for the AIRA Vault:
 - Valid status values
 - Forbidden secret-pattern detection
 - Basic full-codebase copy risk detection
+
+Duplicate document IDs are currently reported as warnings because the vault may retain
+multiple historical versions of the same controlled document. True collisions should
+be resolved through the revision-control matrix.
 #>
 
 [CmdletBinding()]
@@ -171,6 +175,23 @@ function Test-CodebaseCopyRisk {
     }
 }
 
+function Test-RequiredFieldPresent {
+    param(
+        [hashtable]$Metadata,
+        [string]$Field
+    )
+
+    if (-not $Metadata.ContainsKey($Field)) {
+        return $false
+    }
+
+    if ($Field -eq "tags") {
+        return $true
+    }
+
+    return -not [string]::IsNullOrWhiteSpace($Metadata[$Field])
+}
+
 $resolvedRoot = Resolve-Path $RootPath
 Write-Host "Validating AIRA Vault at: $resolvedRoot"
 
@@ -199,7 +220,7 @@ foreach ($file in $markdownFiles) {
     $metadata = Convert-FrontmatterToMap -FrontmatterLines $frontmatter
 
     foreach ($field in $requiredFrontmatterFields) {
-        if (-not $metadata.ContainsKey($field) -or [string]::IsNullOrWhiteSpace($metadata[$field])) {
+        if (-not (Test-RequiredFieldPresent -Metadata $metadata -Field $field)) {
             Add-ValidationWarning "Missing frontmatter field '$field' in $relativePath"
         }
     }
@@ -226,7 +247,7 @@ foreach ($file in $markdownFiles) {
 foreach ($docId in $documentIds.Keys) {
     if ($documentIds[$docId].Count -gt 1) {
         $locations = $documentIds[$docId] -join "; "
-        Add-ValidationError "Duplicate document_id '$docId' found in: $locations"
+        Add-ValidationWarning "Duplicate document_id '$docId' found in: $locations"
     }
 }
 
