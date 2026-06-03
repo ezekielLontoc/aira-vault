@@ -1,8 +1,9 @@
----
+﻿---
 document_id: "AIRA-DOC-025"
 title: "AIRA Knowledge Access Architecture and Golden Source Standard"
 version: "v1.1"
-status: "aligned"
+status: "superseded"
+superseded_by: "25-AIRA_Knowledge_Access_Architecture_and_Golden_Source_Standard_v1.2_Aligned.md"
 source_file: "25-AIRA_Knowledge_Access_Architecture_and_Golden_Source_Standard_v1.1_Aligned.docx"
 source_format: "docx"
 vault_folder: "00-Control-Center/Knowledge-Governance"
@@ -850,3 +851,5 @@ Derived summaries/evidence │
 Central Obsidian Vault ───────────┘
 
 This avoids duplication, preserves the Golden Source, supports AVCI, and allows ChatGPT/Codex/Hermes to reference both documentation and code without corrupting the knowledge base.
+
+

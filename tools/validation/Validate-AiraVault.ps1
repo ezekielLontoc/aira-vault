@@ -62,6 +62,7 @@ $excludedDirectories = @(
 $errors = New-Object System.Collections.Generic.List[string]
 $warnings = New-Object System.Collections.Generic.List[string]
 $documentIds = @{}
+$documentMetadata = @{}
 
 function Add-ValidationError {
     param([string]$Message)
@@ -233,6 +234,17 @@ foreach ($file in $markdownFiles) {
         }
 
         $documentIds[$docId].Add($relativePath) | Out-Null
+
+        if (-not $documentMetadata.ContainsKey($docId)) {
+            $documentMetadata[$docId] = New-Object System.Collections.Generic.List[object]
+        }
+
+        $documentMetadata[$docId].Add([pscustomobject]@{
+            Path = $relativePath
+            Status = if ($metadata.ContainsKey("status")) { $metadata["status"] } else { "" }
+            Version = if ($metadata.ContainsKey("version")) { $metadata["version"] } else { "" }
+            SupersededBy = if ($metadata.ContainsKey("superseded_by")) { $metadata["superseded_by"] } else { "" }
+        }) | Out-Null
     }
 
     if ($metadata.ContainsKey("status")) {
@@ -246,8 +258,15 @@ foreach ($file in $markdownFiles) {
 
 foreach ($docId in $documentIds.Keys) {
     if ($documentIds[$docId].Count -gt 1) {
+        $entries = $documentMetadata[$docId]
+        $activeEntries = @($entries | Where-Object { $_.Status -notin @("superseded", "archived") })
+
+        if ($activeEntries.Count -le 1) {
+            continue
+        }
+
         $locations = $documentIds[$docId] -join "; "
-        Add-ValidationWarning "Duplicate document_id '$docId' found in: $locations"
+        Add-ValidationWarning "Duplicate active document_id '$docId' found in: $locations"
     }
 }
 
@@ -285,3 +304,4 @@ if ($FailOnWarnings -and $warnings.Count -gt 0) {
 }
 
 exit 0
+

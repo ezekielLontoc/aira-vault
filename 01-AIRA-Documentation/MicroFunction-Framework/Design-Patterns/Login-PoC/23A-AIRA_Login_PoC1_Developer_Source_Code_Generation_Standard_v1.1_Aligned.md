@@ -1,8 +1,9 @@
----
+﻿---
 document_id: "AIRA-DOC-023A"
 title: "AIRA Login PoC1 Developer Source Code Generation Standard"
 version: "v1.1"
-status: "aligned"
+status: "superseded"
+superseded_by: "23A-AIRA_Login_PoC1_Developer_Source_Code_Generation_Standard_v1.2_Aligned.md"
 source_file: "23A-AIRA_Login_PoC1_Developer_Source_Code_Generation_Standard_v1.1_Aligned.docx"
 source_format: "docx"
 vault_folder: "01-AIRA-Documentation/MicroFunction-Framework/Design-Patterns/Login-PoC"
@@ -283,7 +284,8 @@ All implementations must represent the Login PoC as the runtime-assembled transa
 
 transaction_code: AUTH_LOGIN_CONTEXT_ESTABLISH
 version: 1.0.0
-status: draft-for-review
+status: "superseded"
+superseded_by: "23A-AIRA_Login_PoC1_Developer_Source_Code_Generation_Standard_v1.2_Aligned.md"
 classification: CONFIDENTIAL
 owner: security-architecture
 bounded_context: identity-and-access
@@ -407,7 +409,8 @@ Implement the Login PoC as the runtime-assembled transaction:
 ```yaml
 transaction_code: AUTH_LOGIN_CONTEXT_ESTABLISH
 version: 1.0.0
-status: draft-for-review
+status: "superseded"
+superseded_by: "23A-AIRA_Login_PoC1_Developer_Source_Code_Generation_Standard_v1.2_Aligned.md"
 classification: CONFIDENTIAL
 owner: security-architecture
 bounded_context: identity-and-access
@@ -935,7 +938,8 @@ Refactor the implementation so the Login context establishment is represented by
 ```yaml
 transaction_code: AUTH_LOGIN_CONTEXT_ESTABLISH
 version: 1.0.0
-status: draft-for-review
+status: "superseded"
+superseded_by: "23A-AIRA_Login_PoC1_Developer_Source_Code_Generation_Standard_v1.2_Aligned.md"
 classification: CONFIDENTIAL
 owner: security-architecture
 bounded_context: identity-and-access
@@ -1478,3 +1482,5 @@ Recommended tags:
 This document is an official AIRA execution prompt standard for PoC 1 Login source code generation and refactoring. Any deviation from this document must be documented in the PR/MR AVCI evidence summary and reviewed by AIRA Architecture and DevSecOps Governance.
 
 The objective is not merely to produce source code. The objective is to prove that AIRA can produce working, secure, governed, observable, testable, reversible, AI-assisted software while preserving the MicroFunction design pattern and all enterprise design principles.
+
+

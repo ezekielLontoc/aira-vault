@@ -1,8 +1,9 @@
----
+﻿---
 document_id: "AIRA-DOC-026B"
 title: "AIRA Governed Knowledge Automation Pipeline Standard"
 version: "v1.1"
-status: "aligned"
+status: "superseded"
+superseded_by: "26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.2_Aligned.md"
 source_file: "26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.1_Aligned.docx"
 source_format: "docx"
 vault_folder: "00-Control-Center/Knowledge-Governance"
@@ -407,7 +408,8 @@ classification: Internal
 indexed_by_llm_wiki_at: 2026-05-20T11:10:00+08:00
 source_hash: sha256:...
 artifact_hash: sha256:...
-status: approved-indexed
+status: "superseded"
+superseded_by: "26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.2_Aligned.md"
 staleness_policy: block_if_source_commit_changes
 avci_status: verifiable
 
@@ -499,7 +501,8 @@ Require AI assistants to retrieve only from approved, current, and permitted kno
 document_id: POC1-LOGIN-CODEMAP
 title: PoC1 Login Codebase Map
 version: v1.0
-status: approved-indexed
+status: "superseded"
+superseded_by: "26B-AIRA_Governed_Knowledge_Automation_Pipeline_Standard_v1.2_Aligned.md"
 classification: Internal
 source_type: derived-code-intelligence
 source_repo: aira-platform
@@ -525,3 +528,5 @@ avci_status: verifiable
 
 | **Instruction: **Do not copy the whole source code into Obsidian. Use GitHub as the source code Golden Source, GitNexus as the code intelligence layer, Obsidian as the curated knowledge and evidence repository, and LLM Wiki/LightRAG as the governed retrieval index. Automation must generate summaries, validate metadata, scan for secrets, enforce classification, update freshness manifests, and trigger indexing only after approval gates are satisfied. |
 | --- |
+
+
