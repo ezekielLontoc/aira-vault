@@ -10,9 +10,6 @@ This script performs lightweight governance validation for the AIRA Vault:
 - Valid status values
 - Forbidden secret-pattern detection
 - Basic full-codebase copy risk detection
-
-It is intentionally conservative. It should help identify issues without replacing
-formal ARB/CAB review, security review, QA review, or evidence-pack validation.
 #>
 
 [CmdletBinding()]
@@ -76,7 +73,7 @@ function Test-IsExcludedPath {
     param([string]$Path)
 
     foreach ($dir in $excludedDirectories) {
-        if ($Path -match [regex]::Escape("\$dir\") -or $Path -match [regex]::Escape("/$dir/")) {
+        if ($Path -like "*\$dir\*" -or $Path -like "*/$dir/*") {
             return $true
         }
     }
@@ -96,6 +93,7 @@ function Get-Frontmatter {
     }
 
     $endIndex = -1
+
     for ($i = 1; $i -lt $Lines.Count; $i++) {
         if ($Lines[$i].Trim() -eq "---") {
             $endIndex = $i
@@ -107,6 +105,10 @@ function Get-Frontmatter {
         return $null
     }
 
+    if ($endIndex -eq 1) {
+        return @()
+    }
+
     return $Lines[1..($endIndex - 1)]
 }
 
@@ -116,7 +118,7 @@ function Convert-FrontmatterToMap {
     $map = @{}
 
     foreach ($line in $FrontmatterLines) {
-        if ($line -match "^\s*([A-Za-z0-9_-]+)\s*:\s*(.*)\s*$") {
+        if ($line -match '^\s*([A-Za-z0-9_-]+)\s*:\s*(.*)\s*$') {
             $key = $matches[1].Trim()
             $value = $matches[2].Trim().Trim('"').Trim("'")
             $map[$key] = $value
@@ -133,10 +135,10 @@ function Test-SecretPatterns {
     )
 
     $patterns = @{
-        "GitHub token" = "ghp_[A-Za-z0-9_]{20,}"
-        "Generic API key assignment" = "(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*['""][^'""]{12,}['""]"
-        "AWS access key" = "AKIA[0-9A-Z]{16}"
-        "Private key block" = "-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----"
+        "GitHub token" = 'ghp_[A-Za-z0-9_]{20,}'
+        "AWS access key" = 'AKIA[0-9A-Z]{16}'
+        "Private key block" = '-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----'
+        "Generic API key assignment" = '(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*[''"][^''"]{12,}[''"]'
     }
 
     foreach ($name in $patterns.Keys) {
@@ -158,7 +160,7 @@ function Test-CodebaseCopyRisk {
         return
     }
 
-    $codeBlockMatches = [regex]::Matches($Content, "```[\s\S]*?```")
+    $codeBlockMatches = [regex]::Matches($Content, '```[\s\S]*?```')
 
     if ($codeBlockMatches.Count -gt 20) {
         Add-ValidationWarning "Large number of code blocks in $Path. Confirm this is not a full codebase copy."
